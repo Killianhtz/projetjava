@@ -14,8 +14,6 @@ import view.ViewFacade;
  */
 public abstract class Main {
 
-	/** KILLIAN TU VOIS LE TEST ? */
-	
 	
     /**
      * The main method.

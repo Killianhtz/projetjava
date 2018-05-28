@@ -1,6 +1,6 @@
 package view;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -14,7 +14,13 @@ public class ViewFacade implements IView {
      * Instantiates a new view facade.
      */
     public ViewFacade() {
-        super();
+    	JFrame window = new JFrame();
+    	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	window.setTitle("Lorann");
+    	window.setSize(500, 200);
+    	window.setLocationRelativeTo(null);
+    	window.setVisible(true);
+        
     }
 
     /*
@@ -25,5 +31,7 @@ public class ViewFacade implements IView {
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
+    
+    
 
 }

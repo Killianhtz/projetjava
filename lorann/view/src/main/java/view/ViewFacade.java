@@ -19,6 +19,9 @@ public class ViewFacade implements IView {
     	window.setTitle("Lorann");
     	window.setSize(500, 200);
     	window.setLocationRelativeTo(null);
+    	
+    	
+    	
     	window.setVisible(true);
         
     }

@@ -52,7 +52,7 @@ public final class ModelFacade implements IModel {
         return ExampleDAO.getAllExamples();
     }
     
-    /*Trying to Connect to the database lorann */
+    /*Try to Connect to the database lorann */
     public void connectToDB() {
     	LorannBDDConnector conn = null;
     	try {

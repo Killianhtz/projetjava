@@ -26,6 +26,8 @@ public class ViewFacade implements IView, KeyListener {
 	
 	/*	My Pawn	*/
 	private IModel			pawn;
+	
+
 
 	
 	Image picture;

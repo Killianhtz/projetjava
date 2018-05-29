@@ -1,9 +1,13 @@
 package model;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.ExampleDAO;
+import model.dao.LorannBDDConnector;
+
+
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -18,6 +22,7 @@ public final class ModelFacade implements IModel {
      */
     public ModelFacade() {
         super();
+        this.connectToDB();
     }
 
     /*
@@ -45,6 +50,19 @@ public final class ModelFacade implements IModel {
     @Override
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
+    }
+    
+    /*Trying to Connect to the database lorann */
+    public void connectToDB() {
+    	LorannBDDConnector conn = null;
+    	try {
+    		System.out.print("Trying to connect to the Database :\n");
+    		conn =new LorannBDDConnector();
+    		System.out.print("The connection is established \n");
+    	}
+    	catch (Exception e){
+    		e.printStackTrace();
+    	}
     }
 
 }

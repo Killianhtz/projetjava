@@ -1,14 +1,12 @@
 package view;
 
 import javax.swing.*;
+import java.awt.*;
 
 import model.IModel;
-import showboard.BoardFrame;
 import java.awt.event.KeyListener;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -16,14 +14,12 @@ import javax.swing.JPanel;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ViewFacade extends JFrame implements IView, KeyListener {
+public class ViewFacade implements IView, KeyListener {
 	
 	
-	JPanel container = new JPanel();
+	private ViewJFrame window;
 	
-	public static int 		width = 640;
-	
-	public static int 		height = 384;
+
 	
 	/*	The Map	*/
 	private IModel			map;
@@ -32,25 +28,21 @@ public class ViewFacade extends JFrame implements IView, KeyListener {
 	private IModel			pawn;
 
 	
-
+	Image picture;
     /**
      * Instantiates a new view facade.
      */
     public ViewFacade() {
-    	super();
-    	this.setTitle("Lorann");
-    	this.setSize(width, height);
-    	this.setResizable(false);
-    	this.setLocationRelativeTo(null);
-    	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    	container.setBackground(Color.CYAN);
-    	this.setContentPane(container);
-    	this.setVisible(true);
     	
-    	this.addKeyListener(this);
+    	window = new ViewJFrame();
+    	window.add(new ViewJPanel());
+    	window.setVisible(true);
         
     }
 
+    
+    
+    
     /*
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)

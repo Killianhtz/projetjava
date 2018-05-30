@@ -13,19 +13,18 @@ public class ImportLevelFromDB {
 		try {
 			
 			// 			Our variable
-			//
-			//
+			
 			// Will store different elements as String type
 		     String x; 
 		     String y;
 		     String element;
 		     
 		     //Real coordinates as integer
-		     int cooX;
-		     int cooY;
+		     int coordX;
+		     int coordY;
 		     
 		     //Our map
-		     String[][]mapV2= new String[20][12];
+		     String[][]map= new String[20][12];
 			
 			
 		     //Call our procedure and store data into our var 'message'
@@ -58,16 +57,16 @@ public class ImportLevelFromDB {
 		     	  y=tempo[2];
 		     	  
 		     	  //Convert String coordinates to integer
-		     	  cooX=Integer.parseInt(x); 
-		     	  cooY=Integer.parseInt(y);
-		     	  cooX-=1;
-		       	  cooY-=1;
+		     	  coordX=Integer.parseInt(x); 
+		     	  coordY=Integer.parseInt(y);
+		     	  coordX-=1;
+		       	  coordY-=1;
 		       	  
 		     	  //Store data into our map
-		     	  mapV2[cooX][cooY]=element; 
+		     	  map[coordX][coordY]=element; 
 		     	  
 		     		}
-		     return mapV2;
+		     return map;
 		
 		}
 		catch(SQLException e) {e.printStackTrace();}

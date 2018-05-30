@@ -43,16 +43,18 @@ public class ControllerFacade implements IController {
      */
     public void start() throws SQLException {
         //this.getView().displayMessage(this.getModel().getExampleById(1).toString());
+    	 
 
         //this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
 
-        //final List<Example> examples = this.getModel().getAllExamples();
+        final List<Example> procedure = this.getModel().getMapByLevel(1);
         final StringBuilder message = new StringBuilder();
-        /*for (final Example example : examples) {
+        for (final Example example : procedure) {
             message.append(example);
             message.append('\n');
-        }*/
+        }
         this.getView().displayMessage(message.toString());
+        
     }
 
     /**

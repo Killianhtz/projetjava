@@ -44,7 +44,31 @@ public abstract class ProcedureDAO extends AbstractDAO{
 	     * @throws SQLException
 	     *             the SQL exception
 	     */
-	    public static Example getMapByLevel(final int Level) throws SQLException {
+
+	    public static List<Example> getMapByLevel(final int Level) throws SQLException {
+	        final ArrayList<Example> procedure = new ArrayList<Example>();
+	        final CallableStatement callStatement = prepareCall(sqlMapByLevel);
+	        callStatement.setInt(1, Level);
+	        if (callStatement.execute()) {
+	            final ResultSet result = callStatement.getResultSet();
+
+	            for (boolean isResultLeft = result.first(); isResultLeft; isResultLeft = result.next()) {
+	                procedure.add(new Example(result.getString(ElementIndex),result.getInt(XPositionIndex), result.getInt(YPositionIndex)));
+	            }
+	            result.close();
+	        }
+	        return procedure;
+	    }
+	    /**
+	     * Gets the example by name.
+	     *
+	     * @param name
+	     *            the name
+	     * @return the example by name
+	     * @throws SQLException
+	     *             the SQL exception
+	     */
+	  /* 	public static Example getMapByLevel(final int Level) throws SQLException {
 	        final CallableStatement callStatement = prepareCall(sqlMapByLevel);
 	        Example procedure = null;
 	        callStatement.setInt(1, Level);
@@ -57,28 +81,5 @@ public abstract class ProcedureDAO extends AbstractDAO{
 	        }
 	        return procedure;
 	    }
-
-	    /**
-	     * Gets the example by name.
-	     *
-	     * @param name
-	     *            the name
-	     * @return the example by name
-	     * @throws SQLException
-	     *             the SQL exception
-	     */
-	  /*  public static Example getExampleByName(final String name) throws SQLException {
-	        final CallableStatement callStatement = prepareCall(sqlExampleByName);
-	        Example example = null;
-
-	        callStatement.setString(1, name);
-	        if (callStatement.execute()) {
-	            final ResultSet result = callStatement.getResultSet();
-	            if (result.first()) {
-	                example = new Example(result.getInt(idColumnIndex), result.getString(nameColumnIndex));
-	            }
-	            result.close();
-	        }
-	        return example;
-	    }*/
+	    */
 }

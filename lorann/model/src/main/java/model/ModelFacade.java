@@ -30,8 +30,8 @@ public final class ModelFacade implements IModel {
      * @see model.IModel#getMapByLevel(int)
      */
     
-    @Override
-    public Example getMapByLevel(final int Level) throws SQLException {
+
+    public List<Example> getMapByLevel(final int Level) throws SQLException {
         return ProcedureDAO.getMapByLevel(Level);
     }
 

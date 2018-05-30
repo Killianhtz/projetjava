@@ -41,7 +41,7 @@ public class ControllerFacade implements IController {
      * @throws SQLException
      *             the SQL exception
      */
-    public void start() throws SQLException {
+  /*  public void start() throws SQLException {
         this.getView().displayMessage(this.getModel().getExampleById(1).toString());
 
         this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
@@ -54,7 +54,7 @@ public class ControllerFacade implements IController {
         }
         this.getView().displayMessage(message.toString());
     }
-
+*/
     /**
      * Gets the view.
      *

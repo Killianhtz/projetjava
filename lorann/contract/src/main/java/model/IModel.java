@@ -23,5 +23,5 @@ public interface IModel {
      *             the SQL exception
      */
 
-	Example getMapByLevel(int Level) throws SQLException;
+	List<Example> getMapByLevel(int Level) throws SQLException;
 }

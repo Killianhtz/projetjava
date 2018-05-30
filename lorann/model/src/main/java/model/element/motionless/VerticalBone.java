@@ -7,8 +7,11 @@ public class VerticalBone extends MotionlessElement {
 	
 	public static Sprite sprite;
 	public static Permeability permeability = Permeability.BLOCKING;
-	
-	public VerticalBone(Sprite sprite, Permeability permeability) {
+
+	protected VerticalBone(Sprite sprite, Permeability permeability) {
+		
 		super(VerticalBone.sprite, VerticalBone.permeability);
+		
 	}
+	
 }

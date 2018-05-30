@@ -7,8 +7,11 @@ public class CrystalBall extends MotionlessElement {
 	
 	public static Sprite sprite;
 	public static Permeability permeability = Permeability.PENETRABLE;
-	
-	public CrystalBall(Sprite sprite, Permeability permeability) {
+
+	protected CrystalBall(Sprite sprite, Permeability permeability) {
+		
 		super(CrystalBall.sprite, CrystalBall.permeability);
+		
 	}
+	
 }

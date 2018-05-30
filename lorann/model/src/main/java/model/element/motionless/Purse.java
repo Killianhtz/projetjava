@@ -7,8 +7,11 @@ public class Purse extends MotionlessElement {
 	
 	public static Sprite sprite;
 	public static Permeability permeability = Permeability.PENETRABLE;
-	
-	public Purse(Sprite sprite, Permeability permeability) {
+
+	protected Purse(Sprite sprite, Permeability permeability) {
+		
 		super(Purse.sprite, Purse.permeability);
+		
 	}
+	
 }

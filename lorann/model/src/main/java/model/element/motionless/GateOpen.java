@@ -7,8 +7,11 @@ public class GateOpen extends MotionlessElement {
 	
 	public static Sprite sprite;
 	public static Permeability permeability = Permeability.PENETRABLE;
-	
-	public GateOpen(Sprite sprite, Permeability permeability) {
+
+	protected GateOpen(Sprite sprite, Permeability permeability) {
+		
 		super(GateOpen.sprite, GateOpen.permeability);
+		
 	}
+	
 }

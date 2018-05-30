@@ -3,6 +3,7 @@ package model.element.mobile;
 import java.awt.Point;
 
 import model.IMap;
+import model.IMobile;
 import model.element.Permeability;
 import model.element.Sprite;
 

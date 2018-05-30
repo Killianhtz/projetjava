@@ -1,6 +1,6 @@
 package model;
 
-import model.element.mobile.IMobile;
+import model.IMobile;
 
 public interface ILorannModel {
 	

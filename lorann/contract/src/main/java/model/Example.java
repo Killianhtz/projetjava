@@ -72,7 +72,7 @@ public class Example {
      * Sets the position X.
      *
      * @param X
-     *            the new pos X
+     *            the new position X
      */
     public void setX(final int X) {
         this.X = X;
@@ -82,7 +82,7 @@ public class Example {
      * Sets the position Y.
      *
      * @param Y
-     *            the new pos Y
+     *            the new position Y
      */
     public void setY(final int Y) {
         this.Y = Y;

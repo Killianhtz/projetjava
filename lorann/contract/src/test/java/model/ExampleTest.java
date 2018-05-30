@@ -21,7 +21,7 @@ public class ExampleTest {
 
     @Before
     public void setUp() throws Exception {
-        this.example = new Example(1, "Example test");
+        this.example = new Example("V",0,11);
     }
 
     @After
@@ -29,24 +29,29 @@ public class ExampleTest {
     }
 
     @Test
-    public void testGetId() {
-        final int expected = 1;
-        assertEquals(expected, this.example.getId());
+    public void testGetElement() {
+        final String expected = "V";
+        assertEquals(expected, this.example.getElement());
     }
 
     @Test
-    public void testGetName() {
-        final String expected = "Example test";
-        assertEquals(expected, this.example.getName());
+    public void testGetX() {
+        final int expected = 0;
+        assertEquals(expected, this.example.getX());
     }
 
     @Test
-    public void testSetName() {
-        String expected = "Example test";
-        assertEquals(expected, this.example.getName());
-        expected = "Example test modified";
-        this.example.setName(expected);
-        assertEquals(expected, this.example.getName());
+    public void testGetY() {
+        final int expected = 11;
+        assertEquals(expected, this.example.getY());
+    }
+    @Test
+    public void testSetElement() {
+        String expected = "V";
+        assertEquals(expected, this.example.getElement());
+        expected = "V";
+        this.example.setElement(expected);
+        assertEquals(expected, this.example.getElement());
     }
 
     @Test
@@ -54,5 +59,7 @@ public class ExampleTest {
         final String expected = "1 : Example test";
         assertEquals(expected, this.example.toString());
     }
+    
+   
 
 }

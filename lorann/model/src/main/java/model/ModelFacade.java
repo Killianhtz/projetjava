@@ -4,8 +4,8 @@ import java.awt.*;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.dao.ExampleDAO;
 import model.dao.LorannBDDConnector;
+import model.dao.ProcedureDAO;
 
 
 
@@ -27,31 +27,15 @@ public final class ModelFacade implements IModel {
 
     /*
      * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
+     * @see model.IModel#getMapByLevel(int)
      */
-    @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     */
-    @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
-    }
     
+    @Override
+    public Example getMapByLevel(final int Level) throws SQLException {
+        return ProcedureDAO.getMapByLevel(Level);
+    }
+
+   
     /*Try to Connect to the database lorann */
     public void connectToDB() {
     	LorannBDDConnector conn = null;
@@ -65,4 +49,7 @@ public final class ModelFacade implements IModel {
     	}
     }
 
+	
+//
+	
 }

@@ -1,6 +1,8 @@
 package model;
 
-public class Map {
+import model.element.IElement;
+
+public class Map implements IMap{
 	
 	private int height;
 	private int width;
@@ -23,6 +25,11 @@ public class Map {
 	
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	public IElement getOnTheRoad() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

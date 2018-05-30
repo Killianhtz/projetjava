@@ -9,8 +9,8 @@ public interface IMobile {
 	public void moveRight();
 	public void moveLeft();
 	public void doNothing();
-	public void getX();
-	public void getY();
+	public int getX();
+	public int getY();
 	public Boolean isAlive();
 	public Point getPosition();
 }

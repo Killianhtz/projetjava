@@ -6,7 +6,7 @@ import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 
-public class Mobile {
+public class Mobile implements IMobile {
 	
 	private int x;
 	private int y;

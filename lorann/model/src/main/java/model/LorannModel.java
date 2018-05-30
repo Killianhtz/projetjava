@@ -2,7 +2,7 @@ package model;
 
 import model.element.mobile.IMobile;
 
-public class LorannModel {
+public class LorannModel implements ILorannModel{
 	
 	LorannModel(int LorannStartX, int LorannStartY){
 		
@@ -22,5 +22,9 @@ public class LorannModel {
 	
 	public void setLorran(IMobile Lorran) {
 		
+	}
+
+	public IMobile getLOrran() {
+		return null;
 	}
 }

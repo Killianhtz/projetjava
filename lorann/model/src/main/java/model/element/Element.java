@@ -2,7 +2,7 @@ package model.element;
 
 import java.awt.Image;
 
-public class Element {
+public class Element implements IElement {
 
 	public Element(Sprite sprite, Permeability permeability) {
 		

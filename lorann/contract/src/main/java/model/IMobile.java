@@ -1,4 +1,4 @@
-package model.element.mobile;
+package model;
 
 import java.awt.Point;
 

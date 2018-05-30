@@ -2,9 +2,9 @@ package model.element.mobile;
 
 import model.IMap;
 
-public class Demon extends Mobile{
+public class Demon1 extends Mobile{
 	
-	public Demon(int x, int y, IMap map) {
+	public Demon1(int x, int y, IMap map) {
 		super(null, map, null);
 	}
 	

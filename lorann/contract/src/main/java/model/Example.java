@@ -8,52 +8,84 @@ package model;
  */
 public class Example {
 
-    /** The id. */
-    private final int id;
+    /** The type of Element */
+    private String Element;
 
-    /** The name. */
-    private String    name;
+    /** The position x */
+    private int X;
+    
+    /** The position y */
+    private int Y;
 
     /**
      * Instantiates a new example.
      *
-     * @param id
-     *            the id
-     * @param name
-     *            the name
+     * @param Element        
+     * @param X
+     * @param Y
      */
-    public Example(final int id, final String name) {
+    public Example(final String Element, final int X, final int Y) {
         super();
-        this.id = id;
-        this.name = name;
+        this.Element = Element;
+        this.X = X;
+        this.Y = Y;
     }
 
     /**
-     * Gets the id.
+     * Gets the Element.
      *
-     * @return the id
+     * @return the Element
      */
-    public int getId() {
-        return this.id;
+    public String getElement() {
+        return this.Element;
     }
 
     /**
-     * Gets the name.
+     * Gets the position X.
      *
-     * @return the name
+     * @return the position X
      */
-    public String getName() {
-        return this.name;
+    public int getX() {
+        return this.X;
     }
 
     /**
-     * Sets the name.
+     * Gets the position Y.
      *
-     * @param name
-     *            the new name
+     * @return the position Y
      */
-    public void setName(final String name) {
-        this.name = name;
+    public int getY() {
+        return this.Y;
+    }
+
+    /**
+     * Sets the Element.
+     *
+     * @param Element
+     *            the new Element
+     */
+    public void setElement(final String Element) {
+        this.Element = Element;
+    }
+
+    /**
+     * Sets the position X.
+     *
+     * @param X
+     *            the new pos X
+     */
+    public void setX(final int X) {
+        this.X = X;
+    }
+
+    /**
+     * Sets the position Y.
+     *
+     * @param Y
+     *            the new pos Y
+     */
+    public void setY(final int Y) {
+        this.Y = Y;
     }
 
     /*
@@ -62,6 +94,6 @@ public class Example {
      */
     @Override
     public String toString() {
-        return this.getId() + " : " + this.getName();
+        return this.getElement() + ";" + this.getX() + ";" + this.getY();
     }
 }

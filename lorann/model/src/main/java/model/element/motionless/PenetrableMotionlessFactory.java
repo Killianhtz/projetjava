@@ -9,15 +9,16 @@ public class PenetrableMotionlessFactory extends MotionlessFactory {
 		
 		switch(type) {
 			
-		case PURSE:motionlesselement = new Purse( Purse.sprite,  Purse.permeability); 
+		case PURSE:motionlesselement = new Purse(); 
 			break;
 		
-		case GATEOPEN:motionlesselement = new GateOpen(GateOpen.sprite, GateOpen.permeability); 
+		case GATEOPEN:motionlesselement = new GateOpen(); 
 			break;
 		
-		case CRYSTALBALL:motionlesselement = new CrystalBall(CrystalBall.sprite, CrystalBall.permeability);
+		case CRYSTALBALL:motionlesselement = new CrystalBall();
 			break;
 		
+		case VOID:motionlesselement = new Void();
 		}
 		
 		return motionlesselement;

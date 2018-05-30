@@ -9,16 +9,16 @@ public class BlockingMotionlessFactory extends MotionlessFactory {
 		
 		switch(type) {
 			
-		case GATECLOSE:motionlesselement = new GateClose(GateClose.sprite, GateClose.permeability); 
+		case GATECLOSE: motionlesselement = new GateClose(); 
 			break;
 		
-		case BONE:motionlesselement = new Bone(Bone.sprite, Bone.permeability); 
+		case BONE: motionlesselement = new Bone(); 
 			break;
 		
-		case HORIZONTALBONE:motionlesselement = new HorizontalBone(HorizontalBone.sprite, HorizontalBone.permeability);
+		case HORIZONTALBONE: motionlesselement = new HorizontalBone();
 			break;
 		
-		case VERTICALBONE:motionlesselement = new VerticalBone(VerticalBone.sprite, VerticalBone.permeability);
+		case VERTICALBONE: motionlesselement = new VerticalBone();
 			break;
 		}
 		

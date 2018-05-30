@@ -4,27 +4,32 @@ import java.awt.Image;
 
 public class Element implements IElement {
 
+	private static Sprite sprite;
+	private Permeability permeability;
+	
 	public Element(Sprite sprite, Permeability permeability) {
-		
+		this.setSprite(sprite);
+        this.setPermeability(permeability);
 	}
 	
 	public Sprite getSprite() {
-		return null;
+		return sprite;
 	}
 	
-	protected void setSprite(Sprite sprite) {
-		
+	public void setSprite(Sprite sprite) {
+		Element.sprite = sprite;
 	}
 	
 	public Permeability getPermeability() {
-		return null;
+		return this.permeability;
 	}
 	
-	public void setPermeability() {
-		
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
 	}
-	
+
 	public Image getImage() {
-		return null;
+		return getSprite().getImage();
 	}
+	
 }

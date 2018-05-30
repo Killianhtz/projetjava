@@ -5,12 +5,11 @@ import model.element.Sprite;
 
 public class CrystalBall extends MotionlessElement {
 	
-	public static Sprite sprite;
-	public static Permeability permeability = Permeability.PENETRABLE;
+	private static final Sprite sprite = new Sprite('E', "crystal_ball.png");
 
-	protected CrystalBall(Sprite sprite, Permeability permeability) {
+	protected CrystalBall() {
 		
-		super(CrystalBall.sprite, CrystalBall.permeability);
+		super(CrystalBall.sprite, Permeability.BLOCKING);
 		
 	}
 	

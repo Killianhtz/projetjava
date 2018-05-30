@@ -5,12 +5,11 @@ import model.element.Sprite;
 
 public class HorizontalBone extends MotionlessElement {
 	
-	public static Sprite sprite;
-	public static Permeability permeability = Permeability.BLOCKING;
+	private static final Sprite sprite = new Sprite('P', "horizontal_bone.png");
 
-	protected HorizontalBone(Sprite sprite, Permeability permeability) {
+	protected HorizontalBone() {
 		
-		super(HorizontalBone.sprite, HorizontalBone.permeability);
+		super(HorizontalBone.sprite, Permeability.BLOCKING);
 		
 	}
 	

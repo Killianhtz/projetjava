@@ -5,12 +5,11 @@ import model.element.Sprite;
 
 public class GateOpen extends MotionlessElement {
 	
-	public static Sprite sprite;
-	public static Permeability permeability = Permeability.PENETRABLE;
+	private static final Sprite sprite = new Sprite('M', "gate_open.png");
 
-	protected GateOpen(Sprite sprite, Permeability permeability) {
+	protected GateOpen() {
 		
-		super(GateOpen.sprite, GateOpen.permeability);
+		super(GateOpen.sprite, Permeability.BLOCKING);
 		
 	}
 	

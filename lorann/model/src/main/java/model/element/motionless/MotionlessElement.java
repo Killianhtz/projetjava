@@ -1,18 +1,13 @@
 package model.element.motionless;
 
+import model.element.Element;
 import model.element.Permeability;
 import model.element.Sprite;
 
-public abstract class MotionlessElement {
+public abstract class MotionlessElement extends Element {
 
-	public Sprite sprite;
-	public Permeability permeability;
-
-	protected MotionlessElement(Sprite sprite, Permeability permeability) {
-		
-		this.sprite = sprite;
-		this.permeability = permeability;
-		
+	protected MotionlessElement(final Sprite sprite, final Permeability permeability) {
+		super(sprite, permeability);
 	}
 	
 }

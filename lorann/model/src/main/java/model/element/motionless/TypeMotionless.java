@@ -8,6 +8,7 @@ public enum TypeMotionless {
 	PURSE,
 	GATECLOSE,
 	GATEOPEN,
-	CRYSTALBALL;
+	CRYSTALBALL,
+	VOID;
 	
 }

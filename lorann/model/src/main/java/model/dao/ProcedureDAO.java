@@ -17,7 +17,7 @@ public abstract class ProcedureDAO extends AbstractDAO{
 
 
 	    /** The sql map by level. */
-	    private static String sqlMapByLevel   = "{call findMapByLevel(?)}";
+	    private static String sqlMapByLevel   = "{call FindMapByLevel(?)}";
 
 	    /** The sql example by name. 
 	    private static String sqlExampleByName = "{call findExampleByName(?)}";

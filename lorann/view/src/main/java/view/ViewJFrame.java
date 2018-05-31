@@ -18,6 +18,8 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	private IMobile mobile;
 	
+	private char letter;
+	
 	
 	
 	
@@ -38,7 +40,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 	      if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-	        System.out.println("Test");
+	    	  this.letter = 'A';
 	      else if (e.getKeyCode() == KeyEvent.VK_LEFT)
 	    	  System.out.println("Test");
 	      else if (e.getKeyCode() == KeyEvent.VK_DOWN)
@@ -64,6 +66,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
 		
 	}
 	
+	public char getDirection() {
+		return this.letter;
+	}
 	
 	
 }

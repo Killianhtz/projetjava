@@ -27,6 +27,8 @@ public class ViewFacade implements IView {
 	/*	My Pawn	*/
 	private IModel			pawn;
 	
+	private char letter;
+	
 	
 
 
@@ -60,7 +62,10 @@ public class ViewFacade implements IView {
 	}
 	
 	
-	
+	public char getDirection() {
+		this.letter = window.getDirection();
+		return letter;
+	}
 	
 	
 	private IModel getPawn() {

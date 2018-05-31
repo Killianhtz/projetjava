@@ -16,7 +16,7 @@ public interface IView {
      */
     void displayMessage(String message);
     
-    
+    public char getDirection();
     
     public void createJFrame(String[][] map);
 }

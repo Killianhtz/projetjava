@@ -1,9 +1,11 @@
 package model.element.motionless;
 
+import java.io.IOException;
+
 public class PenetrableMotionlessFactory extends MotionlessFactory {
 	
 	@SuppressWarnings("incomplete-switch")
-	public MotionlessElement createElement(TypeMotionless type) {
+	public MotionlessElement createElement(TypeMotionless type) throws IOException {
 		
 		MotionlessElement motionlesselement = null;
 		

@@ -29,7 +29,7 @@ public class ViewFacade implements IView {
 	
 	private char letter;
 	
-	
+	private Boolean yesno;
 
 
 	
@@ -63,14 +63,14 @@ public class ViewFacade implements IView {
 	
 	
 	public char getDirection() {
-		this.letter = window.getDirection();
-		return letter;
+		return window.getDirection();
+	}
+	
+	public void setDirection() {
+		window.setDirection();
 	}
 	
 	
-	private IModel getPawn() {
-		return this.pawn;
-	}
 	
 	
 	private void setPawn(IModel pawn) {

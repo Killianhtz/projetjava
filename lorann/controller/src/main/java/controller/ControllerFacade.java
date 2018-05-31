@@ -108,9 +108,19 @@ public class ControllerFacade implements IController {
     
     public void loop() {
     	  while(test==false) {
-          	
-    		  this.direction = view.getDirection();
-    		  System.out.println(this.direction);
+    		  	
+    		  		view.setDirection();
+    		  		try {
+    		  			Thread.sleep(100);
+    		  		} catch (Exception e) {}
+    		  		this.direction = view.getDirection();
+    		  		if(this.direction != 'O')
+    		  			System.out.println(this.direction);
+    		  		
+    		  		
+    		  	
+
+    		  
     		  
     		  
           }

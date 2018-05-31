@@ -20,6 +20,13 @@ public class ControllerFacade implements IController {
 
     /** The model. */
     private final IModel model;
+    
+    
+    /* Map */
+    public String[][] map = new String[12][20];
+    
+    private int x = 0;
+    private int y = 0;
 
     /**
      * Instantiates a new controller facade.
@@ -52,8 +59,25 @@ public class ControllerFacade implements IController {
         for (final Example example : procedure) {
             message.append(example);
             message.append('\n');
+            map[y][x] = example.getElement();
+            x++;
+            if(x == 20) {
+            	y++;
+            	x = 0;
+            }
         }
-        this.getView().displayMessage(message.toString());
+        
+        
+        for (int y = 0; y < 12; y++) {
+        	
+        	for (int x = 0; x < 20; x++) {
+				System.out.print(map[y][x]);
+			}
+        	System.out.println("");
+			
+		}
+        
+        view.createJFrame(map);
         
     }
 
@@ -74,4 +98,7 @@ public class ControllerFacade implements IController {
     public IModel getModel() {
         return this.model;
     }
+    
+    
+   
 }

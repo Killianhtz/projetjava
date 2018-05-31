@@ -10,7 +10,13 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import controller.IController;
+
 public class ViewJPanel extends JPanel {
+	
+	private String[][] map;
+	
+	private IController controller;
 	
 	private BufferedImage imagebone;
 	private BufferedImage imagehbone;
@@ -20,22 +26,10 @@ public class ViewJPanel extends JPanel {
 	private BufferedImage imagesortie;
 	private BufferedImage imageboule;
 	
-	String map1[][] ={{"V","V","V","V","V","V","O","P","O","P","P","P","P","P","P","P","P","P","O","V"},
-			{"V","V","V","O","P","P","O","V","H","V","V","V","V","V","V","V","V","V","O","O"},
-			{"V","V","V","H","V","B","V","V","H","V","V","V","V","V","V","V","V","V","V","H"},
-			{"O","P","P","O","V","V","V","V","H","V","V","V","V","B","V","V","V","V","V","H"},
-			{"H","V","B","V","O","P","P","P","O","P","P","P","P","P","O","V","V","V","V","O"},
-			{"H","B","V","V","B","V","V","V","V","V","V","V","E","V","V","V","V","V","V","S"},
-			{"H","V","B","V","O","P","P","P","O","P","P","P","P","P","O","V","V","V","V","O"},
-			{"O","P","P","O","V","V","V","O","H","V","V","V","V","B","V","V","V","V","V","H"},
-			{"V","V","V","H","V","B","V","V","H","V","V","V","V","V","V","V","V","V","V","H"},
-			{"V","V","V","O","P","P","O","B","H","V","V","V","V","V","V","V","V","V","V","V"},
-			{"V","V","V","V","V","V","H","V","O","V","V","V","V","V","V","V","V","V","O","V"},
-			{"V","V","V","V","V","V","O","V","V","V","V","P","P","P","P","P","P","P","O","B"},
-			};
 	
-	public ViewJPanel() {
+	public ViewJPanel(String[][] map) {
 	try {
+		
 		imagebone = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\bone.png"));
 		imagehbone = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\horizontal_bone.png"));
 		imagevide = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\vide.png"));
@@ -43,6 +37,8 @@ public class ViewJPanel extends JPanel {
 		imagebourse = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\purse.png"));
 		imagesortie = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\gate_open.png"));
 		imageboule = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\crystal_ball.png"));
+		
+		this.map = map;
 		
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
@@ -56,10 +52,9 @@ public class ViewJPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 	super.paintComponent(g);
 	
-	
 	for (int y = 0; y <= 11; y++) {
         for (int x = 0; x <= 19; x++) {
-        	switch(map1[y][x])
+        	switch(map[y][x])
         	{
         	case "V":
         		g.drawImage(imagevide, 32 * x , 32 * y , 32 , 32 , null);
@@ -88,5 +83,7 @@ public class ViewJPanel extends JPanel {
     }
 	
 
-	}
+}
+	
+
 }

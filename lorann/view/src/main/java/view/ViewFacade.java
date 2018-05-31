@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ViewFacade implements IView, KeyListener {
+public class ViewFacade implements IView {
 	
 	
 	private ViewJFrame window;
@@ -22,10 +22,11 @@ public class ViewFacade implements IView, KeyListener {
 
 	
 	/*	The Map	*/
-	private IModel			map;
+	private IModel			mapef;
 	
 	/*	My Pawn	*/
 	private IModel			pawn;
+	
 	
 
 
@@ -36,10 +37,7 @@ public class ViewFacade implements IView, KeyListener {
      */
     public ViewFacade() {
     	
-    	window = new ViewJFrame();
-    	window.add(new ViewJPanel());
-    	window.setVisible(true);
-        
+
     }
 
     
@@ -54,33 +52,15 @@ public class ViewFacade implements IView, KeyListener {
         JOptionPane.showMessageDialog(null, message);
     }
 
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	
+	
+	public void createJFrame(String[][] map) {
+    	window = new ViewJFrame(map);
+    	window.setVisible(true);
 	}
 	
 	
-	private IModel getMap() {
-		return this.map;
-	}
 	
-	
-	private void setMap() {
-		/* A COMPLETER */
-	}
 	
 	
 	private IModel getPawn() {
@@ -91,6 +71,8 @@ public class ViewFacade implements IView, KeyListener {
 	private void setPawn(IModel pawn) {
 		this.pawn = pawn;
 	}
+	
+
 
 
     

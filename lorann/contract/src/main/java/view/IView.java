@@ -15,4 +15,8 @@ public interface IView {
      *            the message
      */
     void displayMessage(String message);
+    
+    
+    
+    public void createJFrame(String[][] map);
 }

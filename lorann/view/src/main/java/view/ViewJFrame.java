@@ -20,13 +20,16 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	
 	
-	public ViewJFrame() {
+	
+	public ViewJFrame(String[][] map) {
+		
     	this.setTitle("Lorann");
     	this.setSize(width, height);
     	this.setResizable(false);
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	this.addKeyListener(this);
+    	this.add(new ViewJPanel(map));
     	
 	}
 
@@ -60,5 +63,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 	
 }

@@ -31,7 +31,7 @@ public final class ModelFacade implements IModel {
      */
     
 
-    public List<Example> getMapByLevel(final int Level) throws SQLException {
+    public List<Example> getMapByLevel(final int Level) throws Exception {
         return ProcedureDAO.getMapByLevel(Level);
         
     }

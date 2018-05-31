@@ -41,11 +41,10 @@ public abstract class ProcedureDAO extends AbstractDAO{
 	     * @param id
 	     *            the id
 	     * @return the example by id
-	     * @throws SQLException
-	     *             the SQL exception
+	     * @throws Exception 
 	     */
 
-	    public static List<Example> getMapByLevel(final int Level) throws SQLException {
+	    public static List<Example> getMapByLevel(final int Level) throws Exception {
 	        final ArrayList<Example> procedure = new ArrayList<Example>();
 	        final CallableStatement callStatement = prepareCall(sqlMapByLevel);
 	        callStatement.setInt(1, Level);

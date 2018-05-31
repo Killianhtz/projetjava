@@ -48,11 +48,9 @@ public class ControllerFacade implements IController {
 
     /**
      * Start.
-     *
-     * @throws SQLException
-     *             the SQL exception
+     * @throws Exception 
      */
-    public void play() throws SQLException {
+    public void play() throws Exception {
         //this.getView().displayMessage(this.getModel().getExampleById(1).toString());
     	 
 

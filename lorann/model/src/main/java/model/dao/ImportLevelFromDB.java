@@ -6,7 +6,7 @@ import java.util.List;
 import model.*;
 
 public class ImportLevelFromDB {
-	public static String[][] CreateMap(ModelFacade model) {
+	public static String[][] CreateMap(ModelFacade model) throws Exception {
 
 		// Convert List<Example> to StringBuilder
 	   

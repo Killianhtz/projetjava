@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * <h1>The Class Example.</h1>
  *
@@ -24,11 +25,15 @@ public class Example {
      * @param X
      * @param Y
      */
-    public Example(final String Element, final int X, final int Y) {
+    public Example(final String Element, final int X, final int Y) throws Exception {
         super();
+        
+        if (X < 0) { throw new Exception("Incorrect coordinate");}
+        if (Y > 11) { throw new Exception("Incorrect coordinate");}
+   
         this.Element = Element;
         this.X = X;
-        this.Y = Y;
+        this.Y = Y; 
     }
 
     /**

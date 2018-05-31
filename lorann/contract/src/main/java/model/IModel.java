@@ -21,7 +21,8 @@ public interface IModel {
      * @return the example by Level
      * @throws SQLException
      *             the SQL exception
+     * @throws Exception 
      */
 
-	List<Example> getMapByLevel(int Level) throws SQLException;
+	List<Example> getMapByLevel(int Level) throws SQLException, Exception;
 }

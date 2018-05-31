@@ -9,34 +9,70 @@ import model.element.Sprite;
 
 public class Mobile implements IMobile {
 	
+
 	private int x;
 	private int y;
 	private Point position;
 	private Boolean alive = true;
 	
 	protected Mobile(Sprite sprite, IMap map, Permeability permability) {
-		
-	}
+	    }
 	
+	public void moveTo(int x,int y){
+        this.x=x;
+        this.y=y;
+	}
+        
+
 	public void moveUp() {
-		
+	
+		moveTo(this.x ,this.y-1);
 	}
 	
 	public void moveDown() {
 		
+		moveTo(this.x ,this.y+1);
+
 	}
 	
 	public void moveLeft() {
 		
+		moveTo(this.x-1 ,this.y);
 	}
 	
 	public void moveRight() {
 		
+		moveTo(this.x+1 ,this.y);
+	}
+		
+	
+    public void moveUpRight() {
+    	
+        moveTo(this.x+1 ,this.y-1);
 	}
 	
+    public void moveUpLeft() {
+    	
+        moveTo(this.x-1 ,this.y-1);  
+    }
+    
+    public void moveDownLeft() {
+    	
+    
+        moveTo(this.x-1 ,this.y+1);
+      
+    }
+    
+    public void moveDownRight() {
+    	
+        moveTo(this.x+1 ,this.y+1);
+        
+    }
+        
 	public void doNothing() {
 		
 	}
+	
 	
 	public int getX() {
 		return this.x;

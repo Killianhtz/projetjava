@@ -13,7 +13,6 @@ public class Void extends MotionlessElement {
 		
 		super(Void.SPRITE, Permeability.BLOCKING);
 		SPRITE.loadImage();
-		
 	}
 	
 }

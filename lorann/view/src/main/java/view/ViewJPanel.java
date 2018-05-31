@@ -30,13 +30,13 @@ public class ViewJPanel extends JPanel {
 	public ViewJPanel(String[][] map) {
 	try {
 		
-		imagebone = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\bone.png"));
-		imagehbone = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\horizontal_bone.png"));
-		imagevide = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\vide.png"));
-		imagevbone = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\vertical_bone.png"));
-		imagebourse = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\purse.png"));
-		imagesortie = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\gate_open.png"));
-		imageboule = ImageIO.read(new File("C:\\Users\\Nicolas\\Desktop\\Nouveau dossier\\sprite\\sprite\\crystal_ball.png"));
+		imagebone = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\bone.png"));
+		imagehbone = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\horizontal_bone.png"));
+		imagevide = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\void.png"));
+		imagevbone = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\vertical_bone.png"));
+		imagebourse = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\purse.png"));
+		imagesortie = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\gate_open.png"));
+		imageboule = ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\crystal_ball.png"));
 		
 		this.map = map;
 		

@@ -19,6 +19,7 @@ public class Sprite {
 	
 	public final void loadImage() throws IOException {
         this.setImage(ImageIO.read(new File("..\\model\\src\\main\\java\\sprite\\" + this.getImageName())));
+        this.setImageLoaded(true);
     }
 	
 	public Sprite(final char CHARACTER) {

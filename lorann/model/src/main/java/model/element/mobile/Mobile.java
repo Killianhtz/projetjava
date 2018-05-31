@@ -4,8 +4,8 @@ import java.awt.Point;
 
 import model.IMap;
 import model.IMobile;
-import model.element.Permeability;
-import model.element.Sprite;
+import model.Permeability;
+import model.Sprite;
 
 public class Mobile implements IMobile {
 	

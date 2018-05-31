@@ -8,13 +8,13 @@ public class Sprite {
 	private String imageName;
 	private char consoleImage;
 	
-	public Sprite(final char character, final String imageName) {
-        this.setConsoleImage(character);
-        this.setImageName(imageName);
+	public Sprite(final char CHARACTER, final String IMAGENAME) {
+        this.setConsoleImage(CHARACTER);
+        this.setImageName(IMAGENAME);
     }
 	
-	public Sprite(final char character) {
-        this(character, "noimage.jpg");
+	public Sprite(final char CHARACTER) {
+        this(CHARACTER, "noimage.jpg");
     }
 	
 	public Image getImage() {

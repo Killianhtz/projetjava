@@ -5,11 +5,11 @@ import model.element.Sprite;
 
 public class Void extends MotionlessElement {
 	
-	private static final Sprite sprite = new Sprite('V', "void.png");
+	private static final Sprite SPRITE = new Sprite('V', "void.png");
 
 	protected Void() {
 		
-		super(Void.sprite, Permeability.BLOCKING);
+		super(Void.SPRITE, Permeability.BLOCKING);
 		
 	}
 	

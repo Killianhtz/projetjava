@@ -5,11 +5,11 @@ import model.element.Sprite;
 
 public class VerticalBone extends MotionlessElement {
 	
-	private static final Sprite sprite = new Sprite('H', "vertical_bone.png");
+	private static final Sprite SPRITE = new Sprite('H', "vertical_bone.png");
 
 	protected VerticalBone() {
 		
-		super(VerticalBone.sprite, Permeability.BLOCKING);
+		super(VerticalBone.SPRITE, Permeability.BLOCKING);
 		
 	}
 	

@@ -5,11 +5,11 @@ import model.element.Sprite;
 
 public class Purse extends MotionlessElement {
 	
-	private static final Sprite sprite = new Sprite('B', "purse.png");
+	private static final Sprite SPRITE = new Sprite('B', "purse.png");
 
 	protected Purse() {
 		
-		super(Purse.sprite, Permeability.BLOCKING);
+		super(Purse.SPRITE, Permeability.BLOCKING);
 		
 	}
 	

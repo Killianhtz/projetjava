@@ -9,20 +9,20 @@ import javax.imageio.ImageIO;
 public class Sprite {
 	private Image image;
 	private String imageName;
-	private char consoleImage;
+	private String consoleImage;
 	private Boolean imageLoaded;
 	
-	public Sprite(final char CHARACTER, final String IMAGENAME) {
+	public Sprite(final String CHARACTER, final String IMAGENAME) {
         this.setConsoleImage(CHARACTER);
         this.setImageName(IMAGENAME);
     }
 	
 	public final void loadImage() throws IOException {
-        this.setImage(ImageIO.read(new File("..\\model\\src\\main\\java\\sprite\\" + this.getImageName())));
+        this.setImage(ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\" + this.getImageName())));
         this.setImageLoaded(true);
     }
 	
-	public Sprite(final char CHARACTER) {
+	public Sprite(final String CHARACTER) {
         this(CHARACTER, "noimage.jpg");
     }
 	
@@ -34,11 +34,11 @@ public class Sprite {
 		return imageName;
 	}
 
-	public char getConsoleImage() {
+	public String getConsoleImage() {
 		return consoleImage;
 	}
 
-	public void setConsoleImage(char consoleImage) {
+	public void setConsoleImage(String consoleImage) {
 		this.consoleImage = consoleImage;
 	}
 

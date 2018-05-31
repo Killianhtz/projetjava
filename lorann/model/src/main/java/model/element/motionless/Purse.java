@@ -7,7 +7,7 @@ import model.Sprite;
 
 public class Purse extends MotionlessElement {
 	
-	private static final Sprite SPRITE = new Sprite('B', "purse.png");
+	private static final Sprite SPRITE = new Sprite("B", "purse.png");
 
 	protected Purse() throws IOException {
 		

@@ -48,13 +48,13 @@ public class ControllerFacade implements IController {
      * @throws SQLException
      *             the SQL exception
      */
-    public void start() throws SQLException {
+    public void play() throws SQLException {
         //this.getView().displayMessage(this.getModel().getExampleById(1).toString());
     	 
 
         //this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
 
-        final List<Example> procedure = this.getModel().getMapByLevel(1);
+        final List<Example> procedure = this.getModel().getMapByLevel(5);
         final StringBuilder message = new StringBuilder();
         for (final Example example : procedure) {
             message.append(example);
@@ -78,6 +78,8 @@ public class ControllerFacade implements IController {
 		}
         
         view.createJFrame(map);
+        
+        
         
     }
 

@@ -1,16 +1,25 @@
 package model.element;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Sprite {
 	
 	private Image image;
 	private String imageName;
 	private char consoleImage;
+	private Boolean imageLoaded;
 	
 	public Sprite(final char CHARACTER, final String IMAGENAME) {
         this.setConsoleImage(CHARACTER);
         this.setImageName(IMAGENAME);
+    }
+	
+	public final void loadImage() throws IOException {
+        this.setImage(ImageIO.read(new File("model.sprite/" + this.getImageName())));
     }
 	
 	public Sprite(final char CHARACTER) {
@@ -40,5 +49,12 @@ public class Sprite {
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
-		
+	
+	public Boolean isImageLoaded() {
+		return this.imageLoaded;
+	}
+	
+	public void setImageLoaded(Boolean isImageLoaded) {
+		this.imageLoaded = isImageLoaded;
+	}
 }

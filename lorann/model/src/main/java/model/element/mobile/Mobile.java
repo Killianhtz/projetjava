@@ -9,100 +9,56 @@ import model.element.Sprite;
 
 public class Mobile implements IMobile {
 	
-
-	private int x;
-	private int y;
 	private Point position;
 	private Boolean alive = true;
 	
-	protected Mobile(Sprite sprite, IMap map, Permeability permability) {
-	    }
-	
-	public void moveTo(int x,int y){
-        this.x=x;
-        this.y=y;
+	public Mobile(Sprite sprite, IMap map, Permeability permeability) {
+		
 	}
-        
-
-	public void moveUp() {
 	
-		moveTo(this.x ,this.y-1);
+	public void moveUp() {
+		position.translate(0, -1);
 	}
 	
 	public void moveDown() {
-		
-		moveTo(this.x ,this.y+1);
-
-	}
-	
-	public void moveLeft() {
-		
-		moveTo(this.x-1 ,this.y);
+		position.translate(0, 1);
 	}
 	
 	public void moveRight() {
-		
-		moveTo(this.x+1 ,this.y);
-	}
-		
-	
-    public void moveUpRight() {
-    	
-        moveTo(this.x+1 ,this.y-1);
+		 position.translate(1, 0);
 	}
 	
-    public void moveUpLeft() {
-    	
-        moveTo(this.x-1 ,this.y-1);  
-    }
-    
-    public void moveDownLeft() {
-    	
-    
-        moveTo(this.x-1 ,this.y+1);
-      
-    }
-    
-    public void moveDownRight() {
-    	
-        moveTo(this.x+1 ,this.y+1);
-        
-    }
-        
+	public void moveLeft() {
+		position.translate(-1, 0);
+	}
 	public void doNothing() {
 		
 	}
 	
-	
-	public int getX() {
-		return this.x;
-	}
-	
-	public void setX(int x) {
-		this.x = x;
-	}
-	
-	public int getY() {
-		return this.y;
-	}
-	
-	public void setY(int y) {
-		this.y = y;
+	public void die() {
+		this.alive = false;
 	}
 	
 	public Boolean isAlive() {
-		return alive;
+		return this.alive;
 	}
 	
-	public Point getPosition() {
-		return position;
+	public int getX(Point position) {
+		double xP = position.getX();
+		int x;
+		x = (int)xP;
+		return x;
 	}
 	
-	public void setPosition(Point position) {
-		this.position = position;
+	public int getY(Point position) {
+		double yP = position.getY();
+		int y;
+		y = (int)yP;
+		return y;
 	}
 	
-	protected void die() {
-		
+	public Point getPosition(Point position) {
+		return position.getLocation();
 	}
+
 }

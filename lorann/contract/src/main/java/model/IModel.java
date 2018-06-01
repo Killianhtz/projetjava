@@ -32,4 +32,9 @@ public interface IModel {
 	void setView(IView view);
 	
 	public void constructTheMap(String[][] map) throws IOException;
+	
+	public void moveUp() throws IOException;
+	public void moveDown() throws IOException;
+	public void moveLeft() throws IOException;
+	public void moveRight() throws IOException;
 }

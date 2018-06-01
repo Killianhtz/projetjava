@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -102,7 +103,7 @@ public class ControllerFacade implements IController {
    
     
     
-    public void loop() {
+    public void loop() throws IOException{
     		
     	  while(test==false) {
     		  	
@@ -111,13 +112,48 @@ public class ControllerFacade implements IController {
     		  			Thread.sleep(100);
     		  		} catch (Exception e) {}
     		  		this.direction = view.getDirection();
-    		  		if(this.direction != 'O')
-    		  			System.out.println(this.direction);
     		  		
-    		  		
+    		  		switch(this.direction) {
+    		  		case('R'):
+    		  			moveRight();
+    		  			break;
+    		  		case('L'):
+    		  			moveLeft();
+    		  			break;
+    		  		case('U'):
+    		  			moveUp();
+    		  			break;
+    		  		case('D'):
+    		  			moveDown();
+    		  			break;
+    		  		}
+    		  				  		
     		  
           }
     	  
+    }
+    
+    
+    public Boolean testPermeability(){
+    	Boolean permeability = true;
+    	return permeability;
+    }
+    
+    
+    public void moveUp() throws IOException {
+    	model.moveUp();
+    }
+    
+    public void moveDown() throws IOException {
+    	model.moveDown();
+    }
+    
+    public void moveRight() throws IOException {
+    	model.moveRight();
+    }
+    
+    public void moveLeft() throws IOException {
+    	model.moveLeft();
     }
    
 }

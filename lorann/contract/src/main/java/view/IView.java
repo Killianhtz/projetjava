@@ -1,5 +1,8 @@
 package view;
 
+import model.IElement;
+import model.IModel;
+
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -21,4 +24,6 @@ public interface IView {
     public void setDirection();
     
     public void createJFrame(String[][] map);
+    
+	public void setMap(IElement[][] element);
 }

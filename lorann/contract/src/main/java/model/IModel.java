@@ -1,7 +1,10 @@
 package model;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+
+import view.IView;
 
 /**
  * <h1>The Interface IModel.</h1>
@@ -25,4 +28,8 @@ public interface IModel {
      */
 
 	List<Example> getMapByLevel(int Level) throws SQLException, Exception;
+
+	void setView(IView view);
+	
+	public void constructTheMap(String[][] map) throws IOException;
 }

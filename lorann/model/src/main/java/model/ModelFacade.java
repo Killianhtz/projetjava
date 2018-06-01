@@ -1,11 +1,18 @@
 package model;
 
 import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
+import model.element.motionless.BlockingMotionlessFactory;
+import model.element.motionless.MotionlessElement;
+import model.element.motionless.MotionlessFactory;
+import model.element.motionless.PenetrableMotionlessFactory;
+import model.element.motionless.TypeMotionless;
+import view.IView;
 
 
 
@@ -17,7 +24,9 @@ import model.dao.ProcedureDAO;
  */
 public final class ModelFacade implements IModel {
 	
-	private IElement element[][];
+	private IElement[][] element = new IElement[12][20];
+	
+	private IView view;
     /**
      * Instantiates a new model facade.
      */
@@ -51,8 +60,66 @@ public final class ModelFacade implements IModel {
     	}
     }
 
-	public void constructTheMap() {
+	public void constructTheMap(String[][] map) throws IOException {
 		
+		for (int y = 0; y < 12; y++) {
+			System.out.println("");
+			for(int x = 0; x < 20; x++) {
+				
+				System.out.print(map[y][x]);
+				  
+			}
+			
+		}
+		
+		MotionlessFactory penetrableMotionlessFactory = new PenetrableMotionlessFactory();
+		MotionlessFactory blockingMotionlessFactory = new BlockingMotionlessFactory();
+		
+		MotionlessElement motionlessElement;
+		
+		for (int y = 0; y < 12; y++) {
+			for(int x = 0; x < 20; x++) {
+				switch(map[y][x]) {
+					case "V":
+						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
+						element[y][x] = motionlessElement;
+						break;
+					case "S":
+						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.GATECLOSE);
+						element[y][x] = motionlessElement;
+						break;
+					case "O":
+						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.BONE);
+						element[y][x] = motionlessElement;
+						break;
+					case "P":
+						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.HORIZONTALBONE);
+						element[y][x] = motionlessElement;
+						break;
+					case "H":
+						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.VERTICALBONE);
+						element[y][x] = motionlessElement;
+						break;
+					default:
+						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
+						element[y][x] = motionlessElement;
+						break;
+					
+					
+				}
+
+				
+				  
+			}
+			
+		}
+
+		view.setMap(element);
+		  
+	}
+	
+	public void setView(IView view) {
+		this.view = view;
 	}
 //
 	

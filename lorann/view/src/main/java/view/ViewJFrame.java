@@ -18,6 +18,8 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	private IMobile mobile;
 	
+	private ViewJPanel viewjpanel;
+	
 	private char letter = 'O';
 	
 	
@@ -31,7 +33,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	this.addKeyListener(this);
-    	this.add(new ViewJPanel(map));
+    	this.viewjpanel = new ViewJPanel(map);
+    	this.add(viewjpanel);
+    	
     	
 	}
 
@@ -75,5 +79,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	public void setDirection() {
 		this.letter = 'O';
+	}
+	
+	public ViewJPanel getJPanel() {
+		return this.viewjpanel;
 	}
 }

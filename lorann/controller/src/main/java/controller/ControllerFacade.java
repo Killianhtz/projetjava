@@ -44,6 +44,7 @@ public class ControllerFacade implements IController {
         super();
         this.view = view;
         this.model = model;
+        model.setView(view);
     }
 
     /**
@@ -56,7 +57,7 @@ public class ControllerFacade implements IController {
 
         //this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
 
-        final List<Example> procedure = this.getModel().getMapByLevel(2);
+        final List<Example> procedure = this.getModel().getMapByLevel(3);
         final StringBuilder message = new StringBuilder();
         for (final Example example : procedure) {
             message.append(example);
@@ -80,6 +81,7 @@ public class ControllerFacade implements IController {
 		}
         
         view.createJFrame(map);
+        model.constructTheMap(map);
         this.loop();
         
       
@@ -104,7 +106,11 @@ public class ControllerFacade implements IController {
         return this.model;
     }
     
+   
+    
+    
     public void loop() {
+    		
     	  while(test==false) {
     		  	
     		  		view.setDirection();
@@ -118,6 +124,7 @@ public class ControllerFacade implements IController {
     		  		
     		  
           }
+    	  
     }
    
 }

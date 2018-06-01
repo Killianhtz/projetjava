@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
+import model.IElement;
 import model.IModel;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
@@ -21,11 +22,7 @@ public class ViewFacade implements IView {
 	
 
 	
-	/*	The Map	*/
-	private IModel			mapef;
 	
-	/*	My Pawn	*/
-	private IModel			pawn;
 	
 	private char letter;
 	
@@ -73,8 +70,9 @@ public class ViewFacade implements IView {
 	
 	
 	
-	private void setPawn(IModel pawn) {
-		this.pawn = pawn;
+	public void setMap(IElement[][] mapef) {
+		
+		window.getJPanel().changes(mapef);
 	}
 	
 

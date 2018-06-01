@@ -6,8 +6,9 @@ import model.IMap;
 import model.IMobile;
 import model.Permeability;
 import model.Sprite;
+import model.element.Element;
 
-public class Mobile implements IMobile {
+public class Mobile extends Element implements IMobile {
 	
 	private Point position;
 	private Boolean alive = true;

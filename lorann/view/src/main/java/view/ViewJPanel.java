@@ -64,7 +64,7 @@ public class ViewJPanel extends JPanel {
     }
 	g.setFont(new Font("impact", Font.BOLD, 50));
 	g.setColor(Color.WHITE);
-	g.drawString("Score : " + score, 20, 450);
+	g.drawString("Score : " + score, 200, 450);
 }
 	
 	public void setScore(int score) {

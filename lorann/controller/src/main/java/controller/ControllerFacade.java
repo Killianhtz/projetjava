@@ -28,6 +28,10 @@ public class ControllerFacade implements IController {
     
     private char direction = 'o';
     
+    private Boolean nextLevelY = false;
+    
+    private int level = 1;
+    
     
     /* Map */
     public String[][] map = new String[12][20];
@@ -56,11 +60,8 @@ public class ControllerFacade implements IController {
      */
     public void play() throws Exception {
 
-        final List<Example> procedure = this.getModel().getMapByLevel(1);
-        final StringBuilder message = new StringBuilder();
+        final List<Example> procedure = this.getModel().getMapByLevel(level);
         for (final Example example : procedure) {
-            message.append(example);
-            message.append('\n');
             map[y][x] = example.getElement();
             x++;
             if(x == 20) {
@@ -69,7 +70,8 @@ public class ControllerFacade implements IController {
             }
         }
         
-        
+        x = 0;
+        y = 0;
 
         
         view.createJFrame(map);
@@ -101,7 +103,7 @@ public class ControllerFacade implements IController {
    
     
     
-    public void loop() throws IOException{
+    public void loop() throws Exception{
     		
     	  while(test==false) {
     		  	
@@ -113,15 +115,19 @@ public class ControllerFacade implements IController {
     		  		
     		  		switch(this.direction) {
     		  		case('R'):
+    		  			nextLevelY = false;
     		  			moveRight();
     		  			break;
     		  		case('L'):
+    		  			nextLevelY = false;
     		  			moveLeft();
     		  			break;
     		  		case('U'):
+    		  			nextLevelY = false;
     		  			moveUp();
     		  			break;
     		  		case('D'):
+    		  			nextLevelY = false;
     		  			moveDown();
     		  			break;
     		  		}
@@ -141,56 +147,111 @@ public class ControllerFacade implements IController {
     }
     
     
-    public void moveUp() throws IOException {
+    public void moveUp() throws SQLException, Exception {
     	if(testPermeability(model.getElementUp()) == true) {
     		testEventUp();
-    		model.moveUp();
+    		if(nextLevelY != true) {
+        		model.moveUp();
+    		}
     	}
     }
     
-    public void moveDown() throws IOException {
+    public void moveDown() throws SQLException, Exception {
     	if(testPermeability(model.getElementDown()) == true) {
     		testEventDown();
-    		model.moveDown();
+    		if(nextLevelY != true) {
+        		model.moveDown();
+    		}
     	}
     }
     
-    public void moveRight() throws IOException {
+    public void moveRight() throws Exception {
     	if(testPermeability(model.getElementRight()) == true) {
     		testEventRight();
-        	model.moveRight();
+    		if(nextLevelY != true) {
+        		model.moveRight();
+    		}
     	}
     }
     
-    public void moveLeft() throws IOException {
+    public void moveLeft() throws Exception {
     	if(testPermeability(model.getElementLeft()) == true) {
     		testEventLeft();
-    		model.moveLeft();
+    		if(nextLevelY != true) {
+        		model.moveLeft();
+    		}
     	}
     	
     }
    
-    public void testEventLeft()throws IOException {
-    	if(model.getElementLeft().getSprite().getConsoleImage() == "E") {
-    		model.openGate();
+    public void testEventLeft()throws Exception {
+    	switch(model.getElementLeft().getSprite().getConsoleImage()) {
+    		case "E":
+    			model.openGate();
+    			break;
+    		case "M":
+    			this.level = level + 1;
+    			nextLevel();
+    			break;
     	}
+    	
     }
     
-    public void testEventRight()throws IOException {
-    	if(model.getElementRight().getSprite().getConsoleImage() == "E") {
-    		model.openGate();
-    	}
-    }
+    public void testEventRight()throws Exception {
+    	switch(model.getElementRight().getSprite().getConsoleImage()) {
+		case "E":
+			model.openGate();
+			break;
+		case "M":
+			this.level = level + 1;
+			nextLevel();
+			break;
+	}
+   }
 
-    public void testEventUp()throws IOException {
-    	if(model.getElementUp().getSprite().getConsoleImage() == "E") {
-    		model.openGate();
-    	}
-    }
+    public void testEventUp()throws SQLException, Exception {
+    	switch(model.getElementUp().getSprite().getConsoleImage()) {
+		case "E":
+			model.openGate();
+			break;
+		case "M":
+			this.level = level + 1;
+			nextLevel();
+			break;
+	} 	
+   }
 
-    public void testEventDown()throws IOException {
-    	if(model.getElementDown().getSprite().getConsoleImage() == "E") {
-    		model.openGate();
-    	}
+    public void testEventDown()throws SQLException, Exception {
+    	switch(model.getElementDown().getSprite().getConsoleImage()) {
+		case "E":
+			model.openGate();
+			break;
+		case "M":
+			this.level = level + 1;
+			nextLevel();
+			break;
+	}	
+   }
+    
+    public void nextLevel() throws SQLException, Exception {
+    	nextLevelY = true;
+    	final List<Example> procedure = this.getModel().getMapByLevel(level);
+        for (final Example example : procedure) {
+            map[y][x] = example.getElement();
+            x++;
+            if(x == 20) {
+            	y++;
+            	x = 0;
+            }
+        }
+        
+        x = 0;
+        y = 0;
+
+        model.constructTheMap(map);
+        
+        
+        
+        
     }
 }

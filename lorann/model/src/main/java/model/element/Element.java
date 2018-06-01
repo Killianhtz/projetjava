@@ -8,7 +8,7 @@ import model.Sprite;
 
 public class Element implements IElement {
 
-	private static Sprite sprite;
+	private Sprite sprite;
 	private Permeability permeability;
 	
 	public Element(Sprite sprite, Permeability permeability) {
@@ -21,7 +21,7 @@ public class Element implements IElement {
 	}
 	
 	public void setSprite(Sprite sprite) {
-		Element.sprite = sprite;
+		this.sprite = sprite;
 	}
 	
 	public Permeability getPermeability() {

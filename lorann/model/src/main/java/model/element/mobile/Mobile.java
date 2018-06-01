@@ -2,7 +2,6 @@ package model.element.mobile;
 
 import java.awt.Point;
 
-import model.IMap;
 import model.IMobile;
 import model.Permeability;
 import model.Sprite;
@@ -13,8 +12,8 @@ public class Mobile extends Element implements IMobile {
 	private Point position;
 	private Boolean alive = true;
 	
-	public Mobile(Sprite sprite, IMap map, Permeability permeability) {
-		
+	public Mobile(final Sprite SPRITE, final Permeability PERMEABILITY) {
+		super(SPRITE, PERMEABILITY);
 	}
 	
 	public void moveUp() {

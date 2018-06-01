@@ -16,7 +16,8 @@ import model.dao.ProcedureDAO;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
-
+	
+	private IElement element[][];
     /**
      * Instantiates a new model facade.
      */
@@ -50,7 +51,9 @@ public final class ModelFacade implements IModel {
     	}
     }
 
-	
+	public void constructTheMap() {
+		
+	}
 //
 	
 }

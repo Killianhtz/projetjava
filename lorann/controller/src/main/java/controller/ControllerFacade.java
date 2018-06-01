@@ -116,10 +116,6 @@ public class ControllerFacade implements IController {
     		  			System.out.println(this.direction);
     		  		
     		  		
-    		  	
-
-    		  
-    		  
     		  
           }
     }

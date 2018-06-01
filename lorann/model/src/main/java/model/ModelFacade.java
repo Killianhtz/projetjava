@@ -62,15 +62,6 @@ public final class ModelFacade implements IModel {
 
 	public void constructTheMap(String[][] map) throws IOException {
 		
-		for (int y = 0; y < 12; y++) {
-			System.out.println("");
-			for(int x = 0; x < 20; x++) {
-				
-				System.out.print(map[y][x]);
-				  
-			}
-			
-		}
 		
 		MotionlessFactory penetrableMotionlessFactory = new PenetrableMotionlessFactory();
 		MotionlessFactory blockingMotionlessFactory = new BlockingMotionlessFactory();

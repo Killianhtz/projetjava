@@ -71,14 +71,7 @@ public class ControllerFacade implements IController {
         }
         
         
-        for (int y = 0; y < 12; y++) {
-        	
-        	for (int x = 0; x < 20; x++) {
-				System.out.print(map[y][x]);
-			}
-        	System.out.println("");
-			
-		}
+
         
         view.createJFrame(map);
         model.constructTheMap(map);

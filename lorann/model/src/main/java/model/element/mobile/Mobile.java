@@ -35,6 +35,10 @@ public class Mobile extends Element implements IMobile {
 		
 	}
 	
+	public void setLocation(int x, int y) {
+		position.setLocation(x, y);
+	}
+	
 	public void die() {
 		this.alive = false;
 	}
@@ -60,5 +64,5 @@ public class Mobile extends Element implements IMobile {
 	public Point getPosition(Point position) {
 		return position.getLocation();
 	}
-
+	
 }

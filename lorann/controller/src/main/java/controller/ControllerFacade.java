@@ -57,7 +57,7 @@ public class ControllerFacade implements IController {
 
         //this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
 
-        final List<Example> procedure = this.getModel().getMapByLevel(3);
+        final List<Example> procedure = this.getModel().getMapByLevel(1);
         final StringBuilder message = new StringBuilder();
         for (final Example example : procedure) {
             message.append(example);

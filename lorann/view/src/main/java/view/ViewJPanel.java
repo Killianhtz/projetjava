@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,6 +23,8 @@ public class ViewJPanel extends JPanel {
 	private Boolean oui = false;
 	
 	private BufferedImage[][] image = new BufferedImage[12][20];
+	
+	private int score = 0;
 	
 	
 	public ViewJPanel(String[][] map) {
@@ -59,9 +62,14 @@ public class ViewJPanel extends JPanel {
         	
         }
     }
-	
-
+	g.setFont(new Font("impact", Font.BOLD, 50));
+	g.setColor(Color.WHITE);
+	g.drawString("Score : " + score, 20, 450);
 }
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
 	
 
 }

@@ -26,4 +26,6 @@ public interface IView {
     public void createJFrame(String[][] map);
     
 	public void setMap(IElement[][] element);
+	
+	public void setScore(int score);
 }

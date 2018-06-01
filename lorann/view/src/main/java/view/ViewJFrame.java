@@ -14,7 +14,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	public static int 		width = 640;
 	
-	public static int 		height = 416;
+	public static int 		height = 515;
 	
 	private IMobile mobile;
 	
@@ -34,6 +34,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	this.addKeyListener(this);
     	this.viewjpanel = new ViewJPanel(map);
+    	this.viewjpanel.setBackground(Color.BLACK);
     	this.add(viewjpanel);
     	
     	

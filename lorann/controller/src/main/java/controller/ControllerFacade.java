@@ -32,6 +32,8 @@ public class ControllerFacade implements IController {
     
     private int level = 1;
     
+    private int score = 0;
+    
     
     /* Map */
     public String[][] map = new String[12][20];
@@ -193,6 +195,10 @@ public class ControllerFacade implements IController {
     			this.level = level + 1;
     			nextLevel();
     			break;
+    		case "B":
+    			this.score = score + 150;
+    			view.setScore(score);
+    			break;
     	}
     	
     }
@@ -206,6 +212,10 @@ public class ControllerFacade implements IController {
 			this.level = level + 1;
 			nextLevel();
 			break;
+		case "B":
+			this.score = score + 150;
+			view.setScore(score);
+			break;
 	}
    }
 
@@ -218,6 +228,10 @@ public class ControllerFacade implements IController {
 			this.level = level + 1;
 			nextLevel();
 			break;
+		case "B":
+			this.score = score + 150;
+			view.setScore(score);
+			break;
 	} 	
    }
 
@@ -229,6 +243,10 @@ public class ControllerFacade implements IController {
 		case "M":
 			this.level = level + 1;
 			nextLevel();
+			break;
+		case "B":
+			this.score = score + 150;
+			view.setScore(score);
 			break;
 	}	
    }

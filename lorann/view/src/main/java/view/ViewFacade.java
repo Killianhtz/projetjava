@@ -68,7 +68,9 @@ public class ViewFacade implements IView {
 	}
 	
 	
-	
+	public void setScore(int score) {
+		window.getJPanel().setScore(score);;
+	}
 	
 	public void setMap(IElement[][] mapef) {
 		

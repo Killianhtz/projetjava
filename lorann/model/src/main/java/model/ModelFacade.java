@@ -113,6 +113,10 @@ public final class ModelFacade implements IModel {
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);
 						element[y][x] = motionlessElement;
 						break;
+					case "B":
+						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.PURSE);
+						element[y][x] = motionlessElement;
+						break;
 					default:
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
 						element[y][x] = motionlessElement;

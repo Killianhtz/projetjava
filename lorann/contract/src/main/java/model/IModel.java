@@ -44,4 +44,8 @@ public interface IModel {
 	IElement getElementRight();
 
 	IElement getElementLeft();
+
+	void openGate()throws IOException;
+	
+	
 }

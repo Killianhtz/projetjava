@@ -109,6 +109,10 @@ public final class ModelFacade implements IModel {
 						lorann.setPosition(x, y);
 						System.out.println(lorann.getX() + "\n"+ lorann.getY());
 						break;
+					case "E":
+						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);
+						element[y][x] = motionlessElement;
+						break;
 					default:
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
 						element[y][x] = motionlessElement;
@@ -209,5 +213,18 @@ public final class ModelFacade implements IModel {
 	public IElement getElementRight() {
 		IElement elementRight = element[lorann.getY()][lorann.getX() + 1];
 		return elementRight;
+	}
+	
+	public void openGate()  throws IOException {
+		for (int y = 0; y < 12; y++) {
+			for(int x = 0; x < 20; x++) {
+				if(element[y][x].getSprite().getConsoleImage() == "S") {
+					motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.GATEOPEN);
+					element[y][x] = motionlessElement;
+				}
+				
+			}
+		}
+		changeTheMap();
 	}
 }

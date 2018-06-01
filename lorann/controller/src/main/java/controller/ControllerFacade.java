@@ -55,10 +55,6 @@ public class ControllerFacade implements IController {
      * @throws Exception 
      */
     public void play() throws Exception {
-        //this.getView().displayMessage(this.getModel().getExampleById(1).toString());
-    	 
-
-        //this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
 
         final List<Example> procedure = this.getModel().getMapByLevel(1);
         final StringBuilder message = new StringBuilder();
@@ -147,27 +143,54 @@ public class ControllerFacade implements IController {
     
     public void moveUp() throws IOException {
     	if(testPermeability(model.getElementUp()) == true) {
+    		testEventUp();
     		model.moveUp();
     	}
     }
     
     public void moveDown() throws IOException {
     	if(testPermeability(model.getElementDown()) == true) {
+    		testEventDown();
     		model.moveDown();
     	}
     }
     
     public void moveRight() throws IOException {
     	if(testPermeability(model.getElementRight()) == true) {
+    		testEventRight();
         	model.moveRight();
     	}
     }
     
     public void moveLeft() throws IOException {
     	if(testPermeability(model.getElementLeft()) == true) {
+    		testEventLeft();
     		model.moveLeft();
     	}
     	
     }
    
+    public void testEventLeft()throws IOException {
+    	if(model.getElementLeft().getSprite().getConsoleImage() == "E") {
+    		model.openGate();
+    	}
+    }
+    
+    public void testEventRight()throws IOException {
+    	if(model.getElementRight().getSprite().getConsoleImage() == "E") {
+    		model.openGate();
+    	}
+    }
+
+    public void testEventUp()throws IOException {
+    	if(model.getElementUp().getSprite().getConsoleImage() == "E") {
+    		model.openGate();
+    	}
+    }
+
+    public void testEventDown()throws IOException {
+    	if(model.getElementDown().getSprite().getConsoleImage() == "E") {
+    		model.openGate();
+    	}
+    }
 }

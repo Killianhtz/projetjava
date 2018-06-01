@@ -14,6 +14,7 @@ public class Mobile extends Element implements IMobile {
 	
 	public Mobile(final Sprite SPRITE, final Permeability PERMEABILITY) {
 		super(SPRITE, PERMEABILITY);
+		position = new Point();
 	}
 	
 	public void moveUp() {
@@ -35,8 +36,8 @@ public class Mobile extends Element implements IMobile {
 		
 	}
 	
-	public void setLocation(int x, int y) {
-		position.setLocation(x, y);
+	public void setPosition(int x, int y) {
+		position.setLocation(x, y);;
 	}
 	
 	public void die() {
@@ -47,14 +48,14 @@ public class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 	
-	public int getX(Point position) {
+	public int getX() {
 		double xP = position.getX();
 		int x;
 		x = (int)xP;
 		return x;
 	}
 	
-	public int getY(Point position) {
+	public int getY() {
 		double yP = position.getY();
 		int y;
 		y = (int)yP;

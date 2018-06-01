@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
+import model.element.mobile.Lorann;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
 import model.element.motionless.MotionlessFactory;
@@ -66,6 +67,7 @@ public final class ModelFacade implements IModel {
 		MotionlessFactory penetrableMotionlessFactory = new PenetrableMotionlessFactory();
 		MotionlessFactory blockingMotionlessFactory = new BlockingMotionlessFactory();
 		
+		Lorann lorann;
 		MotionlessElement motionlessElement;
 		
 		for (int y = 0; y < 12; y++) {
@@ -90,6 +92,12 @@ public final class ModelFacade implements IModel {
 					case "H":
 						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.VERTICALBONE);
 						element[y][x] = motionlessElement;
+						break;
+					case "L":
+						lorann = new Lorann();
+						element[y][x] = lorann;
+						lorann.setPosition(x, y);
+						System.out.println(lorann.getX() + "\n"+ lorann.getY());
 						break;
 					default:
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);

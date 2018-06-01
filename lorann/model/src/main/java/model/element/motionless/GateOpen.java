@@ -11,7 +11,7 @@ public class GateOpen extends MotionlessElement {
 
 	protected GateOpen() throws IOException {
 		
-		super(GateOpen.SPRITE, Permeability.BLOCKING);
+		super(GateOpen.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
 		
 	}

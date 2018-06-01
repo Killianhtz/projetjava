@@ -191,4 +191,23 @@ public final class ModelFacade implements IModel {
 		changeTheMap();
 	}
 	
+	public IElement getElementUp() {
+		IElement elementUp = element[lorann.getY() - 1][lorann.getX()];
+		return elementUp;
+	}
+	
+	public IElement getElementDown() {
+		IElement elementDown = element[lorann.getY() + 1][lorann.getX()];
+		return elementDown;
+	}
+	
+	public IElement getElementLeft() {
+		IElement elementLeft = element[lorann.getY()][lorann.getX() - 1];
+		return elementLeft;
+	}
+	
+	public IElement getElementRight() {
+		IElement elementRight = element[lorann.getY()][lorann.getX() + 1];
+		return elementRight;
+	}
 }

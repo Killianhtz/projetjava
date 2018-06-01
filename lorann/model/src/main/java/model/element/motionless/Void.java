@@ -11,7 +11,7 @@ public class Void extends MotionlessElement {
 
 	protected Void() throws IOException {
 		
-		super(Void.SPRITE, Permeability.BLOCKING);
+		super(Void.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
 	}
 	

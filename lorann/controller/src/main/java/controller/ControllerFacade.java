@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Example;
+import model.IElement;
 import model.IModel;
+import model.Permeability;
 import view.IView;
 
 /**
@@ -134,26 +136,38 @@ public class ControllerFacade implements IController {
     }
     
     
-    public Boolean testPermeability(){
-    	Boolean permeability = true;
+    public Boolean testPermeability(IElement element){
+    	Boolean permeability = false;
+    	if(element.getPermeability() == Permeability.PENETRABLE) {
+    		permeability = true;
+    	}
     	return permeability;
     }
     
     
     public void moveUp() throws IOException {
-    	model.moveUp();
+    	if(testPermeability(model.getElementUp()) == true) {
+    		model.moveUp();
+    	}
     }
     
     public void moveDown() throws IOException {
-    	model.moveDown();
+    	if(testPermeability(model.getElementDown()) == true) {
+    		model.moveDown();
+    	}
     }
     
     public void moveRight() throws IOException {
-    	model.moveRight();
+    	if(testPermeability(model.getElementRight()) == true) {
+        	model.moveRight();
+    	}
     }
     
     public void moveLeft() throws IOException {
-    	model.moveLeft();
+    	if(testPermeability(model.getElementLeft()) == true) {
+    		model.moveLeft();
+    	}
+    	
     }
    
 }

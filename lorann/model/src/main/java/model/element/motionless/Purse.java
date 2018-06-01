@@ -11,7 +11,7 @@ public class Purse extends MotionlessElement {
 
 	protected Purse() throws IOException {
 		
-		super(Purse.SPRITE, Permeability.BLOCKING);
+		super(Purse.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
 		
 	}

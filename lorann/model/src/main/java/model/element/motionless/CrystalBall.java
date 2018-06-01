@@ -11,7 +11,7 @@ public class CrystalBall extends MotionlessElement {
 
 	protected CrystalBall() throws IOException {
 		
-		super(CrystalBall.SPRITE, Permeability.BLOCKING);
+		super(CrystalBall.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
 		
 	}

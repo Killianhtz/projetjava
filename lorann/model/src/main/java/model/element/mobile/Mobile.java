@@ -17,19 +17,19 @@ public class Mobile extends Element implements IMobile {
 	}
 	
 	public void moveUp() {
-		position.translate(0, -1);
+		position.setLocation(position.getX(), position.getX()-1);
 	}
 	
 	public void moveDown() {
-		position.translate(0, 1);
+		position.setLocation(position.getX(), position.getX()+1);
 	}
 	
 	public void moveRight() {
-		 position.translate(1, 0);
+		position.setLocation(position.getX()+1, position.getX());
 	}
 	
 	public void moveLeft() {
-		position.translate(-1, 0);
+		position.setLocation(position.getX()-1, position.getX());
 	}
 	public void doNothing() {
 		

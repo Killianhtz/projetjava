@@ -5,19 +5,18 @@ import java.util.List;
 
 public class BehaviorOne implements Behavior {
  
-	private List<Direction> behave;
+	private Direction[] behave = new Direction[6];
 	
 	public BehaviorOne() {
-		behave = new ArrayList<Direction>();
-		behave.add(Direction.RIGHT);
-		behave.add(Direction.RIGHT);
-		behave.add(Direction.RIGHT);
-		behave.add(Direction.LEFT);
-		behave.add(Direction.LEFT);
-		behave.add(Direction.LEFT);
+		behave[0] = Direction.RIGHT;
+		behave[1] = Direction.RIGHT;
+		behave[2] = Direction.RIGHT;
+		behave[3] = Direction.LEFT;
+		behave[4] = Direction.LEFT;
+		behave[5] = Direction.LEFT;
 	}
 	
-	public List<Direction> getBehave() {
+	public Direction[] getBehave() {
 		return behave;
 	}
 

@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import model.IElement;
 import model.element.mobile.BehaviorOne;
+import model.element.mobile.BehaviorTwo;
 import model.element.mobile.Demon;
 import model.element.mobile.Lorann;
 import model.element.motionless.BlockingMotionlessFactory;
@@ -18,6 +19,7 @@ public class Map implements IMap{
 	public Lorann lorann;
 	public Demon demonD;
 	public Demon demonX;
+	public Boolean isThereDemonX = false;
 	
 	
 	MotionlessFactory penetrableMotionlessFactory;
@@ -65,12 +67,12 @@ public class Map implements IMap{
 						element[y][x] = demonD;
 						demonD.setPosition(x, y);
 						break;
-					/*case "X":
-						demonX = new DemonX();
+					case "X":
+						demonX = new Demon(new BehaviorTwo());
 						element[y][x] = demonX;
 						demonX.setPosition(x, y);
 						isThereDemonX = true;
-						break;*/
+						break;
 					case "E":
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);
 						element[y][x] = motionlessElement;
@@ -120,7 +122,10 @@ public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 		return this.lorann;
 	}
 	
-	public Demon getDemon() {
+	public Demon getDemonD() {
+		return this.demonD;
+	}
+	public Demon getDemonX() {
 		return this.demonD;
 	}
 }

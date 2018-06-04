@@ -1,16 +1,19 @@
 package model.element.mobile;
 
+import java.io.IOException;
+
 import model.Permeability;
 import model.Sprite;
 
 public class Demon extends Mobile {
 	
-	private static Sprite sprite = new Sprite("D", "monster_1.png");
+	private static final Sprite SPRITE = new Sprite("D", "monster_1.png");
 	protected Behavior behavior;
 	
-	public Demon(Behavior behavior) {
+	public Demon(Behavior behavior) throws IOException {
 		
-		super(Demon.sprite, Permeability.PENETRABLE);
+		super(Demon.SPRITE, Permeability.PENETRABLE);
+		SPRITE.loadImage();
 		setBehavior(behavior);
 	}
 	
@@ -18,5 +21,8 @@ public class Demon extends Mobile {
 		this.behavior = behavior;
 	}
 	
+	public Direction[] getDirection() {
+		return behavior.getBehave();
+	}
 	
 }

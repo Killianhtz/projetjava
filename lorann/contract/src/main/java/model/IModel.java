@@ -34,14 +34,17 @@ public interface IModel {
 	
 	 void constructTheMap(String[][] map) throws IOException;
 	
-	 void moveUp(IMobile mobile, Point point) throws IOException;
-	 IElement getElementUp(IMobile mobile, Point point) ;
+	 void move(IMobile mobile, Point point) throws IOException;
+	 IElement getElement(IMobile mobile, Point point) ;
 
 
 	IMobile getLorann();
 	
-	IMobile getDemonD();
+	IMobile getDemonDMobile();
 	
+	IMobile getDemonXMobile() throws Exception;
+	
+	Point demonBehavior(int a, IMobile mobile) throws IOException;
 	/*
 	IMobile getDemonX();
 	

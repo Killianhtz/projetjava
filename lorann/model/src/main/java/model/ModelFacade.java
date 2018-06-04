@@ -6,7 +6,10 @@ import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
+import model.element.mobile.Behavior;
+import model.element.mobile.BehaviorOne;
 import model.element.mobile.Demon;
+import model.element.mobile.Direction;
 import model.element.mobile.Lorann;
 //import model.element.mobile.Spell;
 import model.element.motionless.BlockingMotionlessFactory;
@@ -36,8 +39,10 @@ public final class ModelFacade implements IModel {
 	public Lorann lorann;
 	public Demon demonD;
 	public Demon demonX;
+	public Point demonPoint;
+	public Direction[] dirDemon;
 	
-	public Boolean isThereDemonX = false;
+	
 	
 	
 	private IView view;
@@ -79,6 +84,8 @@ public final class ModelFacade implements IModel {
 		mapI = new Map();	
 		element = mapI.constructTheMap(map);
 		lorann = mapI.getLorann();
+		demonD = mapI.getDemonD();
+		demonX = mapI.getDemonX();
 		view.setMap(element);
 		  
 	}
@@ -97,13 +104,13 @@ public final class ModelFacade implements IModel {
 		this.view = view;
 	}
 	
-	public void moveUp(IMobile mobile, Point point) throws IOException{
+	public void move(IMobile mobile, Point point) throws IOException{
 		mobile.move(point);
 		changeTheMap(mobile);
 	}
 
 	
-	public IElement getElementUp(IMobile mobile, Point point) {
+	public IElement getElement(IMobile mobile, Point point) {
 		IElement elementUp = element[mobile.getY() + (int)point.getY()][mobile.getX() + (int)point.getX()];
 		return elementUp;
 	}
@@ -131,9 +138,30 @@ public final class ModelFacade implements IModel {
 	public IMobile getDemonDMobile() {
 		return this.demonD;
 	}
-	public Demon getDemonD() {
-		return this.demonD;
+	
+	public IMobile getDemonXMobile() throws Exception{
+		return this.demonX;
 	}
+	
+	public Point demonBehavior(int a, IMobile mobile) throws IOException {
+		dirDemon = mapI.demonD.getDirection();
+		
+		if(dirDemon[a] == Direction.RIGHT) {
+			demonPoint = new Point(1,0);
+		}
+		else if(dirDemon[a] == Direction.LEFT) {
+			demonPoint = new Point(-1,0);
+		}
+		else if(dirDemon[a] == Direction.UP) {
+			demonPoint = new Point(0,-1);
+		}
+		else if(dirDemon[a] == Direction.DOWN) {
+			demonPoint = new Point(0,1);
+		}
+		return demonPoint;
+	}
+
+
 	
 
 	

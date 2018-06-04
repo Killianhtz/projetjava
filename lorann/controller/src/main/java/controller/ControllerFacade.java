@@ -132,6 +132,10 @@ public class ControllerFacade implements IController {
     		  			nextLevelY = false;
     		  			moveDown();
     		  			break;
+    		  		case('S'):
+    		  			nextLevelY = false;
+    		  			castSpell();
+    		  			break;
     		  		}
     		  				  		
     		  
@@ -268,8 +272,9 @@ public class ControllerFacade implements IController {
 
         model.constructTheMap(map);
         
-        
-        
-        
+    }
+    
+    public void castSpell() {
+    	
     }
 }

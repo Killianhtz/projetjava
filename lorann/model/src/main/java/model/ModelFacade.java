@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
+import model.element.mobile.Demon;
 import model.element.mobile.Lorann;
 import model.element.mobile.Mobile;
 import model.element.motionless.BlockingMotionlessFactory;
@@ -34,6 +35,7 @@ public final class ModelFacade implements IModel {
 	private String mapSave[][];
 	
 	public Lorann lorann;
+	public Demon[] demon = new Demon[2];
 	
 	private int oldPositionX;
 	private int oldPositionY;
@@ -107,7 +109,16 @@ public final class ModelFacade implements IModel {
 						lorann = new Lorann();
 						element[y][x] = lorann;
 						lorann.setPosition(x, y);
-						System.out.println(lorann.getX() + "\n"+ lorann.getY());
+						break;
+					case "D":
+						demon[0] = new Demon();
+						element[y][x] = demon[0];
+						demon[0].setPosition(x, y);
+						break;
+					case "X":
+						demon[1] = new Demon();
+						element[y][x] = demon[1];
+						demon[1].setPosition(x, y);
 						break;
 					case "E":
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);

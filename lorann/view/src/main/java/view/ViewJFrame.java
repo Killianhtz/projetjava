@@ -56,6 +56,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	      else if (e.getKeyCode() == KeyEvent.VK_UP) {
 	    	  this.letter = 'U';
 	      }
+	      else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+	    	  this.letter = 'S';
+	      }
 		
 	} 
 

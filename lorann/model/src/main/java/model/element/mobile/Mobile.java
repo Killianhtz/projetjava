@@ -13,7 +13,6 @@ public class Mobile extends Element implements IMobile {
 	private Point oldPosition;
 	private Boolean alive = true;
 	
-	public Behavior behaviorType;
 	
 	public Mobile(final Sprite SPRITE, final Permeability PERMEABILITY) {
 		super(SPRITE, PERMEABILITY);
@@ -88,16 +87,4 @@ public class Mobile extends Element implements IMobile {
 		return position.getLocation();
 	}
 	
-	
-	public void doMoveBehavior() {
-		behaviorType.moveBehavior();
-	}
-	
-	public void setMoveBehavior(Behavior newBehaviorType) {
-		behaviorType = newBehaviorType;
-	}
-	
-	public Behavior getBehaviorType() {
-		return this.behaviorType;
-	}
 }

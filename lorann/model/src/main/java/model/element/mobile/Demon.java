@@ -12,7 +12,7 @@ public class Demon extends Mobile{
 	
 	private static final Sprite SPRITE = new Sprite("D", "monster_1.png");
 	
-	public Demon(Behavior behavior) throws IOException {
+	public Demon() throws IOException {
 		super(Demon.SPRITE, Permeability.BLOCKING);
 		SPRITE.loadImage();
 	}

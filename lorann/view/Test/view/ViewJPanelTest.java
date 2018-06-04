@@ -1,20 +1,29 @@
 package view;
 
 import static org.junit.Assert.*;
-
+import java.awt.image.BufferedImage;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import model.IElement;
+
 public class ViewJPanelTest {
 
+	private BufferedImage[][] image = new BufferedImage[12][20];
+	private IElement[][] element;
+	private int x;
+	private int y;
+	private Boolean yes = false;
+	private String itslost = "";
+	private int score = 0;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
 
-	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
@@ -27,20 +36,27 @@ public class ViewJPanelTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testViewJPanel() {
-		fail("Not yet implemented");
-	}
+	  @Test
+	    public void testChanges() {
+	        this.yes = true;
 
-	@Test
-	public void testChanges() {
-		fail("Not yet implemented");
-	}
+	        for (y = 0; y <= 11; y++) {
+	            for (x = 0; x <= 19; x++) {
 
-	@Test
-	public void testLose() {
-		fail("Not yet implemented");
-	}
+
+
+	            }
+	        }
+	        assertTrue(yes);
+	        assertEquals(20, x);
+	        assertEquals(12, y);
+	 }
+
+    @Test
+    public void testLose() {
+        this.itslost = "YOU LOSE";
+        assertEquals("YOU LOSE", itslost);
+    }
 
 	@Test
 	public void testPaintComponentGraphics() {

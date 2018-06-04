@@ -11,7 +11,7 @@ public class Lorann extends Mobile{
 	private Boolean hero = true;
 	private Boolean mana = true;
 	private Direction castDirection;
-	private Spell spell;
+	//private Spell spell;
 	
 	private static final Sprite SPRITE = new Sprite("L", "lorann_b.png");
 	

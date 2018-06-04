@@ -2,8 +2,8 @@ package model;
 
 import java.io.IOException;
 import model.IElement;
-import model.element.mobile.DemonD;
-import model.element.mobile.DemonX;
+//import model.element.mobile.DemonD;
+//import model.element.mobile.DemonX;
 import model.element.mobile.Lorann;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
@@ -16,8 +16,8 @@ public class Map implements IMap{
 	private IElement[][] element = new IElement[12][20];
 	private String mapSave[][];
 	public Lorann lorann;
-	public DemonD demonD;
-	public DemonX demonX;
+	//public DemonD demonD;
+	//public DemonX demonX;
 	
 	
 	MotionlessFactory penetrableMotionlessFactory;

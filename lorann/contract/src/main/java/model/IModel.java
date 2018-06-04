@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -33,27 +34,19 @@ public interface IModel {
 	
 	 void constructTheMap(String[][] map) throws IOException;
 	
-	 void moveUp(IMobile mobile) throws IOException;
-	 void moveDown(IMobile mobile) throws IOException;
-	 void moveLeft(IMobile mobile) throws IOException;
-	 void moveRight(IMobile mobile) throws IOException;
-	 IElement getElementUp(IMobile mobile) ;
+	 void moveUp(IMobile mobile, Point point) throws IOException;
+	 IElement getElementUp(IMobile mobile, Point point) ;
 
-	IElement getElementDown(IMobile mobile);
 
-	IElement getElementRight(IMobile mobile);
-
-	IElement getElementLeft(IMobile mobile);
-	
 	IMobile getLorann();
 	
-	IMobile getDemonD();
+	/*IMobile getDemonD();
 	
 	IMobile getDemonX();
 	
 	Boolean isThereDemonX();
 	
-	Boolean spellAlive();
+	Boolean spellAlive();*/
 
 	void openGate(IMobile mobile)throws IOException;
 	

@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,7 +28,8 @@ public class ControllerFacade implements IController {
     
     private Boolean test = false;
     
-    private char direction = 'o';
+    private Point direction;
+    private Point direction2;
     
     private Boolean nextLevelY = false;
     
@@ -65,7 +67,7 @@ public class ControllerFacade implements IController {
      * @throws Exception 
      */
     public void play() throws Exception {
-
+    	direction2 = new Point(0,0);
         final List<Example> procedure = this.getModel().getMapByLevel(level);
         for (final Example example : procedure) {
             map[y][x] = example.getElement();
@@ -112,38 +114,15 @@ public class ControllerFacade implements IController {
     public void loop() throws Exception{
     		
     	  while(test==false) {
-    		  	
-    		  		view.setDirection();
-    		  		try {
-    		  			Thread.sleep(150);
-    		  		} catch (Exception e) {}
-    		  		this.direction = view.getDirection();
+    		  nextLevelY = false;
+    		  view.setDirection();
+    		  try {
+    		  	Thread.sleep(150);
+    		  } catch (Exception e) {}
+    		  this.direction = view.getDirection();
     		  		
-    		  		switch(this.direction) {
-    		  		case('R'):
-    		  			nextLevelY = false;
-    		  			moveRight();
-    		  			break;
-    		  		case('L'):
-    		  			nextLevelY = false;
-    		  			moveLeft();
-    		  			break;
-    		  		case('U'):
-    		  			nextLevelY = false;
-    		  			moveUp();
-    		  			break;
-    		  		case('D'):
-    		  			nextLevelY = false;
-    		  			moveDown();
-    		  			break;
-    		  		case('X'):
-    		  			System.out.println("ddw");
-    		  			break;
-    		  		case('S'):
-    		  			nextLevelY = false;
-    		  			break;
-    		  		}
-    		  				  		
+    		  moveUp();
+			  		
     		 //demonMoves();
           }
     	  
@@ -160,90 +139,18 @@ public class ControllerFacade implements IController {
     
     
     public void moveUp() throws SQLException, Exception {
-    	if(testPermeability(model.getElementUp((IMobile)model.getLorann())) == true) {
+    	if(testPermeability(model.getElementUp((IMobile)model.getLorann(), direction)) == true) {
     		testEventUp();
     		if(nextLevelY != true) {
-        		model.moveUp(model.getLorann());
+        		model.moveUp(model.getLorann(), direction);
+        		
     		}
     	}
+    	view.setDirection();
     }
-    
-    public void moveDown() throws SQLException, Exception {
-    	if(testPermeability(model.getElementDown(model.getLorann())) == true) {
-    		testEventDown();
-    		if(nextLevelY != true) {
-        		model.moveDown(model.getLorann());
-    		}
-    	}
-    }
-    
-    public void moveRight() throws Exception {
-    	if(testPermeability(model.getElementRight(model.getLorann())) == true) {
-    		testEventRight();
-    		if(nextLevelY != true) {
-        		model.moveRight(model.getLorann());
-    		}
-    	}
-    }
-    
-    public void moveLeft() throws Exception {
-    	if(testPermeability(model.getElementLeft(model.getLorann())) == true) {
-    		testEventLeft();
-    		if(nextLevelY != true) {
-        		model.moveLeft(model.getLorann());
-    		}
-    	}
-    	
-    }
-   
-    public void testEventLeft()throws Exception {
-    	switch(model.getElementLeft(model.getLorann()).getSprite().getConsoleImage()) {
-    		case "E":
-    			model.openGate(model.getLorann());
-    			break;
-    		case "M":
-    			this.level = level + 1;
-    			nextLevel();
-    			break;
-    		case "B":
-    			addScore();
-    			view.setScore(score);
-    			break;
-    		case "D":
-    			lose();
-    			break;
-    		case "X":
-    			lose();
-    			break;
-    			
-    	}
-    	
-    }
-    
-    public void testEventRight()throws Exception {
-    	switch(model.getElementRight(model.getLorann()).getSprite().getConsoleImage()) {
-		case "E":
-			model.openGate(model.getLorann());
-			break;
-		case "M":
-			this.level = level + 1;
-			nextLevel();
-			break;
-		case "B":
-			addScore();
-			view.setScore(score);
-			break;
-		case "D":
-			lose();
-			break;
-		case "X":
-			lose();
-			break;
-	}
-   }
 
     public void testEventUp()throws SQLException, Exception {
-    	switch(model.getElementUp(model.getLorann()).getSprite().getConsoleImage()) {
+    	switch(model.getElementUp(model.getLorann(), direction).getSprite().getConsoleImage()) {
 		case "E":
 			model.openGate(model.getLorann());
 			break;
@@ -264,27 +171,7 @@ public class ControllerFacade implements IController {
 	} 	
    }
 
-    public void testEventDown()throws SQLException, Exception {
-    	switch(model.getElementDown(model.getLorann()).getSprite().getConsoleImage()) {
-		case "E":
-			model.openGate(model.getLorann());
-			break;
-		case "M":
-			this.level = level + 1;
-			nextLevel();
-			break;
-		case "B":
-			addScore();
-			view.setScore(score);
-			break;
-		case "D":
-			lose();
-			break;
-		case "X":
-			lose();
-			break;
-	}	
-   }
+    
     
     public void nextLevel() throws SQLException, Exception {
     	nextLevelY = true;
@@ -309,18 +196,13 @@ public class ControllerFacade implements IController {
     	this.score = this.score + 650;
     }
     
-    public void castSpell() {
-    	
-    	if (this.model.spellAlive()) {
-			
-		}
-    }
+    
     
     public void spellMoves() {
     	
     }
     
-    public void demonDMoves() throws IOException {
+    /*public void demonDMoves() throws IOException {
     	if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() == "V" && this.demonDDirection == 1) {
     		model.moveRight(model.getDemonD());
     	}
@@ -368,7 +250,7 @@ public class ControllerFacade implements IController {
 			 demonXMoves();
 		 }
 		 
-    }
+    }*/
     
     public void lose() {
     	this.view.lose();

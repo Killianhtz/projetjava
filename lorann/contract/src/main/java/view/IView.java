@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Point;
+
 import model.IElement;
 import model.IModel;
 
@@ -19,7 +21,7 @@ public interface IView {
      */
     void displayMessage(String message);
     
-    public char getDirection();
+    public Point getDirection();
 
     public void setDirection();
     

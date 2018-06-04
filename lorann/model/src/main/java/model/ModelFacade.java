@@ -1,14 +1,15 @@
 package model;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
-import model.element.mobile.DemonD;
-import model.element.mobile.DemonX;
+//import model.element.mobile.DemonD;
+//import model.element.mobile.DemonX;
 import model.element.mobile.Lorann;
-import model.element.mobile.Spell;
+//import model.element.mobile.Spell;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
 import model.element.motionless.MotionlessFactory;
@@ -34,9 +35,9 @@ public final class ModelFacade implements IModel {
 	private Map mapI;
 	
 	public Lorann lorann;
-	public DemonD demonD;
+	/*public DemonD demonD;
 	public DemonX demonX;
-	public Spell spell;
+	public Spell spell;*/
 	
 	public Boolean isThereDemonX = false;
 	
@@ -98,45 +99,18 @@ public final class ModelFacade implements IModel {
 		this.view = view;
 	}
 	
-	public void moveUp(IMobile mobile) throws IOException{
-		mobile.moveUp();
+	public void moveUp(IMobile mobile, Point point) throws IOException{
+		mobile.move(point);
 		changeTheMap(mobile);
 	}
-//	
-	public void moveDown(IMobile mobile) throws IOException {
-		mobile.moveDown();
-		changeTheMap(mobile);
-	}
+
 	
-	public void moveRight(IMobile mobile) throws IOException {
-		mobile.moveRight();
-		changeTheMap(mobile);
-	}
-	
-	public void moveLeft(IMobile mobile)  throws IOException{
-		mobile.moveLeft();
-		changeTheMap(mobile);
-	}
-	
-	public IElement getElementUp(IMobile mobile) {
-		IElement elementUp = element[mobile.getY() - 1][mobile.getX()];
+	public IElement getElementUp(IMobile mobile, Point point) {
+		IElement elementUp = element[mobile.getY() + (int)point.getY()][mobile.getX() + (int)point.getX()];
 		return elementUp;
 	}
 	
-	public IElement getElementDown(IMobile mobile) {
-		IElement elementDown = element[mobile.getY() + 1][mobile.getX()];
-		return elementDown;
-	}
-	
-	public IElement getElementLeft(IMobile mobile) {
-		IElement elementLeft = element[mobile.getY()][mobile.getX() - 1];
-		return elementLeft;
-	}
-	
-	public IElement getElementRight(IMobile mobile) {
-		IElement elementRight = element[mobile.getY()][mobile.getX() + 1];
-		return elementRight;
-	}
+
 	
 	public void openGate(IMobile mobile)  throws IOException {
 		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
@@ -156,7 +130,7 @@ public final class ModelFacade implements IModel {
 		return this.lorann;
 	}
 	
-	public IMobile getDemonD() {
+	/*public IMobile getDemonD() {
 		return this.demonD;
 	}
 	
@@ -171,6 +145,6 @@ public final class ModelFacade implements IModel {
 	public Boolean spellAlive() {
 		return this.spell.isAlive();
 	}
-	
+	*/
 	
 }

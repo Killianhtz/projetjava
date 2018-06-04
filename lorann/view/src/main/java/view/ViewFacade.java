@@ -59,7 +59,7 @@ public class ViewFacade implements IView {
 	}
 	
 	
-	public char getDirection() {
+	public Point getDirection() {
 		return window.getDirection();
 	}
 	

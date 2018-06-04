@@ -20,7 +20,7 @@ public class Mobile extends Element implements IMobile {
 		oldPosition = new Point();
 	}
 	
-	public void moveUp() {
+	/*public void moveUp() {
 		oldPosition.setLocation(getX(),getY());
 		position.setLocation(position.getX(), position.getY()-1);
 	}
@@ -38,7 +38,14 @@ public class Mobile extends Element implements IMobile {
 	public void moveLeft() {
 		oldPosition.setLocation(getX(),getY());
 		position.setLocation(position.getX()-1, position.getY());
+	}*/
+	
+	
+	public void move(Point playerMoves) {
+		oldPosition.setLocation(getX(), getY());
+		position.setLocation(position.getX() + playerMoves.getX(), position.getY() + playerMoves.getY());
 	}
+	
 	public void doNothing() {
 		
 	}

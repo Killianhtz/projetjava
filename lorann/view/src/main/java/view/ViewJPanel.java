@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class ViewJPanel extends JPanel {
 	
 	private Boolean oui = false;
 	
-	private BufferedImage[][] image = new BufferedImage[12][20];
+	private Image[][] image = new Image[12][20];
 	
 	private int score = 0;
 	
@@ -38,9 +39,9 @@ public class ViewJPanel extends JPanel {
 		for (int y = 0; y <= 11; y++) {
 	        for (int x = 0; x <= 19; x++) {
 	        	
-	        	
-	        	
-	        image[y][x] = (BufferedImage)element[y][x].getImage(); 
+	       
+	        
+	        image[y][x] = element[y][x].getImage(); 
 	        	
 	        	
 	        }

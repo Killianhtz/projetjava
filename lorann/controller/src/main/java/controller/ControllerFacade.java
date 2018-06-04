@@ -37,8 +37,8 @@ public class ControllerFacade implements IController {
     
     private int score = 0;
     
-    private int demonDDirection = 1;
-    private int demonXDirection = 1;
+    private int demonDDirection = 0;
+    private int demonXDirection = 0;
     
     
     /* Map */
@@ -84,7 +84,19 @@ public class ControllerFacade implements IController {
         
         view.createJFrame(map);
         model.constructTheMap(map);
-        this.loop();
+        
+        while(test==false) {
+  		  nextLevelY = false;
+  		  view.setDirection();
+  		  try {
+  		  	Thread.sleep(150);
+  		  } catch (Exception e) {}
+  		  this.direction = view.getDirection();
+  		  		
+  		  move();
+			  		
+  		 demonMoves(model.getDemonDMobile());
+        }
         
       
         
@@ -108,25 +120,6 @@ public class ControllerFacade implements IController {
         return this.model;
     }
     
-   
-    
-    
-    public void loop() throws Exception{
-    		
-    	  while(test==false) {
-    		  nextLevelY = false;
-    		  view.setDirection();
-    		  try {
-    		  	Thread.sleep(150);
-    		  } catch (Exception e) {}
-    		  this.direction = view.getDirection();
-    		  		
-    		  moveUp();
-			  		
-    		 //demonMoves();
-          }
-    	  
-    }
     
     
     public Boolean testPermeability(IElement element){
@@ -138,11 +131,11 @@ public class ControllerFacade implements IController {
     }
     
     
-    public void moveUp() throws SQLException, Exception {
-    	if(testPermeability(model.getElementUp((IMobile)model.getLorann(), direction)) == true) {
+    public void move() throws SQLException, Exception {
+    	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
     		testEventUp();
     		if(nextLevelY != true) {
-        		model.moveUp(model.getLorann(), direction);
+        		model.move(model.getLorann(), direction);
         		
     		}
     	}
@@ -150,7 +143,7 @@ public class ControllerFacade implements IController {
     }
 
     public void testEventUp()throws SQLException, Exception {
-    	switch(model.getElementUp(model.getLorann(), direction).getSprite().getConsoleImage()) {
+    	switch(model.getElement(model.getLorann(), direction).getSprite().getConsoleImage()) {
 		case "E":
 			model.openGate(model.getLorann());
 			break;
@@ -202,55 +195,20 @@ public class ControllerFacade implements IController {
     	
     }
     
-   /* public void demonDMoves() throws IOException {
-    	if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() == "V" && this.demonDDirection == 1) {
-    		model.moveRight(model.getDemonD());
-    	}
-    	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() == "V" && this.demonDDirection == 2) {
-    		model.moveLeft(model.getDemonD());
-    	}
-    	else if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() == "L" && this.demonDDirection == 1) {
-    		lose();
-    	}
-    	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() == "L" && this.demonDDirection == 2) {
-    		lose();
-    	}
-    	else if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() != "V" && this.demonDDirection == 1) {
-    		this.demonDDirection = 2;
-    	}
-    	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() != "V" && this.demonDDirection == 2) {
-    		this.demonDDirection = 1;
-    	}
-    }*/
-    /*
-    public void demonXMoves() throws IOException {
-    	if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() == "V" && this.demonXDirection == 1) {
-    		model.moveUp(model.getDemonX());
-    	}
-    	else if(model.getElementDown(model.getDemonX()).getSprite().getConsoleImage() == "V" && this.demonXDirection == 2) {
-    		model.moveDown(model.getDemonX());
-    	}
-    	else if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() == "L" && this.demonXDirection == 1) {
-    		lose();
-    	}
-    	else if(model.getElementDown(model.getDemonX()).getSprite().getConsoleImage() == "L" && this.demonXDirection == 2) {
-    		lose();
-    	}
-    	else if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() != "V" && this.demonXDirection == 1) {
-    		this.demonXDirection = 2;
-    	}
-    	else if(model.getElementDown(model.getDemonX()).getSprite().getConsoleImage() != "V" && this.demonXDirection == 2) {
-    		this.demonXDirection = 1;
-    	}
+   public void demonMoves(IMobile mobile) throws IOException {
+	   if(model.getElement(mobile, model.demonBehavior(demonDDirection, mobile)).getSprite().getConsoleImage() == "V") {
+		   model.move(mobile, model.demonBehavior(demonDDirection, mobile));
+	   }
+	   else {
+		   demonDDirection++;
+		   if(demonDDirection == 6) {
+			   demonDDirection = 0;
+		   }
+	   }
+	   
+    	
     }
-    
-    public void demonMoves() throws IOException{
-		 demonDMoves();
-		 if(model.isThereDemonX() == true) {
-			 demonXMoves();
-		 }
-		 
-    }*/
+
     
     public void lose() {
     	this.view.lose();

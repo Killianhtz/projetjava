@@ -17,4 +17,6 @@ public class Demon extends Mobile {
 	public void setBehavior(Behavior behavior) {
 		this.behavior = behavior;
 	}
+	
+	
 }

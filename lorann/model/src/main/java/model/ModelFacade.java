@@ -6,8 +6,7 @@ import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
-//import model.element.mobile.DemonD;
-//import model.element.mobile.DemonX;
+import model.element.mobile.Demon;
 import model.element.mobile.Lorann;
 //import model.element.mobile.Spell;
 import model.element.motionless.BlockingMotionlessFactory;
@@ -35,9 +34,8 @@ public final class ModelFacade implements IModel {
 	private Map mapI;
 	
 	public Lorann lorann;
-	/*public DemonD demonD;
-	public DemonX demonX;
-	public Spell spell;*/
+	public Demon demonD;
+	public Demon demonX;
 	
 	public Boolean isThereDemonX = false;
 	
@@ -130,21 +128,13 @@ public final class ModelFacade implements IModel {
 		return this.lorann;
 	}
 	
-	/*public IMobile getDemonD() {
+	public IMobile getDemonDMobile() {
+		return this.demonD;
+	}
+	public Demon getDemonD() {
 		return this.demonD;
 	}
 	
-	public IMobile getDemonX() {
-		return this.demonX;
-	}
-	
-	public Boolean isThereDemonX() {
-		return this.isThereDemonX;
-	}
-	
-	public Boolean spellAlive() {
-		return this.spell.isAlive();
-	}
-	*/
+
 	
 }

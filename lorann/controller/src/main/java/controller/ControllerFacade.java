@@ -202,7 +202,7 @@ public class ControllerFacade implements IController {
     	
     }
     
-    /*public void demonDMoves() throws IOException {
+   /* public void demonDMoves() throws IOException {
     	if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() == "V" && this.demonDDirection == 1) {
     		model.moveRight(model.getDemonD());
     	}
@@ -221,8 +221,8 @@ public class ControllerFacade implements IController {
     	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() != "V" && this.demonDDirection == 2) {
     		this.demonDDirection = 1;
     	}
-    }
-    
+    }*/
+    /*
     public void demonXMoves() throws IOException {
     	if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() == "V" && this.demonXDirection == 1) {
     		model.moveUp(model.getDemonX());

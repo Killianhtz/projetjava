@@ -40,8 +40,9 @@ public interface IModel {
 
 	IMobile getLorann();
 	
-	/*IMobile getDemonD();
+	IMobile getDemonD();
 	
+	/*
 	IMobile getDemonX();
 	
 	Boolean isThereDemonX();

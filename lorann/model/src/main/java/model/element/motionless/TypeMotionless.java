@@ -1,5 +1,8 @@
 package model.element.motionless;
 
+/**
+ * All types of motionless elements
+ */
 public enum TypeMotionless {
 	
 	BONE,

@@ -7,8 +7,15 @@ import model.Sprite;
 
 public class GateOpen extends MotionlessElement {
 	
+	/**
+	 * Creating sprite with custom names and image.
+	 */
 	private static final Sprite SPRITE = new Sprite("M", "gate_open.png");
 
+	/**
+	 * Creating object with a loaded sprite and a permeability.
+	 * @throws IOException
+	 */
 	protected GateOpen() throws IOException {
 		
 		super(GateOpen.SPRITE, Permeability.PENETRABLE);

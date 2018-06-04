@@ -6,6 +6,11 @@ import model.Sprite;
 
 public abstract class MotionlessElement extends Element {
 
+	/**
+	 * Abstract superclass of all motionless elements.
+	 * @param SPRITE
+	 * @param PERMEABILITY
+	 */
 	protected MotionlessElement(final Sprite SPRITE, final Permeability PERMEABILITY) {
 		super(SPRITE, PERMEABILITY);
 	}

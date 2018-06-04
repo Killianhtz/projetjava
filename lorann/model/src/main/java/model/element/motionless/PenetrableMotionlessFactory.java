@@ -4,6 +4,9 @@ import java.io.IOException;
 
 public class PenetrableMotionlessFactory extends MotionlessFactory {
 	
+	/* 
+	 * Subclass of the abstract superclass MotionlessFactory, in charge of the creation of penetrable motionless Elements.
+	 */
 	@SuppressWarnings("incomplete-switch")
 	public MotionlessElement createElement(TypeMotionless type) throws IOException {
 		

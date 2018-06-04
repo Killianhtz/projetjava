@@ -200,7 +200,7 @@ public class ControllerFacade implements IController {
     			nextLevel();
     			break;
     		case "B":
-    			this.score = score + 150;
+    			addScore();
     			view.setScore(score);
     			break;
     	}
@@ -217,7 +217,7 @@ public class ControllerFacade implements IController {
 			nextLevel();
 			break;
 		case "B":
-			this.score = score + 150;
+			addScore();
 			view.setScore(score);
 			break;
 	}
@@ -233,7 +233,7 @@ public class ControllerFacade implements IController {
 			nextLevel();
 			break;
 		case "B":
-			this.score = score + 150;
+			addScore();
 			view.setScore(score);
 			break;
 	} 	
@@ -249,7 +249,7 @@ public class ControllerFacade implements IController {
 			nextLevel();
 			break;
 		case "B":
-			this.score = score + 150;
+			addScore();
 			view.setScore(score);
 			break;
 	}	
@@ -272,6 +272,10 @@ public class ControllerFacade implements IController {
 
         model.constructTheMap(map);
         
+    }
+    
+    public void addScore() {
+    	this.score = this.score + 650;
     }
     
     public void castSpell() {

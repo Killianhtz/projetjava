@@ -69,6 +69,9 @@ public class Map implements IMap{
 						break;
 					case "X":
 						demonX = new Demon(new BehaviorTwo());
+						demonX.getSprite().setImageName("monster_2.png");
+						demonX.getSprite().setConsoleImage("X");
+						demonX.getSprite().loadImage();
 						element[y][x] = demonX;
 						demonX.setPosition(x, y);
 						isThereDemonX = true;

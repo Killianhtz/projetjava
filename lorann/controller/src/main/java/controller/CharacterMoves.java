@@ -3,6 +3,7 @@ package controller;
 
 
 import java.awt.Point;
+import java.io.IOException;
 import java.sql.SQLException;
 
 import model.IElement;
@@ -15,6 +16,8 @@ public class CharacterMoves {
 	private IModel model;
 	private IView view;
 	private Event event;
+    private int demonDDirection = 0;
+    private int demonXDirection = 0;
 	
 	public CharacterMoves(IView view,IModel model, Event event) {
         this.view = view;
@@ -23,14 +26,16 @@ public class CharacterMoves {
 	}
 	
     public void move(Boolean nextLevelY, Point direction) throws SQLException, Exception {
+    	event.testEvent(direction);
     	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
-    		event.testEvent(direction);
+    		
     		if(nextLevelY != true) {
         		model.move(model.getLorann(), direction);
         		
     		}
     	}
     	view.setDirection();
+    	
     }
     
     public Boolean testPermeability(IElement element){
@@ -40,4 +45,37 @@ public class CharacterMoves {
     	}
     	return permeability;
     }
+    
+    public void demonMovesD(IMobile mobile) throws IOException {
+ 	   if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "V") {
+ 		   model.move(mobile, model.demonBehavior(demonDDirection, 1, mobile));
+ 	   }
+ 	   else if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "L") {
+ 		   event.lose();
+ 	   }
+ 	   else {
+ 		   demonDDirection++;
+ 		   if(demonDDirection == 6) {
+ 			   demonDDirection = 0;
+ 		   }
+ 	   }
+     }
+    public void demonMovesX(IMobile mobile) throws IOException {
+ 	   if(model.getIsThereDemonX() == true) {
+ 		   if(model.getElement(mobile, model.demonBehavior(demonXDirection, 2, mobile)).getSprite().getConsoleImage() == "V") {
+ 			   model.move(mobile, model.demonBehavior(demonXDirection, 2, mobile));
+ 		   }
+ 	 	   else if(model.getElement(mobile, model.demonBehavior(demonXDirection, 1, mobile)).getSprite().getConsoleImage() == "L") {
+ 	 		   event.lose();
+ 	 	   }
+ 		   else {
+ 			   demonXDirection++;
+ 			   if(demonXDirection == 6) {
+ 				   demonXDirection = 0;
+ 			   }
+ 		   }
+ 	   }
+ 	   
+     }
+     
 }

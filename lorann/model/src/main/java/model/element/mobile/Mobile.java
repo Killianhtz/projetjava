@@ -71,8 +71,8 @@ public class Mobile extends Element implements IMobile {
 		return y;
 	}
 	
-	public Point getPosition(Point position) {
-		return position.getLocation();
+	public Point getPosition() {
+		return this.position.getLocation();
 	}
 	
 }

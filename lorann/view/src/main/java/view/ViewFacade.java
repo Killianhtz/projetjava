@@ -67,6 +67,13 @@ public class ViewFacade implements IView {
 		window.setDirection();
 	}
 	
+	public Boolean getSpell() {
+		return window.getSpell();
+	}
+	
+	public void setSpell() {
+		window.setSpell();
+	}
 	
 	public void setScore(int score) {
 		window.getJPanel().setScore(score);;

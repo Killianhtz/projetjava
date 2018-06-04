@@ -22,6 +22,10 @@ public interface IView {
     void displayMessage(String message);
     
     public Point getDirection();
+    
+    public Boolean getSpell();
+    
+    public void setSpell();
 
     public void setDirection();
     

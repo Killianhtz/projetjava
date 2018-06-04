@@ -17,5 +17,5 @@ public interface IMobile {
 	public int getY();
 	public void setPosition(int x, int y);
 	public Boolean isAlive();
-	public Point getPosition(Point position);
+	public Point getPosition();
 }

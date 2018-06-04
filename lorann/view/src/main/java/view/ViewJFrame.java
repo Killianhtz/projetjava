@@ -20,7 +20,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	private ViewJPanel viewjpanel;
 	
-	private char letter = 'O';
+	private Boolean spell = false;
 	
 	private Point playerMoves = new Point(0,0);
 	
@@ -59,7 +59,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	    	  playerMoves.y = -1;
 	      }
 	      else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-	    	 // this.letter = 'S';
+	    	 this.spell = true;
 	      }
 	      
 		
@@ -78,6 +78,14 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e) {
 		
+	}
+	
+	public Boolean getSpell() {
+		return this.spell;
+	}
+	
+	public void setSpell() {
+		this.spell = false;
 	}
 	
 	public Point getDirection() {

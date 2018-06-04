@@ -51,7 +51,7 @@ public interface IModel {
 	Boolean isThereDemonX();
 	
 	Boolean spellAlive();*/
-
+    public void creatSpell( Point lastDirection)throws IOException;
 	void openGate(IMobile mobile)throws IOException;
 	
 	

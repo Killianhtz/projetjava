@@ -27,21 +27,19 @@ public class ControllerFacade implements IController, Observer {
     private final IModel model;
     private Event event;
     private CharacterMoves characterMoves;
+    private CastingSpell castingSpell;
     
     private Boolean test = false;
     
     private Point direction;
+    private Point lastDirection;
     private Point direction2;
     
     private Boolean nextLevelY = false;
     
     private int level = 1;
     
-    private int demonDDirection = 0;
-    private int demonXDirection = 0;
-    
-    
-    /* Map */
+
     public String[][] map = new String[12][20];
     
     private int x = 0;
@@ -56,6 +54,7 @@ public class ControllerFacade implements IController, Observer {
         event = new Event(view,model);
         event.addObserver(this);
         characterMoves = new CharacterMoves(view,model,event);
+        castingSpell = new CastingSpell(view,model,event);
         
     }
 
@@ -89,11 +88,18 @@ public class ControllerFacade implements IController, Observer {
   		  	Thread.sleep(150);
   		  } catch (Exception e) {}
   		  this.direction = view.getDirection();
-  		  		
-  		  characterMoves.move(nextLevelY,direction);
-			  		
-  		 demonMovesD(model.getDemonDMobile());
-  		demonMovesX(model.getDemonXMobile());
+  		  if(this.direction.getX() != 0 || this.direction.getY() != 0) {
+  			  this.lastDirection = this.direction;
+  			  System.out.println(this.direction);
+  		  }
+  		  
+		if(view.getSpell() == true) {
+			castingSpell.createSpell(lastDirection);
+			view.setSpell();
+		}
+		characterMoves.move(nextLevelY,direction);
+  		 characterMoves.demonMovesD(model.getDemonDMobile());
+  		characterMoves.demonMovesX(model.getDemonXMobile());
         }
         
       
@@ -120,40 +126,7 @@ public class ControllerFacade implements IController, Observer {
         model.constructTheMap(map);
         
     }
-    
-
-    
-    public void spellMoves() {
-    	
-    }
-    
-   public void demonMovesD(IMobile mobile) throws IOException {
-	   if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "V") {
-		   model.move(mobile, model.demonBehavior(demonDDirection, 1, mobile));
-	   }
-	   else {
-		   demonDDirection++;
-		   if(demonDDirection == 6) {
-			   demonDDirection = 0;
-		   }
-	   }
-    }
-   public void demonMovesX(IMobile mobile) throws IOException {
-	   if(model.getIsThereDemonX() == true) {
-		   if(model.getElement(mobile, model.demonBehavior(demonXDirection, 2, mobile)).getSprite().getConsoleImage() == "V") {
-			   model.move(mobile, model.demonBehavior(demonXDirection, 2, mobile));
-		   }
-		   else {
-			   demonXDirection++;
-			   if(demonXDirection == 6) {
-				   demonXDirection = 0;
-			   }
-		   }
-	   }
-	   
-    }
-    
-
+ 
 
 	@Override
 	public void update(Observable o, Object arg) {

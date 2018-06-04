@@ -11,6 +11,7 @@ import model.element.mobile.BehaviorOne;
 import model.element.mobile.Demon;
 import model.element.mobile.Direction;
 import model.element.mobile.Lorann;
+import model.element.mobile.Spell;
 //import model.element.mobile.Spell;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
@@ -33,6 +34,7 @@ public final class ModelFacade implements IModel {
 	public Demon demonX;
 	public Point demonPoint;
 	public Direction[] dirDemon;
+	public Spell spell;
 	
 	
 	private IView view;
@@ -79,6 +81,12 @@ public final class ModelFacade implements IModel {
 		
 		element = mapI.changeTheMap(mobile);
 		element[mobile.getY()][mobile.getX()] = (IElement)mobile;
+		view.setMap(element);
+	}
+	
+	public void creatSpell(Point lastDirection)throws IOException {
+		spell = new Spell(lorann.getPosition(),lastDirection);
+		element[spell.getY()][spell.getX()] = spell;
 		view.setMap(element);
 	}
 	

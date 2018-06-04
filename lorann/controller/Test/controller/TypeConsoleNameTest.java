@@ -9,7 +9,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TypeConsoleNameTest {
-
+	
+	
+	private int size;
+	@SuppressWarnings("unused")
+	private String Enum;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -19,8 +23,10 @@ public class TypeConsoleNameTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+
 	@Before
 	public void setUp() throws Exception {
+		this.Enum = "V,O,E,S,M,P,B,H";
 	}
 
 	@After
@@ -29,7 +35,9 @@ public class TypeConsoleNameTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		int expected = 8;
+		this.size = TypeConsoleName.values().length;
+		assertEquals(expected, size);
 	}
 
 }

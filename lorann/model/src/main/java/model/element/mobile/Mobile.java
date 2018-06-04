@@ -10,6 +10,7 @@ import model.element.Element;
 public class Mobile extends Element implements IMobile {
 	
 	private Point position;
+	private Point oldPosition;
 	private Boolean alive = true;
 	
 	public Behavior behaviorType;
@@ -17,21 +18,26 @@ public class Mobile extends Element implements IMobile {
 	public Mobile(final Sprite SPRITE, final Permeability PERMEABILITY) {
 		super(SPRITE, PERMEABILITY);
 		position = new Point();
+		oldPosition = new Point();
 	}
 	
 	public void moveUp() {
+		oldPosition.setLocation(getX(),getY());
 		position.setLocation(position.getX(), position.getY()-1);
 	}
 	
 	public void moveDown() {
+		oldPosition.setLocation(getX(),getY());
 		position.setLocation(position.getX(), position.getY()+1);
 	}
 	
 	public void moveRight() {
+		oldPosition.setLocation(getX(),getY());
 		position.setLocation(position.getX()+1, position.getY());
 	}
 	
 	public void moveLeft() {
+		oldPosition.setLocation(getX(),getY());
 		position.setLocation(position.getX()-1, position.getY());
 	}
 	public void doNothing() {
@@ -48,6 +54,20 @@ public class Mobile extends Element implements IMobile {
 	
 	public Boolean isAlive() {
 		return this.alive;
+	}
+	
+	public int getOldX() {
+		double xP = oldPosition.getX();
+		int x;
+		x = (int)xP;
+		return x;
+	}
+	
+	public int getOldY() {
+		double yP = oldPosition.getY();
+		int y;
+		y = (int)yP;
+		return y;
 	}
 	
 	public int getX() {
@@ -68,11 +88,16 @@ public class Mobile extends Element implements IMobile {
 		return position.getLocation();
 	}
 	
+	
 	public void doMoveBehavior() {
 		behaviorType.moveBehavior();
 	}
 	
 	public void setMoveBehavior(Behavior newBehaviorType) {
 		behaviorType = newBehaviorType;
+	}
+	
+	public Behavior getBehaviorType() {
+		return this.behaviorType;
 	}
 }

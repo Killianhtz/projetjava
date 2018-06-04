@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Point;
 
+
 public interface IMobile {
 	
 	public void moveUp();
@@ -9,6 +10,8 @@ public interface IMobile {
 	public void moveRight();
 	public void moveLeft();
 	public void doNothing();
+	public int getOldX();
+	public int getOldY();
 	public int getX();
 	public int getY();
 	public void setPosition(int x, int y);

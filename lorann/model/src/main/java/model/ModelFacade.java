@@ -7,7 +7,8 @@ import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
-import model.element.mobile.Demon;
+import model.element.mobile.DemonD;
+import model.element.mobile.DemonX;
 import model.element.mobile.Lorann;
 import model.element.mobile.Mobile;
 import model.element.motionless.BlockingMotionlessFactory;
@@ -35,7 +36,8 @@ public final class ModelFacade implements IModel {
 	private String mapSave[][];
 	
 	public Lorann lorann;
-	public Demon[] demon = new Demon[2];
+	public DemonD demonD;
+	public DemonX demonX;
 	
 	private int oldPositionX;
 	private int oldPositionY;
@@ -111,14 +113,14 @@ public final class ModelFacade implements IModel {
 						lorann.setPosition(x, y);
 						break;
 					case "D":
-						demon[0] = new Demon();
-						element[y][x] = demon[0];
-						demon[0].setPosition(x, y);
+						demonD = new DemonD();
+						element[y][x] = demonD;
+						demonD.setPosition(x, y);
 						break;
 					case "X":
-						demon[1] = new Demon();
-						element[y][x] = demon[1];
-						demon[1].setPosition(x, y);
+						demonX = new DemonX();
+						element[y][x] = demonX;
+						demonX.setPosition(x, y);
 						break;
 					case "E":
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);
@@ -144,36 +146,36 @@ public final class ModelFacade implements IModel {
 	
 	
 	
-	public void changeTheMap() throws IOException  {
+	public void changeTheMap(IMobile mobile) throws IOException  {
 		
-		switch(mapSave[oldPositionY][oldPositionX]) {
+		switch(mapSave[mobile.getOldY()][mobile.getOldX()]) {
 		case "V":
 			motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
-			element[oldPositionY][oldPositionX] = motionlessElement;
+			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
 			break;
 		case "S":
 			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.GATECLOSE);
-			element[oldPositionY][oldPositionX] = motionlessElement;
+			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
 			break;
 		case "O":
 			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.BONE);
-			element[oldPositionY][oldPositionX] = motionlessElement;
+			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
 			break;
 		case "P":
 			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.HORIZONTALBONE);
-			element[oldPositionY][oldPositionX] = motionlessElement;
+			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
 			break;
 		case "H":
 			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.VERTICALBONE);
-			element[oldPositionY][oldPositionX] = motionlessElement;
+			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
 			break;
 		default:
 			motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
-			element[oldPositionY][oldPositionX] = motionlessElement;
+			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
 			break;
 		}
 
-		element[lorann.getY()][lorann.getX()] = lorann;
+		element[mobile.getY()][mobile.getX()] = (IElement)mobile;
 		view.setMap(element);
 	}
 	
@@ -182,55 +184,47 @@ public final class ModelFacade implements IModel {
 		this.view = view;
 	}
 	
-	public void moveUp() throws IOException{
-		this.oldPositionX = lorann.getX();
-		this.oldPositionY = lorann.getY();
-		lorann.moveUp();
-		changeTheMap();
+	public void moveUp(IMobile mobile) throws IOException{
+		mobile.moveUp();
+		changeTheMap(mobile);
 	}
 //	
-	public void moveDown() throws IOException {
-		this.oldPositionX = lorann.getX();
-		this.oldPositionY = lorann.getY();
-		lorann.moveDown();
-		changeTheMap();
+	public void moveDown(IMobile mobile) throws IOException {
+		mobile.moveDown();
+		changeTheMap(mobile);
 	}
 	
-	public void moveRight() throws IOException {
-		this.oldPositionX = lorann.getX();
-		this.oldPositionY = lorann.getY();
-		lorann.moveRight();
-		changeTheMap();
+	public void moveRight(IMobile mobile) throws IOException {
+		mobile.moveRight();
+		changeTheMap(mobile);
 	}
 	
-	public void moveLeft()  throws IOException{
-		this.oldPositionX = lorann.getX();
-		this.oldPositionY = lorann.getY();
-		lorann.moveLeft();
-		changeTheMap();
+	public void moveLeft(IMobile mobile)  throws IOException{
+		mobile.moveLeft();
+		changeTheMap(mobile);
 	}
 	
-	public IElement getElementUp() {
-		IElement elementUp = element[lorann.getY() - 1][lorann.getX()];
+	public IElement getElementUp(IMobile mobile) {
+		IElement elementUp = element[mobile.getY() - 1][mobile.getX()];
 		return elementUp;
 	}
 	
-	public IElement getElementDown() {
-		IElement elementDown = element[lorann.getY() + 1][lorann.getX()];
+	public IElement getElementDown(IMobile mobile) {
+		IElement elementDown = element[mobile.getY() + 1][mobile.getX()];
 		return elementDown;
 	}
 	
-	public IElement getElementLeft() {
-		IElement elementLeft = element[lorann.getY()][lorann.getX() - 1];
+	public IElement getElementLeft(IMobile mobile) {
+		IElement elementLeft = element[mobile.getY()][mobile.getX() - 1];
 		return elementLeft;
 	}
 	
-	public IElement getElementRight() {
-		IElement elementRight = element[lorann.getY()][lorann.getX() + 1];
+	public IElement getElementRight(IMobile mobile) {
+		IElement elementRight = element[mobile.getY()][mobile.getX() + 1];
 		return elementRight;
 	}
 	
-	public void openGate()  throws IOException {
+	public void openGate(IMobile mobile)  throws IOException {
 		for (int y = 0; y < 12; y++) {
 			for(int x = 0; x < 20; x++) {
 				if(element[y][x].getSprite().getConsoleImage() == "S") {
@@ -240,6 +234,14 @@ public final class ModelFacade implements IModel {
 				
 			}
 		}
-		changeTheMap();
+		changeTheMap(mobile);
+	}
+	
+	public IMobile getLorann() {
+		return this.lorann;
+	}
+	
+	public IMobile getDemonD() {
+		return this.demonD;
 	}
 }

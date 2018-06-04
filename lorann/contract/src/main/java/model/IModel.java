@@ -33,19 +33,23 @@ public interface IModel {
 	
 	 void constructTheMap(String[][] map) throws IOException;
 	
-	 void moveUp() throws IOException;
-	 void moveDown() throws IOException;
-	 void moveLeft() throws IOException;
-	 void moveRight() throws IOException;
-	 IElement getElementUp() ;
+	 void moveUp(IMobile mobile) throws IOException;
+	 void moveDown(IMobile mobile) throws IOException;
+	 void moveLeft(IMobile mobile) throws IOException;
+	 void moveRight(IMobile mobile) throws IOException;
+	 IElement getElementUp(IMobile mobile) ;
 
-	IElement getElementDown();
+	IElement getElementDown(IMobile mobile);
 
-	IElement getElementRight();
+	IElement getElementRight(IMobile mobile);
 
-	IElement getElementLeft();
+	IElement getElementLeft(IMobile mobile);
+	
+	IMobile getLorann();
+	
+	IMobile getDemonD();
 
-	void openGate()throws IOException;
+	void openGate(IMobile mobile)throws IOException;
 	
 	
 }

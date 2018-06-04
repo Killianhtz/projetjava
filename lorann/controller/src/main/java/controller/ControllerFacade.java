@@ -154,46 +154,46 @@ public class ControllerFacade implements IController {
     
     
     public void moveUp() throws SQLException, Exception {
-    	if(testPermeability(model.getElementUp()) == true) {
+    	if(testPermeability(model.getElementUp(model.getLorann())) == true) {
     		testEventUp();
     		if(nextLevelY != true) {
-        		model.moveUp();
+        		model.moveUp(model.getLorann());
     		}
     	}
     }
     
     public void moveDown() throws SQLException, Exception {
-    	if(testPermeability(model.getElementDown()) == true) {
+    	if(testPermeability(model.getElementDown(model.getLorann())) == true) {
     		testEventDown();
     		if(nextLevelY != true) {
-        		model.moveDown();
+        		model.moveDown(model.getLorann());
     		}
     	}
     }
     
     public void moveRight() throws Exception {
-    	if(testPermeability(model.getElementRight()) == true) {
+    	if(testPermeability(model.getElementRight(model.getLorann())) == true) {
     		testEventRight();
     		if(nextLevelY != true) {
-        		model.moveRight();
+        		model.moveRight(model.getLorann());
     		}
     	}
     }
     
     public void moveLeft() throws Exception {
-    	if(testPermeability(model.getElementLeft()) == true) {
+    	if(testPermeability(model.getElementLeft(model.getLorann())) == true) {
     		testEventLeft();
     		if(nextLevelY != true) {
-        		model.moveLeft();
+        		model.moveLeft(model.getLorann());
     		}
     	}
     	
     }
    
     public void testEventLeft()throws Exception {
-    	switch(model.getElementLeft().getSprite().getConsoleImage()) {
+    	switch(model.getElementLeft(model.getLorann()).getSprite().getConsoleImage()) {
     		case "E":
-    			model.openGate();
+    			model.openGate(model.getLorann());
     			break;
     		case "M":
     			this.level = level + 1;
@@ -208,9 +208,9 @@ public class ControllerFacade implements IController {
     }
     
     public void testEventRight()throws Exception {
-    	switch(model.getElementRight().getSprite().getConsoleImage()) {
+    	switch(model.getElementRight(model.getLorann()).getSprite().getConsoleImage()) {
 		case "E":
-			model.openGate();
+			model.openGate(model.getLorann());
 			break;
 		case "M":
 			this.level = level + 1;
@@ -224,9 +224,9 @@ public class ControllerFacade implements IController {
    }
 
     public void testEventUp()throws SQLException, Exception {
-    	switch(model.getElementUp().getSprite().getConsoleImage()) {
+    	switch(model.getElementUp(model.getLorann()).getSprite().getConsoleImage()) {
 		case "E":
-			model.openGate();
+			model.openGate(model.getLorann());
 			break;
 		case "M":
 			this.level = level + 1;
@@ -240,9 +240,9 @@ public class ControllerFacade implements IController {
    }
 
     public void testEventDown()throws SQLException, Exception {
-    	switch(model.getElementDown().getSprite().getConsoleImage()) {
+    	switch(model.getElementDown(model.getLorann()).getSprite().getConsoleImage()) {
 		case "E":
-			model.openGate();
+			model.openGate(model.getLorann());
 			break;
 		case "M":
 			this.level = level + 1;
@@ -276,5 +276,11 @@ public class ControllerFacade implements IController {
     
     public void castSpell() {
     	
+    }
+    
+    public void demonMoves() {
+    	for (int i = 0; i < 6; i++) {
+    		
+		}
     }
 }

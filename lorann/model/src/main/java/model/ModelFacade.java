@@ -1,17 +1,13 @@
 package model;
 
-import java.awt.*;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
 import model.element.mobile.DemonD;
 import model.element.mobile.DemonX;
-import model.element.mobile.Direction;
 import model.element.mobile.Lorann;
-import model.element.mobile.Mobile;
 import model.element.mobile.Spell;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
@@ -35,7 +31,7 @@ public final class ModelFacade implements IModel {
 	MotionlessElement motionlessElement;
 	
 	private IElement[][] element = new IElement[12][20];
-	private String mapSave[][];
+	private Map mapI;
 	
 	public Lorann lorann;
 	public DemonD demonD;
@@ -81,70 +77,9 @@ public final class ModelFacade implements IModel {
 
 	public void constructTheMap(String[][] map) throws IOException {
 		
-		this.mapSave = map;
-		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
-		blockingMotionlessFactory = new BlockingMotionlessFactory();
-		spell = new Spell();
-		
-		
-		
-		for (int y = 0; y < 12; y++) {
-			for(int x = 0; x < 20; x++) {
-				switch(map[y][x]) {
-					case "V":
-						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
-						element[y][x] = motionlessElement;
-						break;
-					case "S":
-						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.GATECLOSE);
-						element[y][x] = motionlessElement;
-						break;
-					case "O":
-						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.BONE);
-						element[y][x] = motionlessElement;
-						break;
-					case "P":
-						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.HORIZONTALBONE);
-						element[y][x] = motionlessElement;
-						break;
-					case "H":
-						motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.VERTICALBONE);
-						element[y][x] = motionlessElement;
-						break;
-					case "L":
-						lorann = new Lorann();
-						element[y][x] = lorann;
-						lorann.setPosition(x, y);
-						break;
-					case "D":
-						demonD = new DemonD();
-						element[y][x] = demonD;
-						demonD.setPosition(x, y);
-						break;
-					case "X":
-						demonX = new DemonX();
-						element[y][x] = demonX;
-						demonX.setPosition(x, y);
-						isThereDemonX = true;
-						break;
-					case "E":
-						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);
-						element[y][x] = motionlessElement;
-						break;
-					case "B":
-						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.PURSE);
-						element[y][x] = motionlessElement;
-						break;
-					default:
-						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
-						element[y][x] = motionlessElement;
-						break;
-					}
-				}
-			}
-
-		
-		
+		mapI = new Map();	
+		element = mapI.constructTheMap(map);
+		lorann = mapI.getLorann();
 		view.setMap(element);
 		  
 	}
@@ -153,33 +88,7 @@ public final class ModelFacade implements IModel {
 	
 	public void changeTheMap(IMobile mobile) throws IOException  {
 		
-		switch(mapSave[mobile.getOldY()][mobile.getOldX()]) {
-		case "V":
-			motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
-			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
-			break;
-		case "S":
-			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.GATECLOSE);
-			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
-			break;
-		case "O":
-			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.BONE);
-			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
-			break;
-		case "P":
-			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.HORIZONTALBONE);
-			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
-			break;
-		case "H":
-			motionlessElement = blockingMotionlessFactory.createElement(TypeMotionless.VERTICALBONE);
-			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
-			break;
-		default:
-			motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
-			element[mobile.getOldY()][mobile.getOldX()] = motionlessElement;
-			break;
-		}
-
+		element = mapI.changeTheMap(mobile);
 		element[mobile.getY()][mobile.getX()] = (IElement)mobile;
 		view.setMap(element);
 	}
@@ -230,6 +139,7 @@ public final class ModelFacade implements IModel {
 	}
 	
 	public void openGate(IMobile mobile)  throws IOException {
+		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
 		for (int y = 0; y < 12; y++) {
 			for(int x = 0; x < 20; x++) {
 				if(element[y][x].getSprite().getConsoleImage() == "S") {

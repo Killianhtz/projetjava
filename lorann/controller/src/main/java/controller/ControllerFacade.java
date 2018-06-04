@@ -136,12 +136,15 @@ public class ControllerFacade implements IController {
     		  			nextLevelY = false;
     		  			moveDown();
     		  			break;
+    		  		case('X'):
+    		  			System.out.println("ddw");
+    		  			break;
     		  		case('S'):
     		  			nextLevelY = false;
     		  			break;
     		  		}
     		  				  		
-    		 demonMoves();
+    		 //demonMoves();
           }
     	  
     }

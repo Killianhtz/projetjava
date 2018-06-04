@@ -1,8 +1,10 @@
 package model;
 
+import java.io.IOException;
 
 public interface IMap {
-	public int getWidth();
-	public int getHeight();
-	public IElement getOnTheMap();
+	
+	public IElement[][] constructTheMap(String[][] map) throws IOException;
+	public IElement[][] changeTheMap(IMobile mobile) throws IOException;
+	
 }

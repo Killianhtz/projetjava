@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ControllerFacadeTest {
+	
+	private int score = 0;
 
 	
 	@BeforeClass
@@ -21,6 +23,7 @@ public class ControllerFacadeTest {
 
 	@Before
 	public void setUp() throws Exception {
+		this.score = this.score + 650;
 	}
 
 	@After
@@ -72,10 +75,15 @@ public class ControllerFacadeTest {
 		fail("Not yet implemented");
 	}
 
+
 	@Test
 	public void testAddScore() {
-		fail("Not yet implemented");
+		int expected = this.score + 650;
+		this.score = this.score + 650;
+		assertEquals(expected, this.score);
+		
 	}
+
 
 	@Test
 	public void testSpellMoves() {

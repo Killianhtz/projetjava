@@ -122,12 +122,21 @@ public final class ModelFacade implements IModel {
 		return this.demonD;
 	}
 	
-	public IMobile getDemonXMobile() throws Exception{
+	public IMobile getDemonXMobile(){
 		return this.demonX;
 	}
 	
-	public Point demonBehavior(int a, IMobile mobile) throws IOException {
-		dirDemon = mapI.demonD.getDirection();
+	public Point demonBehavior(int a, int b, IMobile mobile) throws IOException {
+		switch(b) {
+		case 1:
+			dirDemon = mapI.getDemonD().getDirection();
+			break;
+		case 2:
+			
+			dirDemon = mapI.getDemonX().getDirection();
+			
+		}
+		
 		
 		if(dirDemon[a] == Direction.RIGHT) {
 			demonPoint = new Point(1,0);
@@ -142,6 +151,10 @@ public final class ModelFacade implements IModel {
 			demonPoint = new Point(0,1);
 		}
 		return demonPoint;
+	}
+	
+	public Boolean getIsThereDemonX() {
+		return mapI.getIsThereDemonX();
 	}
 
 

@@ -91,7 +91,8 @@ public class ControllerFacade implements IController, Observer {
   		  		
   		  move();
 			  		
-  		 demonMoves(model.getDemonDMobile());
+  		 demonMovesD(model.getDemonDMobile());
+  		demonMovesX(model.getDemonXMobile());
         }
         
       
@@ -143,19 +144,15 @@ public class ControllerFacade implements IController, Observer {
         
     }
     
-    public void addScore() {
-    	this.score = this.score + 650;
-    }
-    
-    
+
     
     public void spellMoves() {
     	
     }
     
-   public void demonMoves(IMobile mobile) throws IOException {
-	   if(model.getElement(mobile, model.demonBehavior(demonDDirection, mobile)).getSprite().getConsoleImage() == "V") {
-		   model.move(mobile, model.demonBehavior(demonDDirection, mobile));
+   public void demonMovesD(IMobile mobile) throws IOException {
+	   if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "V") {
+		   model.move(mobile, model.demonBehavior(demonDDirection, 1, mobile));
 	   }
 	   else {
 		   demonDDirection++;
@@ -163,17 +160,23 @@ public class ControllerFacade implements IController, Observer {
 			   demonDDirection = 0;
 		   }
 	   }
+    }
+   public void demonMovesX(IMobile mobile) throws IOException {
+	   if(model.getIsThereDemonX() == true) {
+		   if(model.getElement(mobile, model.demonBehavior(demonXDirection, 2, mobile)).getSprite().getConsoleImage() == "V") {
+			   model.move(mobile, model.demonBehavior(demonXDirection, 2, mobile));
+		   }
+		   else {
+			   demonXDirection++;
+			   if(demonXDirection == 6) {
+				   demonXDirection = 0;
+			   }
+		   }
+	   }
 	   
-    	
     }
-
     
-    public void lose() {
-    	this.view.lose();
-    	while(true) {
-    		
-    	}
-    }
+
 
 	@Override
 	public void update(Observable o, Object arg) {

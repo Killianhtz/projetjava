@@ -128,6 +128,10 @@ public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 		return this.demonD;
 	}
 	public Demon getDemonX() {
-		return this.demonD;
+		return this.demonX;
+	}
+	
+	public Boolean getIsThereDemonX() {
+		return this.isThereDemonX;
 	}
 }

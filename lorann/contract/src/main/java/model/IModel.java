@@ -43,8 +43,8 @@ public interface IModel {
 	IMobile getDemonDMobile();
 	
 	IMobile getDemonXMobile() throws Exception;
-	
-	Point demonBehavior(int a, IMobile mobile) throws IOException;
+	  public Boolean getIsThereDemonX();
+	Point demonBehavior(int a, int b, IMobile mobile) throws IOException;
 	/*
 	IMobile getDemonX();
 	

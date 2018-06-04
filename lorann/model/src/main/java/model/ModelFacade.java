@@ -19,14 +19,6 @@ import model.element.motionless.PenetrableMotionlessFactory;
 import model.element.motionless.TypeMotionless;
 import view.IView;
 
-
-
-/**
- * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public final class ModelFacade implements IModel {
 	
 	MotionlessFactory penetrableMotionlessFactory;
@@ -43,22 +35,13 @@ public final class ModelFacade implements IModel {
 	public Direction[] dirDemon;
 	
 	
-	
-	
 	private IView view;
-    /**
-     * Instantiates a new model facade.
-     */
+
     public ModelFacade() {
         super();
         this.connectToDB();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getMapByLevel(int)
-     */
-    
 
     public List<Example> getMapByLevel(final int Level) throws Exception {
         return ProcedureDAO.getMapByLevel(Level);
@@ -162,7 +145,4 @@ public final class ModelFacade implements IModel {
 	}
 
 
-	
-
-	
 }

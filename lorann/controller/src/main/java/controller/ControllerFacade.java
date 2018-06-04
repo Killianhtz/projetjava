@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import model.Example;
 import model.IElement;
@@ -18,13 +20,12 @@ import view.IView;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ControllerFacade implements IController {
+public class ControllerFacade implements IController, Observer {
 
-    /** The view. */
+ 
     private final IView  view;
-
-    /** The model. */
     private final IModel model;
+    private Event event;
     
     private Boolean test = false;
     
@@ -47,19 +48,14 @@ public class ControllerFacade implements IController {
     private int x = 0;
     private int y = 0;
 
-    /**
-     * Instantiates a new controller facade.
-     *
-     * @param view
-     *            the view
-     * @param model
-     *            the model
-     */
+
     public ControllerFacade(final IView view, final IModel model) {
         super();
         this.view = view;
         this.model = model;
         model.setView(view);
+        event = new Event(view,model);
+        event.addObserver(this);
     }
 
     /**
@@ -68,7 +64,7 @@ public class ControllerFacade implements IController {
      */
     public void play() throws Exception {
     	direction2 = new Point(0,0);
-        final List<Example> procedure = this.getModel().getMapByLevel(level);
+        final List<Example> procedure = this.model.getMapByLevel(level);
         for (final Example example : procedure) {
             map[y][x] = example.getElement();
             x++;
@@ -102,24 +98,8 @@ public class ControllerFacade implements IController {
         
     }
 
-    /**
-     * Gets the view.
-     *
-     * @return the view
-     */
-    public IView getView() {
-        return this.view;
-    }
 
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-    public IModel getModel() {
-        return this.model;
-    }
-    
+
     
     
     public Boolean testPermeability(IElement element){
@@ -133,7 +113,7 @@ public class ControllerFacade implements IController {
     
     public void move() throws SQLException, Exception {
     	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
-    		testEventUp();
+    		event.testEventUp(direction);
     		if(nextLevelY != true) {
         		model.move(model.getLorann(), direction);
         		
@@ -141,34 +121,12 @@ public class ControllerFacade implements IController {
     	}
     	view.setDirection();
     }
-
-    public void testEventUp()throws SQLException, Exception {
-    	switch(model.getElement(model.getLorann(), direction).getSprite().getConsoleImage()) {
-		case "E":
-			model.openGate(model.getLorann());
-			break;
-		case "M":
-			this.level = level + 1;
-			nextLevel();
-			break;
-		case "B":
-			addScore();
-			view.setScore(score);
-			break;
-		case "D":
-			lose();
-			break;
-		case "X":
-			lose();
-			break;
-	} 	
-   }
-
-    
+ 
     
     public void nextLevel() throws SQLException, Exception {
     	nextLevelY = true;
-    	final List<Example> procedure = this.getModel().getMapByLevel(level);
+    	level++;
+    	final List<Example> procedure = this.model.getMapByLevel(level);
         for (final Example example : procedure) {
             map[y][x] = example.getElement();
             x++;
@@ -216,4 +174,16 @@ public class ControllerFacade implements IController {
     		
     	}
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		
+                try {
+					nextLevel();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        
+	}
 }

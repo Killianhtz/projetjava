@@ -20,25 +20,6 @@ public class Mobile extends Element implements IMobile {
 		oldPosition = new Point();
 	}
 	
-	/*public void moveUp() {
-		oldPosition.setLocation(getX(),getY());
-		position.setLocation(position.getX(), position.getY()-1);
-	}
-	
-	public void moveDown() {
-		oldPosition.setLocation(getX(),getY());
-		position.setLocation(position.getX(), position.getY()+1);
-	}
-	
-	public void moveRight() {
-		oldPosition.setLocation(getX(),getY());
-		position.setLocation(position.getX()+1, position.getY());
-	}
-	
-	public void moveLeft() {
-		oldPosition.setLocation(getX(),getY());
-		position.setLocation(position.getX()-1, position.getY());
-	}*/
 	
 	
 	public void move(Point playerMoves) {

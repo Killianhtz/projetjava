@@ -17,6 +17,7 @@ public class Spell extends Mobile {
 	public Spell() throws IOException {
 		super(Spell.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
+		behaviorType = new SpellBehavior();
 	}
 	
 	public Boolean isAlive() {

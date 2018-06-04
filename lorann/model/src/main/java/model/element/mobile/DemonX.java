@@ -6,15 +6,16 @@ import java.io.IOException;
 import model.Permeability;
 import model.Sprite;
 
-public class Demon extends Mobile{
+public class DemonX extends Mobile{
 	
 	private Boolean alive = true;
 	
-	private static final Sprite SPRITE = new Sprite("D", "monster_1.png");
+	private static final Sprite SPRITE = new Sprite("X", "monster_2.png");
 	
-	public Demon() throws IOException {
-		super(Demon.SPRITE, Permeability.BLOCKING);
+	public DemonX() throws IOException {
+		super(DemonX.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
+		behaviorType = new BehaviorTwo();
 	}
 	
 	public Boolean isAlive() {

@@ -25,7 +25,7 @@ public class Event implements Observable{
 		observer = new ArrayList();
 	}
 	
-    public void testEventUp(Point direction)throws SQLException, Exception {
+    public void testEvent(Point direction)throws SQLException, Exception {
     	switch(model.getElement(model.getLorann(), direction).getSprite().getConsoleImage()) {
 		case "E":
 			model.openGate(model.getLorann());

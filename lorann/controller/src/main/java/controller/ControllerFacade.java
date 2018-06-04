@@ -26,6 +26,7 @@ public class ControllerFacade implements IController, Observer {
     private final IView  view;
     private final IModel model;
     private Event event;
+    private CharacterMoves characterMoves;
     
     private Boolean test = false;
     
@@ -35,8 +36,6 @@ public class ControllerFacade implements IController, Observer {
     private Boolean nextLevelY = false;
     
     private int level = 1;
-    
-    private int score = 0;
     
     private int demonDDirection = 0;
     private int demonXDirection = 0;
@@ -56,6 +55,8 @@ public class ControllerFacade implements IController, Observer {
         model.setView(view);
         event = new Event(view,model);
         event.addObserver(this);
+        characterMoves = new CharacterMoves(view,model,event);
+        
     }
 
     /**
@@ -89,7 +90,7 @@ public class ControllerFacade implements IController, Observer {
   		  } catch (Exception e) {}
   		  this.direction = view.getDirection();
   		  		
-  		  move();
+  		  characterMoves.move(nextLevelY,direction);
 			  		
   		 demonMovesD(model.getDemonDMobile());
   		demonMovesX(model.getDemonXMobile());
@@ -100,30 +101,6 @@ public class ControllerFacade implements IController, Observer {
     }
 
 
-
-    
-    
-    public Boolean testPermeability(IElement element){
-    	Boolean permeability = false;
-    	if(element.getPermeability() == Permeability.PENETRABLE) {
-    		permeability = true;
-    	}
-    	return permeability;
-    }
-    
-    
-    public void move() throws SQLException, Exception {
-    	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
-    		event.testEventUp(direction);
-    		if(nextLevelY != true) {
-        		model.move(model.getLorann(), direction);
-        		
-    		}
-    	}
-    	view.setDirection();
-    }
- 
-    
     public void nextLevel() throws SQLException, Exception {
     	nextLevelY = true;
     	level++;

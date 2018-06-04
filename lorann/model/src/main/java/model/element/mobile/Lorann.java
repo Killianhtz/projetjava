@@ -32,5 +32,8 @@ public class Lorann extends Mobile{
 		this.mana = mana;
 	}
 	
+	public Direction getCastDirection() {
+		return this.castDirection;
+	}
 	
 }

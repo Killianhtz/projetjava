@@ -9,8 +9,10 @@ import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
 import model.element.mobile.DemonD;
 import model.element.mobile.DemonX;
+import model.element.mobile.Direction;
 import model.element.mobile.Lorann;
 import model.element.mobile.Mobile;
+import model.element.mobile.Spell;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
 import model.element.motionless.MotionlessFactory;
@@ -38,9 +40,10 @@ public final class ModelFacade implements IModel {
 	public Lorann lorann;
 	public DemonD demonD;
 	public DemonX demonX;
+	public Spell spell;
 	
-	private int oldPositionX;
-	private int oldPositionY;
+	public Boolean isThereDemonX = false;
+	
 	
 	private IView view;
     /**
@@ -81,6 +84,7 @@ public final class ModelFacade implements IModel {
 		this.mapSave = map;
 		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
 		blockingMotionlessFactory = new BlockingMotionlessFactory();
+		spell = new Spell();
 		
 		
 		
@@ -121,6 +125,7 @@ public final class ModelFacade implements IModel {
 						demonX = new DemonX();
 						element[y][x] = demonX;
 						demonX.setPosition(x, y);
+						isThereDemonX = true;
 						break;
 					case "E":
 						motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.CRYSTALBALL);
@@ -244,4 +249,18 @@ public final class ModelFacade implements IModel {
 	public IMobile getDemonD() {
 		return this.demonD;
 	}
+	
+	public IMobile getDemonX() {
+		return this.demonX;
+	}
+	
+	public Boolean isThereDemonX() {
+		return this.isThereDemonX;
+	}
+	
+	public Boolean spellAlive() {
+		return this.spell.isAlive();
+	}
+	
+	
 }

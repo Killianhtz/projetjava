@@ -6,6 +6,7 @@ import java.util.List;
 
 import model.Example;
 import model.IElement;
+import model.IMobile;
 import model.IModel;
 import model.Permeability;
 import view.IView;
@@ -33,6 +34,9 @@ public class ControllerFacade implements IController {
     private int level = 1;
     
     private int score = 0;
+    
+    private int demonDDirection = 1;
+    private int demonXDirection = 1;
     
     
     /* Map */
@@ -111,7 +115,7 @@ public class ControllerFacade implements IController {
     		  	
     		  		view.setDirection();
     		  		try {
-    		  			Thread.sleep(100);
+    		  			Thread.sleep(150);
     		  		} catch (Exception e) {}
     		  		this.direction = view.getDirection();
     		  		
@@ -134,11 +138,10 @@ public class ControllerFacade implements IController {
     		  			break;
     		  		case('S'):
     		  			nextLevelY = false;
-    		  			castSpell();
     		  			break;
     		  		}
     		  				  		
-    		  
+    		 demonMoves();
           }
     	  
     }
@@ -154,7 +157,7 @@ public class ControllerFacade implements IController {
     
     
     public void moveUp() throws SQLException, Exception {
-    	if(testPermeability(model.getElementUp(model.getLorann())) == true) {
+    	if(testPermeability(model.getElementUp((IMobile)model.getLorann())) == true) {
     		testEventUp();
     		if(nextLevelY != true) {
         		model.moveUp(model.getLorann());
@@ -203,6 +206,13 @@ public class ControllerFacade implements IController {
     			addScore();
     			view.setScore(score);
     			break;
+    		case "D":
+    			lose();
+    			break;
+    		case "X":
+    			lose();
+    			break;
+    			
     	}
     	
     }
@@ -220,6 +230,12 @@ public class ControllerFacade implements IController {
 			addScore();
 			view.setScore(score);
 			break;
+		case "D":
+			lose();
+			break;
+		case "X":
+			lose();
+			break;
 	}
    }
 
@@ -236,6 +252,12 @@ public class ControllerFacade implements IController {
 			addScore();
 			view.setScore(score);
 			break;
+		case "D":
+			lose();
+			break;
+		case "X":
+			lose();
+			break;
 	} 	
    }
 
@@ -251,6 +273,12 @@ public class ControllerFacade implements IController {
 		case "B":
 			addScore();
 			view.setScore(score);
+			break;
+		case "D":
+			lose();
+			break;
+		case "X":
+			lose();
 			break;
 	}	
    }
@@ -280,11 +308,69 @@ public class ControllerFacade implements IController {
     
     public void castSpell() {
     	
+    	if (this.model.spellAlive()) {
+			
+		}
     }
     
-    public void demonMoves() {
-    	for (int i = 0; i < 6; i++) {
+    public void spellMoves() {
+    	
+    }
+    
+    public void demonDMoves() throws IOException {
+    	if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() == "V" && this.demonDDirection == 1) {
+    		model.moveRight(model.getDemonD());
+    	}
+    	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() == "V" && this.demonDDirection == 2) {
+    		model.moveLeft(model.getDemonD());
+    	}
+    	else if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() == "L" && this.demonDDirection == 1) {
+    		lose();
+    	}
+    	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() == "L" && this.demonDDirection == 2) {
+    		lose();
+    	}
+    	else if(model.getElementRight(model.getDemonD()).getSprite().getConsoleImage() != "V" && this.demonDDirection == 1) {
+    		this.demonDDirection = 2;
+    	}
+    	else if(model.getElementLeft(model.getDemonD()).getSprite().getConsoleImage() != "V" && this.demonDDirection == 2) {
+    		this.demonDDirection = 1;
+    	}
+    }
+    
+    public void demonXMoves() throws IOException {
+    	if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() == "V" && this.demonXDirection == 1) {
+    		model.moveUp(model.getDemonX());
+    	}
+    	else if(model.getElementDown(model.getDemonX()).getSprite().getConsoleImage() == "V" && this.demonXDirection == 2) {
+    		model.moveDown(model.getDemonX());
+    	}
+    	else if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() == "L" && this.demonXDirection == 1) {
+    		lose();
+    	}
+    	else if(model.getElementDown(model.getDemonX()).getSprite().getConsoleImage() == "L" && this.demonXDirection == 2) {
+    		lose();
+    	}
+    	else if(model.getElementUp(model.getDemonX()).getSprite().getConsoleImage() != "V" && this.demonXDirection == 1) {
+    		this.demonXDirection = 2;
+    	}
+    	else if(model.getElementDown(model.getDemonX()).getSprite().getConsoleImage() != "V" && this.demonXDirection == 2) {
+    		this.demonXDirection = 1;
+    	}
+    }
+    
+    public void demonMoves() throws IOException{
+		 demonDMoves();
+		 if(model.isThereDemonX() == true) {
+			 demonXMoves();
+		 }
+		 
+    }
+    
+    public void lose() {
+    	this.view.lose();
+    	while(true) {
     		
-		}
+    	}
     }
 }

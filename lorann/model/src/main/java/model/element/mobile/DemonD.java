@@ -26,6 +26,17 @@ public class DemonD extends Mobile{
 		return null;
 	}
 	
+	public void moves(int a) {
+		switch(a) {
+		case 1:
+			this.moveRight();
+			break;
+		case 2:
+			this.moveLeft();
+			break;
+		}
+	}
+	
 	public Boolean willCollide(Point position) {
 		return null;
 	}

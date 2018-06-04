@@ -28,4 +28,6 @@ public interface IView {
 	public void setMap(IElement[][] element);
 	
 	public void setScore(int score);
+	
+	public void lose();
 }

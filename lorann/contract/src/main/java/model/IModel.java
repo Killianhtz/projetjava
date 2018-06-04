@@ -28,7 +28,7 @@ public interface IModel {
      */
 
 	List<Example> getMapByLevel(int Level) throws SQLException, Exception;
-
+	
 	void setView(IView view);
 	
 	 void constructTheMap(String[][] map) throws IOException;
@@ -48,6 +48,12 @@ public interface IModel {
 	IMobile getLorann();
 	
 	IMobile getDemonD();
+	
+	IMobile getDemonX();
+	
+	Boolean isThereDemonX();
+	
+	Boolean spellAlive();
 
 	void openGate(IMobile mobile)throws IOException;
 	

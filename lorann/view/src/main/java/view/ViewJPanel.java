@@ -26,6 +26,8 @@ public class ViewJPanel extends JPanel {
 	
 	private int score = 0;
 	
+	private String itslost = "";
+	
 	
 	public ViewJPanel(String[][] map) {
 
@@ -43,6 +45,11 @@ public class ViewJPanel extends JPanel {
 	        	
 	        }
 	    }
+		repaint();
+	}
+	
+	public void lose() {
+		this.itslost = "YOU LOSE";
 		repaint();
 	}
 	
@@ -65,6 +72,7 @@ public class ViewJPanel extends JPanel {
 	g.setFont(new Font("impact", Font.BOLD, 50));
 	g.setColor(Color.WHITE);
 	g.drawString("Score : " + score, 200, 450);
+	g.drawString(itslost,200,200);
 }
 	
 	public void setScore(int score) {

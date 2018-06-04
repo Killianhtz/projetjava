@@ -7,7 +7,7 @@ import model.Sprite;
 
 public class Demon extends Mobile {
 	
-	private static final Sprite SPRITE = new Sprite("D", "monster_1.png");
+	private static Sprite SPRITE = new Sprite("D", "monster_1.png");
 	protected Behavior behavior;
 	
 	public Demon(Behavior behavior) throws IOException {

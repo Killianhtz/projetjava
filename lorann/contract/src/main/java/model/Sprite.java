@@ -17,7 +17,7 @@ public class Sprite {
         this.setImageName(IMAGENAME);
     }
 	
-	public final void loadImage() throws IOException {
+	public void loadImage() throws IOException {
         this.setImage(ImageIO.read(new File("..\\model\\src\\main\\java\\model\\sprite\\" + this.getImageName())));
         this.setImageLoaded(true);
     }

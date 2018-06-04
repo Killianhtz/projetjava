@@ -10,6 +10,7 @@ import org.junit.Test;
 
 public class TypeConsoleNameTest {
 
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

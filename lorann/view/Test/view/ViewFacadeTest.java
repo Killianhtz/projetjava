@@ -13,6 +13,7 @@ public class ViewFacadeTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
+	
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {

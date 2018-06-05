@@ -1,20 +1,21 @@
 package controller;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 public class ControllerFacadeTest {
-	
+ 
+    private int level = 1;
 	private int score = 0;
 	private int X = 5;
 	private int Y = 5;
-	
+    public String[][] map = new String[12][20];
+    
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -39,11 +40,6 @@ public class ControllerFacadeTest {
 
 	@After
 	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testControllerFacade() {
-		//fail("Not yet implemented");
 	}
 
 	@Test
@@ -108,11 +104,6 @@ public class ControllerFacadeTest {
 	public void testTestEventDown() {
 		//fail("Not yet implemented");
 	}
-
-	@Test
-	public void testNextLevel() {
-		//fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testAddScore() {
@@ -151,4 +142,13 @@ public class ControllerFacadeTest {
 		//fail("Not yet implemented");
 	}
 
+	@Test
+	public void update() {
+		int expected = 2;
+	    level = level + 1;
+		
+		assertEquals(expected, this.level);	
+		
+	}
+	
 }

@@ -32,6 +32,10 @@ public class Map implements IMap{
 	public Map() {	
 	}
 	
+	/**
+	 * Method who instantiate all the object on the map
+	 */
+	
 	public IElement[][] constructTheMap(String[][] map) throws IOException {
 		this.mapSave = map;
 		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
@@ -108,6 +112,10 @@ public class Map implements IMap{
 		return element; 
 	}
 	
+	/**
+	 * Method who change the oldPosition from the mobile with the object who were at this oldposition;
+	 */
+	
 public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 		
 		switch(mapSave[mobile.getOldY()][mobile.getOldX()]) {
@@ -134,6 +142,10 @@ public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 		}
 		return element;
 	}
+
+/**
+ * All getters and setters form the attribute
+ */
 	
 	public Lorann getLorann() {
 		return this.lorann;

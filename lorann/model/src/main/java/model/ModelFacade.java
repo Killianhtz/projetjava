@@ -25,14 +25,14 @@ public final class ModelFacade implements IModel {
 	private IElement[][] element = new IElement[12][20];
 	private Map mapI;
 	
-	public Lorann lorann;
-	public Demon demonD;
-	public Demon demonX;
-	public Demon demonZ;
-	public Demon demonF;
-	public Point demonPoint;
-	public Direction[] dirDemon;
-	public Spell spell;
+	private Lorann lorann;
+	private Demon demonD;
+	private Demon demonX;
+	private Demon demonZ;
+	private Demon demonF;
+	private Point demonPoint;
+	private Direction[] dirDemon;
+	private Spell spell;
 	
 	
 	private IView view;
@@ -59,6 +59,10 @@ public final class ModelFacade implements IModel {
     		e.printStackTrace();
     	}
     }
+    
+    /**
+	 * Method take the mobile element and who activated the map methods
+	 */
 
 	public void constructTheMap(String[][] map) throws IOException {
 		
@@ -73,7 +77,9 @@ public final class ModelFacade implements IModel {
 		  
 	}
 	
-	
+	/**
+	 * To update the map with the new position
+	 */
 	
 	public void changeTheMap(IMobile mobile) throws IOException  {
 		
@@ -82,11 +88,19 @@ public final class ModelFacade implements IModel {
 		view.setMap(element);
 	}
 	
+	/**
+	 * Instantiate on the map the spell
+	 */
+	
 	public void creatSpell(Point lastDirection)throws IOException {
 		spell = new Spell(lorann.getPosition(),lastDirection, 0);
 		element[spell.getY()][spell.getX()] = spell;
 		view.setMap(element);
 	}
+	
+	/**
+	 * It make disappear the mobile in the argu
+	 */
 	
 	public void disappear(IMobile mobile) throws IOException {
 		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
@@ -94,23 +108,27 @@ public final class ModelFacade implements IModel {
 		element[mobile.getY()][mobile.getX()] = motionlessElement;
 	}
 	
-	
-	public void setView(IView view) {
-		this.view = view;
-	}
+	/**
+	 * Move the object on the map
+	 */
 	
 	public void move(IMobile mobile, Point point) throws IOException{
 		mobile.move(point);
 		changeTheMap(mobile);
 	}
 
+	/**
+	 *  Get the element on a point
+	 */
 	
 	public IElement getElement(IMobile mobile, Point point) {
 		IElement elementUp = element[mobile.getY() + (int)point.getY()][mobile.getX() + (int)point.getX()];
 		return elementUp;
 	}
 	
-
+	/**
+	 * Change a gate close on an open gate
+	 */
 	
 	public void openGate(IMobile mobile)  throws IOException {
 		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
@@ -126,7 +144,9 @@ public final class ModelFacade implements IModel {
 		changeTheMap(mobile);
 	}
 	
-
+	/**
+	 * Returning the Behavior of the demon
+	 */
 	
 	public Point demonBehavior(int a, int b, IMobile mobile) throws IOException {
 		switch(b) {
@@ -160,10 +180,17 @@ public final class ModelFacade implements IModel {
 		return demonPoint;
 	}
 	
-
+	/**
+	 * All getters and setters form the attribute
+	 */
 	
 	public Boolean hasMana() {
 		return lorann.hasMana();
+	}
+	
+	
+	public void setView(IView view) {
+		this.view = view;
 	}
 	
 	public void setMana(Boolean mana) {

@@ -24,7 +24,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	private Boolean spell = false;
 	
 	private Point playerMoves = new Point(0,0);
-	
+	/**
+	 * Window Creation (Graphic part)
+	 */
 	public ViewJFrame(String[][] map) throws Exception {
 		
     	this.setTitle("Lorann");
@@ -45,7 +47,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
 		  }
 	}
 
-
+	/**
+	 * Keylistener who adapt the point, and who detect when the user want to use a spell
+	 */
 
 	@Override
 	public void keyPressed(KeyEvent e) {

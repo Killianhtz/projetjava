@@ -21,10 +21,15 @@ public class ViewJPanel extends JPanel {
 	
 	private String itslost = "";
 	
+	/**
+	 * To make changes on the JFrame
+	 */
 	
 	public ViewJPanel() {
 
 	}
+	
+
 	
 	public void changes(IElement[][] element) {
 		this.yes = true;

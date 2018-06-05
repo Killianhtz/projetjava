@@ -15,7 +15,10 @@ public class ViewFacade implements IView {
 
     public ViewFacade() {
     }
-
+    
+    /**
+     * instantiate the class with the JFrame
+     */
 
 	public void createJFrame(String[][] map) throws Exception {
     	window = new ViewJFrame(map);

@@ -15,9 +15,9 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	private static final long serialVersionUID = 1L;
 
-	public static int 		width = 640;
+	private static int 		width = 640;
 	
-	public static int 		height = 515;
+	private static int 		height = 515;
 	
 	private ViewJPanel viewjpanel;
 	

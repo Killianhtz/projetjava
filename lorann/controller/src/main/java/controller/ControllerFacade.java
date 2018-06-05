@@ -56,7 +56,7 @@ public class ControllerFacade implements IController, Observer {
         event = new Event(view,model);
         event.addObserver(this);
         characterMoves = new CharacterMoves(view,model,event);
-        castingSpell = new CastingSpell(view,model,event);
+        castingSpell = new CastingSpell(view,model,event,characterMoves);
         
     }
 
@@ -85,7 +85,7 @@ public class ControllerFacade implements IController, Observer {
         model.constructTheMap(map);
         
         while(test==false) {
-  		  nextLevelY = false;
+  		  characterMoves.setNextLevelY(false);
   		  view.setDirection();
   		  try {
   		  	Thread.sleep(150);
@@ -94,14 +94,14 @@ public class ControllerFacade implements IController, Observer {
   		  if(this.direction.getX() != 0 || this.direction.getY() != 0) {
   			  yc = (int) this.direction.getY();
   			  xc = (int) this.direction.getX();
-  			  System.out.println(this.direction);
   		  }
   		  
 		
 		
-		characterMoves.move(nextLevelY,direction);
+		characterMoves.move(direction);
   		 characterMoves.demonMovesD(model.getDemonDMobile());
   		characterMoves.demonMovesX(model.getDemonXMobile());
+  		
   		if(model.hasMana() == false) {
   			castingSpell.moveSpell();
   		}
@@ -113,12 +113,10 @@ public class ControllerFacade implements IController, Observer {
 			view.setSpell();
 		}
         }
-        
-      
-        
+  
     }
-
-
+ 
+    
     public void nextLevel() throws SQLException, Exception {
     	nextLevelY = true;
     	level++;
@@ -149,6 +147,7 @@ public class ControllerFacade implements IController, Observer {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+                characterMoves.setNextLevelY(true);
         
 	}
 }

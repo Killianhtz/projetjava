@@ -5,14 +5,14 @@ import java.io.IOException;
 import model.Permeability;
 import model.Sprite;
 
-public class Demon extends Mobile {
+public class DemonTwo extends Mobile {
 	
-	private static Sprite SPRITE = new Sprite("D","monster_1.png");
+	private static Sprite SPRITE = new Sprite("X","monster_2.png");
 	protected Behavior behavior;
 	
-	public Demon(Behavior behavior) throws IOException {
+	public DemonTwo(Behavior behavior) throws IOException {
 		
-		super(Demon.SPRITE, Permeability.PENETRABLE);
+		super(DemonTwo.SPRITE, Permeability.PENETRABLE);
 		SPRITE.loadImage();
 		setBehavior(behavior);
 	}

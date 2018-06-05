@@ -58,6 +58,10 @@ public interface IModel {
 	Boolean spellAlive();*/
     public void creatSpell( Point lastDirection)throws IOException;
 	void openGate(IMobile mobile)throws IOException;
+
+	Boolean getIsThereDemonD();
+	public void setDemonDownD(Boolean a);
+	public void setDemonDownX(Boolean a);
 	
 	
 }

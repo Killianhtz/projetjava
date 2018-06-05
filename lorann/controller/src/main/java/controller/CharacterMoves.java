@@ -18,6 +18,7 @@ public class CharacterMoves {
 	private Event event;
     private int demonDDirection = 0;
     private int demonXDirection = 0;
+    private Boolean nextLevelY = false;
 	
 	public CharacterMoves(IView view,IModel model, Event event) {
         this.view = view;
@@ -25,8 +26,9 @@ public class CharacterMoves {
 		this.event = event;
 	}
 	
-    public void move(Boolean nextLevelY, Point direction) throws SQLException, Exception {
+    public void move(Point direction) throws SQLException, Exception {
     	event.testEvent(direction);
+    	
     	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
     		
     		if(nextLevelY != true) {
@@ -47,18 +49,21 @@ public class CharacterMoves {
     }
     
     public void demonMovesD(IMobile mobile) throws IOException {
- 	   if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "V") {
- 		   model.move(mobile, model.demonBehavior(demonDDirection, 1, mobile));
- 	   }
- 	   else if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "L") {
- 		   event.lose();
- 	   }
- 	   else {
- 		   demonDDirection++;
- 		   if(demonDDirection == 6) {
- 			   demonDDirection = 0;
- 		   }
- 	   }
+    	if(model.getIsThereDemonD() == true) {
+    		if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "V") {
+    	 		   model.move(mobile, model.demonBehavior(demonDDirection, 1, mobile));
+    	 	   }
+    	 	   else if(model.getElement(mobile, model.demonBehavior(demonDDirection, 1, mobile)).getSprite().getConsoleImage() == "L") {
+    	 		   event.lose();
+    	 	   }
+    	 	   else {
+    	 		   demonDDirection++;
+    	 		   if(demonDDirection == 6) {
+    	 			   demonDDirection = 0;
+    	 		   }
+    	 	   }	
+    	}
+ 	   
      }
     public void demonMovesX(IMobile mobile) throws IOException {
  	   if(model.getIsThereDemonX() == true) {
@@ -77,5 +82,8 @@ public class CharacterMoves {
  	   }
  	   
      }
+    public void setNextLevelY(Boolean nextLevelY) {
+  	  this.nextLevelY = nextLevelY;
+      }
      
 }

@@ -9,6 +9,7 @@ import model.dao.ProcedureDAO;
 import model.element.mobile.Behavior;
 import model.element.mobile.BehaviorOne;
 import model.element.mobile.Demon;
+import model.element.mobile.DemonTwo;
 import model.element.mobile.Direction;
 import model.element.mobile.Lorann;
 import model.element.mobile.Spell;
@@ -31,7 +32,7 @@ public final class ModelFacade implements IModel {
 	
 	public Lorann lorann;
 	public Demon demonD;
-	public Demon demonX;
+	public DemonTwo demonX;
 	public Point demonPoint;
 	public Direction[] dirDemon;
 	public Spell spell;
@@ -181,6 +182,20 @@ public final class ModelFacade implements IModel {
 
 	public IMobile getSpell() {
 		return this.spell;
+	}
+
+
+	@Override
+	public Boolean getIsThereDemonD() {
+		return mapI.getIsThereDemonD();
+	}
+	
+	public void setDemonDownD(Boolean a) {
+		mapI.setDemonDownD(a);
+	}
+	
+	public void setDemonDownX(Boolean a) {
+		mapI.setDemonDownX(a);
 	}
 
 }

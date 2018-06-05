@@ -5,6 +5,7 @@ import model.IElement;
 import model.element.mobile.BehaviorOne;
 import model.element.mobile.BehaviorTwo;
 import model.element.mobile.Demon;
+import model.element.mobile.DemonTwo;
 import model.element.mobile.Lorann;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
@@ -18,8 +19,9 @@ public class Map implements IMap{
 	private String mapSave[][];
 	public Lorann lorann;
 	public Demon demonD;
-	public Demon demonX;
+	public DemonTwo demonX;
 	public Boolean isThereDemonX = false;
+	public Boolean isThereDemonD = false;
 	
 	
 	MotionlessFactory penetrableMotionlessFactory;
@@ -66,11 +68,10 @@ public class Map implements IMap{
 						demonD = new Demon(new BehaviorOne());
 						element[y][x] = demonD;
 						demonD.setPosition(x, y);
+						isThereDemonD = true;
 						break;
 					case "X":
-						demonX = new Demon(new BehaviorTwo());
-						demonX.getSprite().setImageName("monster_2.png");
-						demonX.getSprite().loadImage();
+						demonX = new DemonTwo(new BehaviorTwo());
 						element[y][x] = demonX;
 						demonX.setPosition(x, y);
 						isThereDemonX = true;
@@ -127,11 +128,22 @@ public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 	public Demon getDemonD() {
 		return this.demonD;
 	}
-	public Demon getDemonX() {
+	public DemonTwo getDemonX() {
 		return this.demonX;
 	}
 	
 	public Boolean getIsThereDemonX() {
 		return this.isThereDemonX;
+	}
+	
+	public Boolean getIsThereDemonD() {
+		return this.isThereDemonD;
+	}
+	
+	public void setDemonDownD(Boolean a) {
+		this.isThereDemonD = a;
+	}
+	public void setDemonDownX(Boolean b) {
+		this.isThereDemonX = b;
 	}
 }

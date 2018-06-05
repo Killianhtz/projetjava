@@ -35,8 +35,7 @@ public class Event implements Observable{
 			notifyObserver();
 			break;
 		case "B":
-			this.score = this.score + 650;
-			view.setScore(score);
+			newScore(650);
 			break;
 		case "D":
 			lose();
@@ -75,6 +74,9 @@ public class Event implements Observable{
         }
 	}
         
-    
+    public void newScore(int score) {
+    	this.score = this.score + score;
+    	view.setScore(this.score);
+    }
 	
 }

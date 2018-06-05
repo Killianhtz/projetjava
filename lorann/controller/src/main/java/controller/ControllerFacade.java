@@ -102,16 +102,22 @@ public class ControllerFacade implements IController, Observer {
   		characterMoves.demonMovesD(model.getDemonDMobile());
   		characterMoves.demonMovesX(model.getDemonXMobile());
   		
-  		if(model.hasMana() == false) {
-  			
+  		if(model.hasMana() == false ) {
   			if(view.getSpell() == true) {
-  				castingSpell.moveSpell(view.getSpell());
+  				model.setBackLorann(true);
+  			}	
+  			
+  			if(model.getBackLorann() == true) {
+
+				castingSpell.moveSpell(view.getSpell());
   			}
   			else {
   				castingSpell.moveSpell();
   			}
-  			
   		}
+  		
+  		
+  		
   	
   		
   		if(view.getSpell() == true) {

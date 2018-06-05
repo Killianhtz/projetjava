@@ -49,7 +49,8 @@ public final class ModelFacade implements IModel {
     }
 
     public void connectToDB() {
-    	LorannBDDConnector conn = null;
+    	@SuppressWarnings("unused")
+		LorannBDDConnector conn = null;
     	try {
     		System.out.print("Trying to connect to the Database :\n");
     		conn =new LorannBDDConnector();

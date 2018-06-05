@@ -18,6 +18,7 @@ public class Spell extends Mobile{
 	protected Boolean hero;
 	protected Point spellDirection;
 	protected Point lorannPosition;
+	private Boolean backLorann = false;
 	
 
 	
@@ -38,4 +39,13 @@ public class Spell extends Mobile{
 	public void setSpriteClock(int a) throws IOException {
 		this.setSprite(SPRITE[a]);
 	}
+	
+	public void setBackLorann(Boolean backLorann) {
+		this.backLorann = backLorann;
+	}
+	
+	public Boolean getBackLorann() {
+		return this.backLorann;
+	}
+	
 }

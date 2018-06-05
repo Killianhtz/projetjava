@@ -204,5 +204,13 @@ public final class ModelFacade implements IModel {
 	public void setSpriteClockSpell(int a) throws IOException {
 		spell.setSpriteClock(a);
 	}
+	
+	public void setBackLorann(Boolean backLorann) {
+		spell.setBackLorann(backLorann);
+	}
+	
+	public Boolean getBackLorann() {
+		return spell.getBackLorann();
+	}
 
 }

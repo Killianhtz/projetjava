@@ -64,6 +64,8 @@ public interface IModel {
 	public void setDemonDownX(Boolean a);
 	public void setSpriteClock(int a) throws IOException ;
 	public void setSpriteClockSpell(int a) throws IOException;
+	public void setBackLorann(Boolean backLorann);
+	public Boolean getBackLorann() ;
 	
 	
 }

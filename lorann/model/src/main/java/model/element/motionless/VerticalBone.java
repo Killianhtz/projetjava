@@ -4,17 +4,18 @@ import java.io.IOException;
 
 import model.Permeability;
 import model.Sprite;
-
+/**
+ * A vertical bone, a blocking motionless element
+ */
 public class VerticalBone extends MotionlessElement {
 	
 	/**
-	 * Creating sprite with custom names and image.
+	 * Sprite with custom names and image.
 	 */
 	private static final Sprite SPRITE = new Sprite("H", "vertical_bone.png");
 	
 	/**
 	 * Creating object with a loaded sprite and a permeability.
-	 * @throws IOException
 	 */
 	protected VerticalBone() throws IOException {
 		

@@ -2,10 +2,13 @@ package model.element.motionless;
 
 import java.io.IOException;
 
+/** 
+ * Subclass of the abstract superclass MotionlessFactory, in charge of the creation of blocking motionless Elements.
+ */
 public class BlockingMotionlessFactory extends MotionlessFactory {
 	
 	/* 
-	 * Subclass of the abstract superclass MotionlessFactory, in charge of the creation of blocking motionless Elements.
+	 * Method used to create blocking motionless elements.
 	 */
 	@SuppressWarnings("incomplete-switch")
 	public MotionlessElement createElement(TypeMotionless type) throws IOException {

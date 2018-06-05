@@ -18,6 +18,8 @@ public class CharacterMoves {
 	private Event event;
     private int demonDDirection = 0;
     private int demonXDirection = 0;
+    private int demonZDirection = 0;
+    private int demonFDirection = 0;
     private Boolean nextLevelY = false;
     private int clockSprite = 0;
 	
@@ -87,6 +89,26 @@ public class CharacterMoves {
  			   }
  		   }
  	   }
+    }
+ 	   
+ 	    public void demonMovesZ(IMobile mobile) throws IOException {
+ 	 	   if(model.getIsThereDemonZ() == true) {
+ 	 		 demonZDirection = (int) (Math.random() * 4 );
+ 	 		   if(model.getElement(mobile, model.demonBehavior(demonZDirection, 3, mobile)).getSprite().getConsoleImage() == "V") {
+ 	 			
+	 			  System.out.println(demonZDirection);
+	 			   
+ 	 			   model.move(mobile, model.demonBehavior(demonZDirection, 3, mobile));
+ 	 		   }
+ 	 	 	   else if(model.getElement(mobile, model.demonBehavior(demonZDirection, 3, mobile)).getSprite().getConsoleImage() == "L") {
+ 	 	 		   event.lose();
+ 	 	 	   }
+ 	 	 	   else {
+ 	 	 		demonZDirection = (int) (Math.random() * 3);
+ 	 	 		
+ 	 	 	   }
+ 	 		   
+ 	 	   }
  	   
      }
     public void setNextLevelY(Boolean nextLevelY) {

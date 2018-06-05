@@ -46,6 +46,12 @@ public class Event implements Observable{
 		case "S":
 			lose();
 			break;
+		case "F":
+			lose();
+			break;
+		case "Z":
+			lose();
+			break;
 	} 	
    }
     

@@ -67,5 +67,17 @@ public interface IModel {
 	public void setBackLorann(Boolean backLorann);
 	public Boolean getBackLorann() ;
 	
+	public Boolean getIsThereDemonZ();
+	
+	public Boolean getIsThereDemonF();
+	
+	public void setDemonDownZ(Boolean a);
+	
+	public void setDemonDownF(Boolean a);
+	
+	public IMobile getDemonZMobile();
+	
+	public IMobile getDemonFMobile();
+	
 	
 }

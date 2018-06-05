@@ -32,6 +32,8 @@ public final class ModelFacade implements IModel {
 	public Lorann lorann;
 	public Demon demonD;
 	public Demon demonX;
+	public Demon demonZ;
+	public Demon demonF;
 	public Point demonPoint;
 	public Direction[] dirDemon;
 	public Spell spell;
@@ -71,6 +73,8 @@ public final class ModelFacade implements IModel {
 		lorann = mapI.getLorann();
 		demonD = mapI.getDemonD();
 		demonX = mapI.getDemonX();
+		demonZ = mapI.getDemonZ();
+		demonF = mapI.getDemonF();
 		view.setMap(element);
 		  
 	}
@@ -139,6 +143,13 @@ public final class ModelFacade implements IModel {
 	public IMobile getDemonXMobile(){
 		return this.demonX;
 	}
+	public IMobile getDemonZMobile() {
+		return this.demonZ;
+	}
+	
+	public IMobile getDemonFMobile(){
+		return this.demonF;
+	}
 	
 	public Point demonBehavior(int a, int b, IMobile mobile) throws IOException {
 		switch(b) {
@@ -146,9 +157,14 @@ public final class ModelFacade implements IModel {
 			dirDemon = mapI.getDemonD().getDirection();
 			break;
 		case 2:
-			
 			dirDemon = mapI.getDemonX().getDirection();
-			
+			break;
+		case 3:
+			dirDemon = mapI.getDemonZ().getDirection();
+			break;
+		case 4:
+			dirDemon = mapI.getDemonF().getDirection();
+			break;
 		}
 		
 		
@@ -167,9 +183,7 @@ public final class ModelFacade implements IModel {
 		return demonPoint;
 	}
 	
-	public Boolean getIsThereDemonX() {
-		return mapI.getIsThereDemonX();
-	}
+
 	
 	public Boolean hasMana() {
 		return lorann.hasMana();
@@ -183,8 +197,10 @@ public final class ModelFacade implements IModel {
 		return this.spell;
 	}
 
-
-	@Override
+	public Boolean getIsThereDemonX() {
+		return mapI.getIsThereDemonX();
+	}
+	
 	public Boolean getIsThereDemonD() {
 		return mapI.getIsThereDemonD();
 	}
@@ -195,6 +211,22 @@ public final class ModelFacade implements IModel {
 	
 	public void setDemonDownX(Boolean a) {
 		mapI.setDemonDownX(a);
+	}
+	
+	public Boolean getIsThereDemonZ() {
+		return mapI.getIsThereDemonZ();
+	}
+	
+	public Boolean getIsThereDemonF() {
+		return mapI.getIsThereDemonF();
+	}
+	
+	public void setDemonDownZ(Boolean a) {
+		mapI.setDemonDownZ(a);
+	}
+	
+	public void setDemonDownF(Boolean a) {
+		mapI.setDemonDownF(a);
 	}
 	
 	public void setSpriteClock(int a) throws IOException {

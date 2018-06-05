@@ -49,18 +49,16 @@ public class CastingSpell {
 			model.move(model.getSpell(), this.lastDirection);
 		}
 		else if(model.getElement(model.getSpell(), this.lastDirection).getSprite().getConsoleImage() == "D") {
-			model.disappear(model.getDemonDMobile());
-			model.disappear(model.getSpell());
-			model.setDemonDownD(false);
-			event.newScore(100);
-			model.setMana(true);
+			this.spellDemonEventD();
 		}
 		else if(model.getElement(model.getSpell(), this.lastDirection).getSprite().getConsoleImage() == "X") {
-			model.disappear(model.getDemonXMobile());
-			model.disappear(model.getSpell());
-			model.setDemonDownX(false);
-			event.newScore(100);
-			model.setMana(true);
+			this.spellDemonEventX();
+		}
+		else if(model.getElement(model.getSpell(), this.lastDirection).getSprite().getConsoleImage() == "Z") {
+			this.spellDemonEventZ();
+		}
+		else if(model.getElement(model.getSpell(), this.lastDirection).getSprite().getConsoleImage() == "F") {
+			this.spellDemonEventF();
 		}
 		else if(model.getElement(model.getSpell(), this.lastDirection).getSprite().getConsoleImage() == "L") {
 			model.disappear(model.getSpell());
@@ -88,18 +86,16 @@ public class CastingSpell {
 			model.move(model.getSpell(), this.newDirection);
 		}
 		else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "D") {
-			model.disappear(model.getDemonDMobile());
-			model.disappear(model.getSpell());
-			model.setDemonDownD(false);
-			event.newScore(100);
-			model.setMana(true);
+			this.spellDemonEventD();
 		}
 		else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "X") {
-			model.disappear(model.getDemonXMobile());
-			model.disappear(model.getSpell());
-			model.setDemonDownX(false);
-			event.newScore(100);
-			model.setMana(true);
+			this.spellDemonEventX();
+		}
+		else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "Z") {
+			this.spellDemonEventZ();
+		}
+		else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "F") {
+			this.spellDemonEventF();
 		}
 		else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "L") {
 			model.disappear(model.getSpell());
@@ -111,18 +107,16 @@ public class CastingSpell {
 				model.move(model.getSpell(), this.newDirection);
 			}
 			else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "D") {
-				model.disappear(model.getDemonDMobile());
-				model.disappear(model.getSpell());
-				model.setDemonDownD(false);
-				event.newScore(100);
-				model.setMana(true);
+				this.spellDemonEventD();
 			}
 			else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "X") {
-				model.disappear(model.getDemonXMobile());
-				model.disappear(model.getSpell());
-				model.setDemonDownX(false);
-				event.newScore(100);
-				model.setMana(true);
+				this.spellDemonEventX();
+			}
+			else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "Z") {
+				this.spellDemonEventZ();
+			}
+			else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "F") {
+				this.spellDemonEventF();
 			}
 			else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "L") {
 				model.disappear(model.getSpell());
@@ -134,18 +128,16 @@ public class CastingSpell {
 					model.move(model.getSpell(), this.newDirection);
 				}
 				else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "D") {
-					model.disappear(model.getDemonDMobile());
-					model.disappear(model.getSpell());
-					model.setDemonDownD(false);
-					event.newScore(100);
-					model.setMana(true);
+					this.spellDemonEventD();
 				}
 				else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "X") {
-					model.disappear(model.getDemonXMobile());
-					model.disappear(model.getSpell());
-					model.setDemonDownX(false);
-					event.newScore(100);
-					model.setMana(true);
+					this.spellDemonEventX();
+				}
+				else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "Z") {
+					this.spellDemonEventZ();
+				}
+				else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "F") {
+					this.spellDemonEventF();
 				}
 				else if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "L") {
 					model.disappear(model.getSpell());
@@ -201,6 +193,35 @@ public class CastingSpell {
 			this.newDirection.setLocation(0,-1);
 			this.diffLorannSpell.setLocation(this.diffLorannSpell.getX() - this.newDirection.getX(),this.diffLorannSpell.getY() -  this.newDirection.getY());
 		}
+	}
+	
+	public void spellDemonEventD() throws IOException {
+		model.disappear(model.getDemonDMobile());
+		model.disappear(model.getSpell());
+		model.setDemonDownD(false);
+		event.newScore(100);
+		model.setMana(true);
+	}
+	public void spellDemonEventX() throws Exception {
+		model.disappear(model.getDemonXMobile());
+		model.disappear(model.getSpell());
+		model.setDemonDownX(false);
+		event.newScore(100);
+		model.setMana(true);
+	}
+	public void spellDemonEventZ() throws IOException {
+		model.disappear(model.getDemonZMobile());
+		model.disappear(model.getSpell());
+		model.setDemonDownZ(false);
+		event.newScore(100);
+		model.setMana(true);
+	}
+	public void spellDemonEventF() throws IOException {
+		model.disappear(model.getDemonFMobile());
+		model.disappear(model.getSpell());
+		model.setDemonDownF(false);
+		event.newScore(100);
+		model.setMana(true);
 	}
 	
 }

@@ -9,6 +9,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BlockingMotionlessFactoryTest {
+	/**
+	 * Creation and initialization of the necessary attribute for the switch case
+	 */
 	private static final int GATECLOSE = 0;
 	private static final int BONE = 1;
 	private static final int HORIZONTALBONE = 2;
@@ -25,7 +28,10 @@ public class BlockingMotionlessFactoryTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-
+	/**
+	 * Initialization of motionlesselement
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		motionlesselement = null;
@@ -34,7 +40,9 @@ public class BlockingMotionlessFactoryTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	/**
+	 * Test if motionlesselement is null
+	 */
 	@Test
 	public void testCreateElement() {
 		try {

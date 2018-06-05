@@ -48,7 +48,7 @@ public class ControllerFacade implements IController, Observer {
     private int yc = 0;
 
 
-    public ControllerFacade(final IView view, final IModel model) {
+    public ControllerFacade(final IView view, final IModel model) throws Exception {
         super();
         this.view = view;
         this.model = model;
@@ -57,7 +57,18 @@ public class ControllerFacade implements IController, Observer {
         event.addObserver(this);
         characterMoves = new CharacterMoves(view,model,event);
         castingSpell = new CastingSpell(view,model,event,characterMoves);
-        
+		  if ((x < 0) || (x > 20)) {
+		  throw new Exception("Out of range");
+		  }
+		  if ((xc < 0) || (xc > 20)) {
+		  throw new Exception("Out of range");
+		  }
+		  if ((y < 0) || (y > 12)) {
+		  throw new Exception("Out of range");
+		  }
+		  if ((yc < 0) || (yc > 12)) {
+		  throw new Exception("Out of range");
+		  }
     }
 
     /**

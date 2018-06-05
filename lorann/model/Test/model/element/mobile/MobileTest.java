@@ -9,21 +9,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MobileTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-	private void Location(int x2, int i) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	private int X = 15;
 	private int Y = 10;
+	
+	
+	private void Location(int x2, int i) {
+			
+	}
+	
 	@Before
 	public void setUp() throws Exception {
 	}

@@ -31,7 +31,6 @@ public class ControllerFacadeTest {
 		return this.Y;
 	}
 	
-
 	@Before
 	public void setUp() throws Exception {
 		this.score = this.score + 650;

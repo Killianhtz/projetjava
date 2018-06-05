@@ -25,6 +25,10 @@ public class Event implements Observable{
 		observer = new ArrayList();
 	}
 	
+	/**
+	 * Method who test all thw event with Lorann
+	 */
+	
     public void testEvent(Point direction)throws SQLException, Exception {
     	switch(model.getElement(model.getLorann(), direction).getSprite().getConsoleImage()) {
 		case "E":
@@ -54,7 +58,9 @@ public class Event implements Observable{
 			break;
 	} 	
    }
-    
+    /**
+	 * When this method is activated, that's mean that you lost
+	 */
     public void lose() {
     	this.view.lose();
     	while(true) {
@@ -63,12 +69,18 @@ public class Event implements Observable{
     }
 	
  
-
+    /**
+	 * Method who come from the DP Observer, to add an observer
+	 */
 	@Override
 	public void addObserver(Observer o) {
 		// TODO Auto-generated method stub
 		observer.add(o);
 	}
+	
+	/**
+	 * Method who come from the DP Observer, to notify to the observer that there is changes
+	 */
 
 	@Override
 	public void notifyObserver() {
@@ -79,6 +91,10 @@ public class Event implements Observable{
                 o.update(null, this);
         }
 	}
+	
+	/**
+	 * Set the new score, activated when a demon die or when lorann take purses
+	 */
         
     public void newScore(int score) {
     	this.score = this.score + score;

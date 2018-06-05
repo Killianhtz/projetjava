@@ -19,7 +19,9 @@ public class CastingSpell {
 		this.event = event;
 	}
 	
-	
+	/**
+	 * Method who create the spell to the farther position with the direction of Lorann
+	 */
 	
 	public void createSpell(Point lastDirection) throws IOException {
 		if(model.hasMana() == true) {
@@ -33,6 +35,10 @@ public class CastingSpell {
 		}
 		
 	}
+	
+	/**
+	 * Method to move the spell on the map with the event
+	 */
 	
 	public void moveSpell() throws Exception {
 		model.setSpriteClockSpell(clockSprite);
@@ -65,6 +71,10 @@ public class CastingSpell {
 		
 	}
 	
+	/**
+	 * Method wjich return the Spell when there is a Boolean argu
+	 */
+	
 	public void moveSpell(Boolean backLorann) throws Exception {
 		model.setSpriteClockSpell(clockSprite);
 		clockSprite++;		
@@ -73,10 +83,6 @@ public class CastingSpell {
 		}
 	
 	    diagonalMoves();
-		
-		
-		
-		
 		if(model.getElement(model.getSpell(), this.newDirection).getSprite().getConsoleImage() == "V") {
 			model.move(model.getSpell(), this.newDirection);
 		}
@@ -145,6 +151,10 @@ public class CastingSpell {
 		
 	}
 	
+	/**
+	 * Methods who set the next Point for the Demon to come closer to Lorann
+	 */
+	
 	public void diagonalMoves() {
 		
 		this.newDirection = new Point();
@@ -189,6 +199,10 @@ public class CastingSpell {
 			this.diffLorannSpell.setLocation(this.diffLorannSpell.getX() - this.newDirection.getX(),this.diffLorannSpell.getY() -  this.newDirection.getY());
 		}
 	}
+	
+	/**
+	 * Event when the Spell touch the Demon
+	 */
 	
 	public void spellDemonEventD() throws IOException {
 		model.disappear(model.getDemonDMobile());

@@ -59,6 +59,9 @@ public class ControllerFacade implements IController, Observer {
 		  }
     }
 
+   	/**
+	 * The loop where all the moves methods are used
+	 */
 
     public void play() throws Exception {
         final List<Example> procedure = this.model.getMapByLevel(level);
@@ -112,19 +115,17 @@ public class ControllerFacade implements IController, Observer {
   			}
   		}
   		
-  		
-  		
-  	
-  		
   		if(view.getSpell() == true) {
 			lastDirection = new Point(xc,yc);
 			castingSpell.createSpell(this.lastDirection);
 			view.setSpell();
-		}
+  			}
         }
   
     }
- 
+   	/**
+	 	* Method use to go to the next level
+	 	*/
     
     public void nextLevel() throws SQLException, Exception {
     	level++;
@@ -145,7 +146,9 @@ public class ControllerFacade implements IController, Observer {
         
     }
  
-
+   	/**
+	 * Method who come from the DP observer, who notify when we have to change the map
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		

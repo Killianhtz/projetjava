@@ -31,6 +31,10 @@ public class CharacterMoves {
 		this.event = event;
 	}
 	
+	/**
+	 * Method for move Lorann on the next position with the direction + clock who change lorann sprite when he isn't moving every loop
+	 */
+	
     public void move(Point direction) throws SQLException, Exception {
     	event.testEvent(direction);
     	if(direction.getX() == 0 && direction.getY() == 0) {
@@ -41,15 +45,16 @@ public class CharacterMoves {
     		}
     	}
     	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
-    		
     		if(nextLevelY != true) {
         		model.move(model.getLorann(), direction);
-        		
     		}
     	}
     	view.setDirection();
-    	
     }
+    
+    /**
+	 * Method who test the permeability of an Element
+	 */
     
     public Boolean testPermeability(IElement element){
     	Boolean permeability = false;
@@ -58,6 +63,14 @@ public class CharacterMoves {
     	}
     	return permeability;
     }
+    
+    /**
+ 	 * Method used to move the demon with different behavior
+ 	 */
+     
+     /**
+ 	 * Demon go right to left or left to right
+ 	 */
     
     public void demonMovesD(IMobile mobile) throws IOException {
     	if(model.getIsThereDemonD() == true) {
@@ -76,6 +89,9 @@ public class CharacterMoves {
     	}
  	   
      }
+    /**
+   	 * Demon go up to down or down to up
+   	 */
     public void demonMovesX(IMobile mobile) throws IOException {
  	   if(model.getIsThereDemonX() == true) {
  		   if(model.getElement(mobile, model.demonBehavior(demonXDirection, 2, mobile)).getSprite().getConsoleImage() == "V") {
@@ -92,7 +108,11 @@ public class CharacterMoves {
  		   }
  	   }
     }
- 	   
+
+    	/**
+  		 * Demon in a random position
+  		 */
+    
  	    public void demonMovesZ(IMobile mobile) throws IOException {
  	 	   if(model.getIsThereDemonZ() == true) {
  	 		 demonZDirection = (int) (Math.random() * 4 );
@@ -106,6 +126,11 @@ public class CharacterMoves {
  	 		   
  	 	   }
  	   }
+ 	    
+ 	    	/**
+ 	 		 * Demon who get closer to Lorann
+ 	 		 */
+ 	    
  	   public void demonMovesF(IMobile mobile) throws IOException {
  		   stopAndStart = (int) (Math.random() * 2);
  	 	   if(model.getIsThereDemonF() == true && stopAndStart == 1) {
@@ -151,6 +176,11 @@ public class CharacterMoves {
  	 		   
  	 	  }
  	   }
+ 	   
+ 	   	/**
+ 	 	* Method use to block lorann moves during the change of level
+ 	 	*/
+ 	   
     public void setNextLevelY(Boolean nextLevelY) {
   	  this.nextLevelY = nextLevelY;
       }

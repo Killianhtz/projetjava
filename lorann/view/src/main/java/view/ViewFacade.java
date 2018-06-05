@@ -53,7 +53,7 @@ public class ViewFacade implements IView {
 
 	
 	
-	public void createJFrame(String[][] map) {
+	public void createJFrame(String[][] map) throws Exception {
     	window = new ViewJFrame(map);
     	window.setVisible(true);
 	}

@@ -29,7 +29,7 @@ public interface IView {
 
     public void setDirection();
     
-    public void createJFrame(String[][] map);
+    public void createJFrame(String[][] map) throws Exception;
     
 	public void setMap(IElement[][] element);
 	

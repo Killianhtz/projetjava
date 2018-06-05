@@ -27,7 +27,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	
 	
-	public ViewJFrame(String[][] map) {
+	public ViewJFrame(String[][] map) throws Exception {
 		
     	this.setTitle("Lorann");
     	this.setSize(width, height);
@@ -39,7 +39,12 @@ public class ViewJFrame extends JFrame implements KeyListener{
     	this.viewjpanel.setBackground(Color.BLACK);
     	this.add(viewjpanel);
     	
-    	
+		  if ((playerMoves.x < 0) || (playerMoves.x > 20)) {
+		  throw new Exception("Out of range");
+		  }
+		  if ((playerMoves.y < 0) || (playerMoves.y > 12)) {
+		  throw new Exception("Out of range");
+		  }
 	}
 
 

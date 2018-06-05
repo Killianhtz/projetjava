@@ -6,9 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ExampleTest {
+	
     private Example Element;
 	
-
+    /**
+     * Instantiation
+     * @throws Exception
+     */
+    
     @Before
     public void setUp() throws Exception {
         Element = new Example("O",0,11);
@@ -18,7 +23,12 @@ public class ExampleTest {
     @After
     public void tearDown() throws Exception {
     }
-
+     
+    
+    /**
+     * test if we get the right element
+     */
+    
     @Test
     public void testGetElement() {
         final String expected = "O";
@@ -26,6 +36,10 @@ public class ExampleTest {
         assertEquals(expected, this.Element.getElement());
          
     }
+    
+    /**
+     * test if we get the right coordinate X
+     */
 
     @Test
     public void testGetX() {
@@ -33,13 +47,23 @@ public class ExampleTest {
         assertEquals(expected, this.Element.getX());
         
     }
+    
+    
+    /**
+     * test if we get the right coordinate Y
+     */
 
     @Test
     public void testGetY() {
         final int expected = 11;
-        assertEquals(expected, this.Element.getY());
-       
+        assertEquals(expected, this.Element.getY()); 
     }
+    
+    /**
+     * test if the element is right set
+     */
+    
+   
     @Test
     public void testSetElement() {
         String expected = "O";
@@ -48,6 +72,9 @@ public class ExampleTest {
         this.Element.setElement(expected);
         assertEquals(expected, this.Element.getElement());
         
+     /**
+      * tests whether the ToString function returns the correct values   
+      */
         
     }
 

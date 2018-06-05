@@ -1,11 +1,8 @@
 package controller;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 
@@ -14,23 +11,27 @@ public class ControllerFacadeTest {
 	private int score = 0;
 	private int X = 5;
 	private int Y = 5;
-	
-	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+/**
+ * @param X
+ * @return this.X
+ */
 	
 	private int newPositionX(int X) {
 		return this.X;
 	}
-
+/**
+ * @param Y
+ * @return this.Y
+ */
 	private int newPositionY(int Y) {
 		return this.Y;
 	}
+	
+/**
+ * Initializing the score
+ * @throws Exception
+ */
 	
 	@Before
 	public void setUp() throws Exception {
@@ -61,6 +62,10 @@ public class ControllerFacadeTest {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * Testing the different methods of movement
+	 */
+	
 	@Test
 	public void testMoveUp() {
 		int expected = 4;
@@ -113,6 +118,10 @@ public class ControllerFacadeTest {
 	public void testNextLevel() {
 		fail("Not yet implemented");
 	}
+	
+	/**
+	 * We check if the score is update of 650 points each time
+	 */
 	
 	@Test
 	public void testAddScore() {

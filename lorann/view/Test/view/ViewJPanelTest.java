@@ -1,24 +1,18 @@
 package view;
 
 import static org.junit.Assert.*;
-import java.awt.image.BufferedImage;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import model.IElement;
-
 public class ViewJPanelTest {
 
-	private BufferedImage[][] image = new BufferedImage[12][20];
-	private IElement[][] element;
 	private int x;
 	private int y;
 	private Boolean yes = false;
 	private String itslost = "";
-	private int score = 0;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -35,23 +29,28 @@ public class ViewJPanelTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	/**
+	 * Test if X = 20, Y = 12 and the boolean is true
+	 */
 
-	  @Test
-	    public void testChanges() {
-	        this.yes = true;
-
-	        for (y = 0; y <= 11; y++) {
-	            for (x = 0; x <= 19; x++) {
-
-
-
-	            }
-	        }
-	        assertTrue(yes);
-	        assertEquals(20, x);
-	        assertEquals(12, y);
+    @Test
+	public void testChanges() {
+	  this.yes = true;
+	  for (y = 0; y <= 11; y++) {
+	  for (x = 0; x <= 19; x++) {
+		  
+	  }
+	  }
+	   assertTrue(yes);
+	   assertEquals(20, x);
+	   assertEquals(12, y);
 	 }
 
+	 /**
+	  * Test if the correct text is displayed when you lose
+	  */
+	  
     @Test
     public void testLose() {
         this.itslost = "YOU LOSE";

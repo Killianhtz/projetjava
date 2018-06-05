@@ -12,8 +12,7 @@ public class Spell extends Mobile{
 									new Sprite("Q", "fireball_3.png"),
 									new Sprite("Q", "fireball_4.png"),
 									new Sprite("Q", "fireball_5.png")};
-	protected Boolean alive;
-	protected Boolean hero;
+	
 	protected Point spellDirection;
 	protected Point lorannPosition;
 	private Boolean backLorann = false;

@@ -1,7 +1,5 @@
 package model.element.mobile;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class BehaviorOne implements Behavior {
  

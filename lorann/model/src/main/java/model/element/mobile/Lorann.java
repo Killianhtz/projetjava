@@ -7,8 +7,6 @@ import model.Sprite;
 
 public class Lorann extends Mobile{
 	
-	private Boolean alive = true;
-	private Boolean hero = true;
 	private Boolean mana = true;
 	private Direction castDirection;
 	//private Spell spell;
@@ -28,10 +26,6 @@ public class Lorann extends Mobile{
 		for (int i = 0; i < SPRITE.length; i++) {
 			SPRITE[i].loadImage();
 		}
-	}
-	
-	public void launchSpell() {
-		
 	}
 
 	public Boolean hasMana() {

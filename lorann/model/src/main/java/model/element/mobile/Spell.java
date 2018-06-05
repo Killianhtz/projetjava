@@ -3,8 +3,6 @@ package model.element.mobile;
 import java.awt.Point;
 import java.io.IOException;
 
-import javax.swing.text.Position;
-
 import model.Permeability;
 import model.Sprite;
 

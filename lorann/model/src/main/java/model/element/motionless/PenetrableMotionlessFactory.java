@@ -1,7 +1,7 @@
 package model.element.motionless;
 
 import java.io.IOException;
-/* 
+/**
  * Subclass of the abstract superclass MotionlessFactory, in charge of the creation of penetrable motionless Elements.
  */
 public class PenetrableMotionlessFactory extends MotionlessFactory {

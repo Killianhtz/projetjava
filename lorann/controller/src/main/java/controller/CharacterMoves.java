@@ -129,7 +129,7 @@ public class CharacterMoves {
   	 	 		   event.lose();
   	 	 	   }
  			}
- 			else if(this.diffLorannDemon.getY() < 0) {
+ 			if(this.diffLorannDemon.getY() < 0) {
  				demonFDirection = 0;
  				if(model.getElement(mobile, model.demonBehavior(demonFDirection, 4, mobile)).getSprite().getConsoleImage() == "V") {
  	 	 			model.move(mobile, model.demonBehavior(demonFDirection, 4, mobile));

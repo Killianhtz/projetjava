@@ -3,10 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.Point;
 
-import model.IMobile;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 
 
@@ -14,6 +12,9 @@ import java.awt.event.*;
 
 public class ViewJFrame extends JFrame implements KeyListener{
 	
+	
+	private static final long serialVersionUID = 1L;
+
 	public static int 		width = 640;
 	
 	public static int 		height = 515;
@@ -24,9 +25,6 @@ public class ViewJFrame extends JFrame implements KeyListener{
 	
 	private Point playerMoves = new Point(0,0);
 	
-	
-	
-	
 	public ViewJFrame(String[][] map) throws Exception {
 		
     	this.setTitle("Lorann");
@@ -35,7 +33,7 @@ public class ViewJFrame extends JFrame implements KeyListener{
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	this.addKeyListener(this);
-    	this.viewjpanel = new ViewJPanel(map);
+    	this.viewjpanel = new ViewJPanel();
     	this.viewjpanel.setBackground(Color.BLACK);
     	this.add(viewjpanel);
     	

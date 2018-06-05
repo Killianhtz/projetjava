@@ -3,7 +3,6 @@ package view;
 import java.awt.Point;
 
 import model.IElement;
-import model.IModel;
 
 /**
  * <h1>The Interface IView.</h1>
@@ -19,7 +18,6 @@ public interface IView {
      * @param message
      *            the message
      */
-    void displayMessage(String message);
     
     public Point getDirection();
     

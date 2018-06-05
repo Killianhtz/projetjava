@@ -1,25 +1,16 @@
 package controller;
 
 import java.awt.Point;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import model.Example;
-import model.IElement;
-import model.IMobile;
 import model.IModel;
-import model.Permeability;
 import view.IView;
 
-/**
- * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
+
 public class ControllerFacade implements IController, Observer {
 
  
@@ -33,9 +24,6 @@ public class ControllerFacade implements IController, Observer {
     
     private Point direction;
     private Point lastDirection;
-    private Point direction2;
-    
-    private Boolean nextLevelY = false;
     
     private int level = 1;
     
@@ -56,7 +44,7 @@ public class ControllerFacade implements IController, Observer {
         event = new Event(view,model);
         event.addObserver(this);
         characterMoves = new CharacterMoves(view,model,event);
-        castingSpell = new CastingSpell(view,model,event,characterMoves);
+        castingSpell = new CastingSpell(model,event);
 		  if ((x < 0) || (x > 20)) {
 		  throw new Exception("Out of range");
 		  }
@@ -71,13 +59,8 @@ public class ControllerFacade implements IController, Observer {
 		  }
     }
 
-    /**
-     * Start.
-     * @throws Exception 
-     */
+
     public void play() throws Exception {
-    	direction2 = new Point(0,0);
-    	
         final List<Example> procedure = this.model.getMapByLevel(level);
         for (final Example example : procedure) {
             map[y][x] = example.getElement();
@@ -144,7 +127,6 @@ public class ControllerFacade implements IController, Observer {
  
     
     public void nextLevel() throws SQLException, Exception {
-    	nextLevelY = true;
     	level++;
     	final List<Example> procedure = this.model.getMapByLevel(level);
         for (final Example example : procedure) {
@@ -170,7 +152,6 @@ public class ControllerFacade implements IController, Observer {
                 try {
 					nextLevel();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
                 characterMoves.setNextLevelY(true);

@@ -6,14 +6,10 @@ import java.util.List;
 
 import model.dao.LorannBDDConnector;
 import model.dao.ProcedureDAO;
-import model.element.mobile.Behavior;
-import model.element.mobile.BehaviorOne;
 import model.element.mobile.Demon;
 import model.element.mobile.Direction;
 import model.element.mobile.Lorann;
 import model.element.mobile.Spell;
-//import model.element.mobile.Spell;
-import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
 import model.element.motionless.MotionlessFactory;
 import model.element.motionless.PenetrableMotionlessFactory;
@@ -52,8 +48,6 @@ public final class ModelFacade implements IModel {
         
     }
 
-   
-    /*Try to Connect to the database lorann */
     public void connectToDB() {
     	LorannBDDConnector conn = null;
     	try {
@@ -132,24 +126,7 @@ public final class ModelFacade implements IModel {
 		changeTheMap(mobile);
 	}
 	
-	public IMobile getLorann() {
-		return this.lorann;
-	}
-	
-	public IMobile getDemonDMobile() {
-		return this.demonD;
-	}
-	
-	public IMobile getDemonXMobile(){
-		return this.demonX;
-	}
-	public IMobile getDemonZMobile() {
-		return this.demonZ;
-	}
-	
-	public IMobile getDemonFMobile(){
-		return this.demonF;
-	}
+
 	
 	public Point demonBehavior(int a, int b, IMobile mobile) throws IOException {
 		switch(b) {
@@ -243,6 +220,25 @@ public final class ModelFacade implements IModel {
 	
 	public Boolean getBackLorann() {
 		return spell.getBackLorann();
+	}
+	
+	public IMobile getLorann() {
+		return this.lorann;
+	}
+	
+	public IMobile getDemonDMobile() {
+		return this.demonD;
+	}
+	
+	public IMobile getDemonXMobile(){
+		return this.demonX;
+	}
+	public IMobile getDemonZMobile() {
+		return this.demonZ;
+	}
+	
+	public IMobile getDemonFMobile(){
+		return this.demonF;
 	}
 
 }

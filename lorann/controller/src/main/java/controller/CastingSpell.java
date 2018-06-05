@@ -5,23 +5,18 @@ import java.io.IOException;
 
 import model.IMobile;
 import model.IModel;
-import view.IView;
 
 public class CastingSpell {
 	private IModel model;
-	private IView view;
 	private Event event;
 	private Point lastDirection;
 	private Point diffLorannSpell;
 	private Point newDirection;
-	private CharacterMoves characterMoves; 
 	private int clockSprite = 0;
 	
-	public CastingSpell(IView view,IModel model, Event event, CharacterMoves characterMoves) {
-        this.view = view;
+	public CastingSpell(IModel model, Event event) {
 		this.model = model;	
 		this.event = event;
-		this.characterMoves = characterMoves; 
 	}
 	
 	

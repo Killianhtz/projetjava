@@ -4,22 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
-import controller.IController;
 import model.IElement;
 
 public class ViewJPanel extends JPanel {
 	
-	private String[][] map;
-	
-	private IController controller;
+
+	private static final long serialVersionUID = 1L;
 	
 	private Boolean yes = false;
 	
@@ -30,7 +22,7 @@ public class ViewJPanel extends JPanel {
 	private String itslost = "";
 	
 	
-	public ViewJPanel(String[][] map) {
+	public ViewJPanel() {
 
 	}
 	
@@ -38,16 +30,12 @@ public class ViewJPanel extends JPanel {
 		this.yes = true;
 		for (int y = 0; y <= 11; y++) {
 	        for (int x = 0; x <= 19; x++) {
-	        	
-	       
-	        
-	        image[y][x] = element[y][x].getImage(); 
-	        	
-	        	
+	        	image[y][x] = element[y][x].getImage(); 
 	        }
 	    }
 		repaint();
 	}
+	
 	
 	public void lose() {
 		this.itslost = "YOU LOSE";
@@ -59,15 +47,9 @@ public class ViewJPanel extends JPanel {
 	
 	for (int y = 0; y <= 11; y++) {
         for (int x = 0; x <= 19; x++) {
-        	
         	if (yes == true) {
             	g.drawImage(image[y][x], 32 * x , 32 * y , 32 , 32 , null);
 			}
-        	
-
-        		
-        	
-        	
         }
     }
 	g.setFont(new Font("impact", Font.BOLD, 50));

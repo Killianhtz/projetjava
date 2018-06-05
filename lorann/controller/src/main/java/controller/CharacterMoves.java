@@ -70,7 +70,7 @@ public class CharacterMoves {
  		   if(model.getElement(mobile, model.demonBehavior(demonXDirection, 2, mobile)).getSprite().getConsoleImage() == "V") {
  			   model.move(mobile, model.demonBehavior(demonXDirection, 2, mobile));
  		   }
- 	 	   else if(model.getElement(mobile, model.demonBehavior(demonXDirection, 1, mobile)).getSprite().getConsoleImage() == "L") {
+ 	 	   else if(model.getElement(mobile, model.demonBehavior(demonXDirection, 2, mobile)).getSprite().getConsoleImage() == "L") {
  	 		   event.lose();
  	 	   }
  		   else {

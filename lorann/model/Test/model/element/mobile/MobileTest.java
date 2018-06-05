@@ -11,6 +11,7 @@ import org.junit.Test;
 public class MobileTest {
 	
 	
+	
 	private int X = 15;
 	private int Y = 10;
 	

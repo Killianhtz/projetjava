@@ -86,7 +86,7 @@ public final class ModelFacade implements IModel {
 	}
 	
 	public void creatSpell(Point lastDirection)throws IOException {
-		spell = new Spell(lorann.getPosition(),lastDirection);
+		spell = new Spell(lorann.getPosition(),lastDirection, 0);
 		element[spell.getY()][spell.getX()] = spell;
 		view.setMap(element);
 	}
@@ -200,6 +200,10 @@ public final class ModelFacade implements IModel {
 	
 	public void setSpriteClock(int a) throws IOException {
 		lorann.setSpriteClock(a);
+	}
+	
+	public void setSpriteClockSpell(int a) throws IOException {
+		spell.setSpriteClock(a);
 	}
 
 }

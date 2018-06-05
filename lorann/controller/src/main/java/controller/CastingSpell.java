@@ -13,6 +13,7 @@ public class CastingSpell {
 	private Event event;
 	private Point lastDirection;
 	private CharacterMoves characterMoves; 
+	private int clockSprite = 0;
 	
 	public CastingSpell(IView view,IModel model, Event event, CharacterMoves characterMoves) {
         this.view = view;
@@ -25,7 +26,7 @@ public class CastingSpell {
 	
 	public void createSpell(Point lastDirection) throws IOException {
 		if(model.hasMana() == true) {
-			if(characterMoves.testPermeability(model.getElement((IMobile)model.getLorann(), lastDirection)) == true) {
+			if(model.getElement((IMobile)model.getLorann(), lastDirection).getSprite().getConsoleImage() == "V") {
 				this.lastDirection = new Point();
 				this.lastDirection = lastDirection;
 				model.creatSpell(lastDirection);
@@ -37,6 +38,11 @@ public class CastingSpell {
 	}
 	
 	public void moveSpell() throws Exception {
+		model.setSpriteClockSpell(clockSprite);
+		clockSprite++;		
+		if(clockSprite == 5) {
+			clockSprite = 0;
+		}
 		if(model.getElement(model.getSpell(), this.lastDirection).getSprite().getConsoleImage() == "V") {
 			model.move(model.getSpell(), this.lastDirection);
 		}

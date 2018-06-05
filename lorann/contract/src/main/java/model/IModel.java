@@ -62,6 +62,7 @@ public interface IModel {
 	Boolean getIsThereDemonD();
 	public void setDemonDownD(Boolean a);
 	public void setDemonDownX(Boolean a);
+	public void setSpriteClock(int a) throws IOException ;
 	
 	
 }

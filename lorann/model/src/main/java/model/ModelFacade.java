@@ -197,5 +197,9 @@ public final class ModelFacade implements IModel {
 	public void setDemonDownX(Boolean a) {
 		mapI.setDemonDownX(a);
 	}
+	
+	public void setSpriteClock(int a) throws IOException {
+		lorann.setSpriteClock(a);
+	}
 
 }

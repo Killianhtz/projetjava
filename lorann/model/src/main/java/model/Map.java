@@ -22,6 +22,7 @@ public class Map implements IMap{
 	public DemonTwo demonX;
 	public Boolean isThereDemonX = false;
 	public Boolean isThereDemonD = false;
+	private int spriteClock = 0;
 	
 	
 	MotionlessFactory penetrableMotionlessFactory;
@@ -60,7 +61,7 @@ public class Map implements IMap{
 						element[y][x] = motionlessElement;
 						break;
 					case "L":
-						lorann = new Lorann();
+						lorann = new Lorann(spriteClock);
 						element[y][x] = lorann;
 						lorann.setPosition(x, y);
 						break;
@@ -145,5 +146,9 @@ public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 	}
 	public void setDemonDownX(Boolean b) {
 		this.isThereDemonX = b;
+	}
+	
+	public void setSpriteClock(int a) {
+		this.spriteClock = a;
 	}
 }

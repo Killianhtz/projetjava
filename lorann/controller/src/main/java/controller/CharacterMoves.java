@@ -19,6 +19,7 @@ public class CharacterMoves {
     private int demonDDirection = 0;
     private int demonXDirection = 0;
     private Boolean nextLevelY = false;
+    private int clockSprite = 0;
 	
 	public CharacterMoves(IView view,IModel model, Event event) {
         this.view = view;
@@ -28,7 +29,13 @@ public class CharacterMoves {
 	
     public void move(Point direction) throws SQLException, Exception {
     	event.testEvent(direction);
-    	
+    	if(direction.getX() == 0 && direction.getY() == 0) {
+    		model.setSpriteClock(clockSprite);
+    		clockSprite++;		
+    		if(clockSprite == 8) {
+    			clockSprite = 0;
+    		}
+    	}
     	if(testPermeability(model.getElement((IMobile)model.getLorann(), direction)) == true) {
     		
     		if(nextLevelY != true) {

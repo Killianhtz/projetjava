@@ -8,9 +8,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ControllerFacadeTest {
+	
 	/**
-	 * Creation of attributes and initialization of an array
+	 * Creation of attributes and array
 	 */
+	
     private int level;
 	private int score;
 	private int X;
@@ -34,12 +36,16 @@ public class ControllerFacadeTest {
 		return this.Y;
 	}
 	
+	
+	/**
+	 * Initialization of our attributes
+	 */
+	
 
 	@Before
 	public void setUp() throws Exception {
-		/**
-		 * Initialization of attributes
-		 */
+		
+		
 		X = 5;
 		Y = 5;
 		score = 0;
@@ -49,9 +55,11 @@ public class ControllerFacadeTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
 	/**
-	 * Test if Y = 4
+	 * Test if Y = 4 when we move u^p
 	 */
+	
 	@Test
 	public void testMoveUp() {
 		int expected = 4;
@@ -60,8 +68,9 @@ public class ControllerFacadeTest {
 	}
 
 	/**
-	 * Test if Y = 6
+	 * Test if Y = 6 when we move down
 	 */
+	
 	@Test
 	public void testMoveDown() {
 		int expected = 6;
@@ -69,8 +78,9 @@ public class ControllerFacadeTest {
 		assertEquals(expected, newPositionY(Y));
 	}
 	/**
-	 * Test if X = 6
+	 * Test if X = 6 when we move right
 	 */
+	
 	@Test
 	public void testMoveRight() {
 		int expected = 6;
@@ -78,8 +88,9 @@ public class ControllerFacadeTest {
 		assertEquals(expected, newPositionX(X));
 	}
 	/**
-	 * Test if X = 4
+	 * Test if X = 4 when we move left
 	 */
+	
 	@Test
 	public void testMoveLeft() {
 		int expected = 4;
@@ -88,8 +99,9 @@ public class ControllerFacadeTest {
 	}
 
 	/**
-	 * Test if score = 650
+	 * Test if score = 650 when we take a purse
 	 */
+	
 	@Test
 	public void testAddScore() {
 		int expected = this.score + 650;
@@ -98,8 +110,9 @@ public class ControllerFacadeTest {
 	}
 
 	/**
-	 * Test if level = 2
+	 * Test if next level is level 2
 	 */
+	
 	@Test
 	public void update() {
 		int expected = 2;

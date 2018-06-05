@@ -32,6 +32,7 @@ public class MobileTest {
 		this.Location(X, Y);
 		assertEquals(9, Y);
 	}
+	
 	 
 	@Test
 	public void testMoveDown() {

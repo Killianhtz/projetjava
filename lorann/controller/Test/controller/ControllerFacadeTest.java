@@ -15,6 +15,7 @@ public class ControllerFacadeTest {
 	private int X = 5;
 	private int Y = 5;
 	
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

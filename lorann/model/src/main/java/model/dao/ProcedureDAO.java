@@ -27,7 +27,6 @@ public abstract class ProcedureDAO extends AbstractDAO{
 	    /**
 	     * Gets the map by level.
 	     *
-	     * @param level
 	     *            the level
 	     * @return the map by level
 	     * @throws Exception 

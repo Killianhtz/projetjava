@@ -14,9 +14,6 @@ public interface IView {
 
     /**
      * Display message.
-     *
-     * @param message
-     *            the message
      */
     
     public Point getDirection();

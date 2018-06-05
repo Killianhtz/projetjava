@@ -1,4 +1,5 @@
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\TypeMotionless.java
+C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\BehaviorThree.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\BlockingMotionlessFactory.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\VerticalBone.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\Void.java
@@ -6,19 +7,15 @@ C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\dao\LorannBDDConn
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\BehaviorOne.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\dao\ProcedureDAO.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\dao\AbstractDAO.java
-C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\IDemon.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\HorizontalBone.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\ModelFacade.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\Behavior.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\Lorann.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\Bone.java
-C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\dao\ImportLevelFromDB.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\PenetrableMotionlessFactory.java
-C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\LorannModel.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\GateOpen.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\Demon.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\dao\package-info.java
-C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\DemonTwo.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\Mobile.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\Purse.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\Element.java
@@ -28,6 +25,5 @@ C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionles
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\Map.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\Spell.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\motionless\CrystalBall.java
-C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\package-info.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\BehaviorTwo.java
 C:\Users\thefu\git\projetjava\lorann\model\src\main\java\model\element\mobile\Direction.java

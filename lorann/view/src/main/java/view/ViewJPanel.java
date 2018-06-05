@@ -21,7 +21,7 @@ public class ViewJPanel extends JPanel {
 	
 	private IController controller;
 	
-	private Boolean oui = false;
+	private Boolean yes = false;
 	
 	private Image[][] image = new Image[12][20];
 	
@@ -35,7 +35,7 @@ public class ViewJPanel extends JPanel {
 	}
 	
 	public void changes(IElement[][] element) {
-		this.oui = true;
+		this.yes = true;
 		for (int y = 0; y <= 11; y++) {
 	        for (int x = 0; x <= 19; x++) {
 	        	
@@ -60,7 +60,7 @@ public class ViewJPanel extends JPanel {
 	for (int y = 0; y <= 11; y++) {
         for (int x = 0; x <= 19; x++) {
         	
-        	if (oui == true) {
+        	if (yes == true) {
             	g.drawImage(image[y][x], 32 * x , 32 * y , 32 , 32 , null);
 			}
         	

@@ -86,7 +86,7 @@ public class Map implements IMap{
 						isThereDemonZ = true;
 						break;
 					case "F":
-						demon[3] = new Demon(new BehaviorTwo(),3);
+						demon[3] = new Demon(new BehaviorThree(),3);
 						element[y][x] = demon[3];
 						demon[3].setPosition(x, y);
 						isThereDemonF = true;

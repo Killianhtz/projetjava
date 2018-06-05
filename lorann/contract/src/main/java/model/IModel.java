@@ -45,6 +45,11 @@ public interface IModel {
 	IMobile getDemonXMobile() throws Exception;
 	  public Boolean getIsThereDemonX();
 	Point demonBehavior(int a, int b, IMobile mobile) throws IOException;
+	
+	public void setMana(Boolean mana);
+	public Boolean hasMana();
+	public IMobile getSpell();
+	public void disappear(IMobile mobile) throws IOException;
 	/*
 	IMobile getDemonX();
 	

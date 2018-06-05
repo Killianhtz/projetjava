@@ -44,6 +44,8 @@ public class ControllerFacade implements IController, Observer {
     
     private int x = 0;
     private int y = 0;
+    private int xc = 0;
+    private int yc = 0;
 
 
     public ControllerFacade(final IView view, final IModel model) {
@@ -64,6 +66,7 @@ public class ControllerFacade implements IController, Observer {
      */
     public void play() throws Exception {
     	direction2 = new Point(0,0);
+    	
         final List<Example> procedure = this.model.getMapByLevel(level);
         for (final Example example : procedure) {
             map[y][x] = example.getElement();
@@ -89,17 +92,26 @@ public class ControllerFacade implements IController, Observer {
   		  } catch (Exception e) {}
   		  this.direction = view.getDirection();
   		  if(this.direction.getX() != 0 || this.direction.getY() != 0) {
-  			  this.lastDirection = this.direction;
+  			  yc = (int) this.direction.getY();
+  			  xc = (int) this.direction.getX();
   			  System.out.println(this.direction);
   		  }
   		  
-		if(view.getSpell() == true) {
-			castingSpell.createSpell(lastDirection);
-			view.setSpell();
-		}
+		
+		
 		characterMoves.move(nextLevelY,direction);
   		 characterMoves.demonMovesD(model.getDemonDMobile());
   		characterMoves.demonMovesX(model.getDemonXMobile());
+  		if(model.hasMana() == false) {
+  			castingSpell.moveSpell();
+  		}
+  	
+  		
+  		if(view.getSpell() == true) {
+			lastDirection = new Point(xc,yc);
+			castingSpell.createSpell(this.lastDirection);
+			view.setSpell();
+		}
         }
         
       

@@ -36,4 +36,5 @@ public class Lorann extends Mobile{
 		return this.castDirection;
 	}
 	
+	
 }

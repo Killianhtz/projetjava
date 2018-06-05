@@ -90,6 +90,12 @@ public final class ModelFacade implements IModel {
 		view.setMap(element);
 	}
 	
+	public void disappear(IMobile mobile) throws IOException {
+		penetrableMotionlessFactory = new PenetrableMotionlessFactory();
+		motionlessElement = penetrableMotionlessFactory.createElement(TypeMotionless.VOID);
+		element[mobile.getY()][mobile.getX()] = motionlessElement;
+	}
+	
 	
 	public void setView(IView view) {
 		this.view = view;
@@ -164,6 +170,17 @@ public final class ModelFacade implements IModel {
 	public Boolean getIsThereDemonX() {
 		return mapI.getIsThereDemonX();
 	}
+	
+	public Boolean hasMana() {
+		return lorann.hasMana();
+	}
+	
+	public void setMana(Boolean mana) {
+		lorann.setMana(mana);
+	}
 
+	public IMobile getSpell() {
+		return this.spell;
+	}
 
 }

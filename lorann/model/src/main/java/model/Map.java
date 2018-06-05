@@ -5,7 +5,6 @@ import model.IElement;
 import model.element.mobile.BehaviorOne;
 import model.element.mobile.BehaviorTwo;
 import model.element.mobile.Demon;
-import model.element.mobile.DemonTwo;
 import model.element.mobile.Lorann;
 import model.element.motionless.BlockingMotionlessFactory;
 import model.element.motionless.MotionlessElement;
@@ -19,7 +18,7 @@ public class Map implements IMap{
 	private String mapSave[][];
 	public Lorann lorann;
 	public Demon demonD;
-	public DemonTwo demonX;
+	public Demon demonX;
 	public Boolean isThereDemonX = false;
 	public Boolean isThereDemonD = false;
 	private int spriteClock = 0;
@@ -66,13 +65,13 @@ public class Map implements IMap{
 						lorann.setPosition(x, y);
 						break;
 					case "D":
-						demonD = new Demon(new BehaviorOne());
+						demonD = new Demon(new BehaviorOne(),0);
 						element[y][x] = demonD;
 						demonD.setPosition(x, y);
 						isThereDemonD = true;
 						break;
 					case "X":
-						demonX = new DemonTwo(new BehaviorTwo());
+						demonX = new Demon(new BehaviorTwo(),1);
 						element[y][x] = demonX;
 						demonX.setPosition(x, y);
 						isThereDemonX = true;
@@ -129,7 +128,7 @@ public IElement[][] changeTheMap(IMobile mobile) throws IOException  {
 	public Demon getDemonD() {
 		return this.demonD;
 	}
-	public DemonTwo getDemonX() {
+	public Demon getDemonX() {
 		return this.demonX;
 	}
 	

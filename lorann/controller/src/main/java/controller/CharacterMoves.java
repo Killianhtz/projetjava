@@ -107,7 +107,7 @@ public class CharacterMoves {
  	 	   }
  	   }
  	   public void demonMovesF(IMobile mobile) throws IOException {
- 		   stopAndStart = (int) (Math.random() * 3);
+ 		   stopAndStart = (int) (Math.random() * 2);
  	 	   if(model.getIsThereDemonF() == true && stopAndStart == 1) {
  	 		this.diffLorannDemon = new Point(model.getLorann().getX()-model.getDemonFMobile().getX(),model.getLorann().getY()-model.getDemonFMobile().getY());
 

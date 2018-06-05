@@ -2,6 +2,8 @@ package view;
 
 import static org.junit.Assert.*;
 
+import java.awt.Point;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,7 +11,20 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ViewJFrameTest {
-
+	public static int 	width = 640;
+	
+	public static int 	height = 515;
+		
+	private Boolean spell = false;
+	
+	private Point playerMoves = new Point(0,0);
+	
+	boolean a;
+	boolean e;
+	boolean z;
+	boolean r;
+	boolean t;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -21,6 +36,8 @@ public class ViewJFrameTest {
 
 	@Before
 	public void setUp() throws Exception {
+		this.playerMoves.x = 15;
+		this.playerMoves.y = 11;
 	}
 
 	@After
@@ -28,38 +45,40 @@ public class ViewJFrameTest {
 	}
 
 	@Test
-	public void testViewJFrame() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
 	public void testKeyPressed() {
-		//fail("Not yet implemented");
-	}
-
+		if (e) {
+	    	  playerMoves.x = 1;
+	    	  assertEquals(16, playerMoves.x);
+	      }
+	      else if (a) {
+	    	  playerMoves.x = -1;
+	    	  assertEquals(14, playerMoves.x);
+	      }
+	      else if (z) {
+	    	  playerMoves.y = 1;
+	    	  assertEquals(12, playerMoves.y);
+	      }
+	      else if (r) {
+	    	  playerMoves.y = -1;
+	    	  assertEquals(10, playerMoves.y);
+	      }
+	      else if (t) {
+	    	 this.spell = true;
+	    	 assertTrue(spell);
+	      }	
+		}
+	
 	@Test
-	public void testKeyReleased() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeyTyped() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetDirection() {
-		//fail("Not yet implemented");
+	public void setSpell() {
+		this.spell = false;
+		assertFalse(spell);
 	}
 
 	@Test
 	public void testSetDirection() {
-		//fail("Not yet implemented");
+		playerMoves.x = 0;
+		playerMoves.y = 0;
+		assertEquals(0, playerMoves.x);
+		assertEquals(0, playerMoves.y);
 	}
-
-	@Test
-	public void testGetJPanel() {
-		//fail("Not yet implemented");
-	}
-
 }

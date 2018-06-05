@@ -14,7 +14,8 @@ public class ViewJPanelTest {
 	private int y;
 	private Boolean yes = false;
 	private String itslost = "";
-	
+	private int score = 0;
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -57,15 +58,14 @@ public class ViewJPanelTest {
         this.itslost = "YOU LOSE";
         assertEquals("YOU LOSE", itslost);
     }
-
-	@Test
-	public void testPaintComponentGraphics() {
-		//fail("Not yet implemented");
-	}
+/**
+ * Test if the score is the same as before
+ */
 
 	@Test
 	public void testSetScore() {
-		//fail("Not yet implemented");
+		this.score = score;
+		assertEquals(0, score);
 	}
 
 }

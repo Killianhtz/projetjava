@@ -10,6 +10,10 @@ import org.junit.Test;
 
 public class ViewJPanelTest {
 
+	/**
+	 * Creation and initialization of attributes
+	 */
+	
 	private int x;
 	private int y;
 	private Boolean yes = false;

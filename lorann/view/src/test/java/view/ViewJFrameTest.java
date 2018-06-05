@@ -11,6 +11,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ViewJFrameTest {
+	/**
+	 * Creation and initialization of attributes
+	 */
 	public static int 	width = 640;
 	
 	public static int 	height = 515;
@@ -33,7 +36,11 @@ public class ViewJFrameTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-
+	
+	/**
+	 * Change the value of x and y
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.playerMoves.x = 15;
@@ -43,7 +50,11 @@ public class ViewJFrameTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
+	/**
+	 * Test if the boolean spell is true and if the loop change the value of x and y 
+	 */
+	
 	@Test
 	public void testKeyPressed() {
 		if (e) {
@@ -68,12 +79,20 @@ public class ViewJFrameTest {
 	      }	
 		}
 	
+	/**
+	 * Test if the boolean spell is false
+	 */
+	
 	@Test
 	public void setSpell() {
 		this.spell = false;
 		assertFalse(spell);
 	}
 
+	/**
+	 * Test if the method reinitialize the value of x and y
+	 */
+	
 	@Test
 	public void testSetDirection() {
 		playerMoves.x = 0;

@@ -19,6 +19,7 @@ public class ViewJPanelTest {
 	private Boolean yes = false;
 	private String itslost = "";
 	private int score = 0;
+	private int score2 = 650;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -62,14 +63,15 @@ public class ViewJPanelTest {
         this.itslost = "YOU LOSE";
         assertEquals("YOU LOSE", itslost);
     }
-/**
- * Test if the score is the same as before
- */
-
+    
+    /**
+     * Test if score = 650
+     */
+    
 	@Test
 	public void testSetScore() {
-		this.score = score;
-		assertEquals(0, score);
+		this.score = score2;
+		assertEquals(650, score);
 	}
 
 }

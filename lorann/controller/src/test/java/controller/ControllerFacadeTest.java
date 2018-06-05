@@ -8,11 +8,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ControllerFacadeTest {
- 
-    private int level = 1;
-	private int score = 0;
-	private int X = 5;
-	private int Y = 5;
+	/**
+	 * Creation of attributes and initialization of an array
+	 */
+    private int level;
+	private int score;
+	private int X;
+	private int Y;
     public String[][] map = new String[12][20];
     
 
@@ -35,28 +37,21 @@ public class ControllerFacadeTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.score = this.score + 650;
+		/**
+		 * Initialization of attributes
+		 */
+		X = 5;
+		Y = 5;
+		score = 0;
+		level = 1;
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
-
-	@Test
-	public void testPlay() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testLoop() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testTestPermeability() {
-		//fail("Not yet implemented");
-	}
-
+	/**
+	 * Test if Y = 4
+	 */
 	@Test
 	public void testMoveUp() {
 		int expected = 4;
@@ -64,20 +59,27 @@ public class ControllerFacadeTest {
 		assertEquals(expected, newPositionY(Y));
 	}
 
+	/**
+	 * Test if Y = 6
+	 */
 	@Test
 	public void testMoveDown() {
 		int expected = 6;
 		this.Y = newPositionY(Y) + 1; 
 		assertEquals(expected, newPositionY(Y));
 	}
-
+	/**
+	 * Test if X = 6
+	 */
 	@Test
 	public void testMoveRight() {
 		int expected = 6;
 		this.X = newPositionX(X) + 1; 
 		assertEquals(expected, newPositionX(X));
 	}
-
+	/**
+	 * Test if X = 4
+	 */
 	@Test
 	public void testMoveLeft() {
 		int expected = 4;
@@ -85,26 +87,9 @@ public class ControllerFacadeTest {
 		assertEquals(expected, newPositionX(X));
 	}
 
-	@Test
-	public void testTestEventLeft() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testTestEventRight() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testTestEventUp() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testTestEventDown() {
-		//fail("Not yet implemented");
-	}
-	
+	/**
+	 * Test if score = 650
+	 */
 	@Test
 	public void testAddScore() {
 		int expected = this.score + 650;
@@ -112,36 +97,9 @@ public class ControllerFacadeTest {
 		assertEquals(expected, this.score);	
 	}
 
-	@Test
-	public void testCastSpell() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSpellMoves() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDemonDMoves() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDemonXMoves() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDemonMoves() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testLose() {
-		//fail("Not yet implemented");
-	}
-
+	/**
+	 * Test if level = 2
+	 */
 	@Test
 	public void update() {
 		int expected = 2;

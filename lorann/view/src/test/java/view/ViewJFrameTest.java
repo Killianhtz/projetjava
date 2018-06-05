@@ -52,7 +52,7 @@ public class ViewJFrameTest {
 	}
 	
 	/**
-	 * Test if the boolean spell is true and if the loop change the value of x and y 
+	 * Test if the boolean spell is true and if the loop change the value of x and y like expected
 	 */
 	
 	@Test
